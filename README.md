@@ -1,2 +1,3 @@
 # OneVice
-Repository for online store mobile application
+Repository for online store mobile application (Software studio project)
+
