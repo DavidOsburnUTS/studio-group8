@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">studio-group8</string>
+    <string name="app_name">OneVice</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

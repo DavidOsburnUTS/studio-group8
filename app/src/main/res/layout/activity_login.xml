@@ -9,21 +9,43 @@
     tools:context="com.example.studio_group8.LoginMain">
 
 
+
+<RelativeLayout
+    android:id="@+id/RelativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="110dp">
+
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/onevice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         app:srcCompat="@drawable/onevice" />
+</RelativeLayout>
 
 
+    <LinearLayout
+        android:id="@+id/Layout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <ImageView
+        android:id="@+id/phone"
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:src="@drawable/isometricphone" />
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
 
     <EditText
+        android:id="@+id/username"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="330dp"
@@ -38,6 +60,7 @@
         android:textColorHint="@color/fontColor" />
 
     <EditText
+        android:id="@+id/password"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/fontColor"
@@ -50,7 +73,10 @@
         android:drawableStart="@drawable/ic_lock_outline_24px"
         android:paddingStart="25dp"/>
 
+
+
     <Button
+        android:id="@+id/login"
         android:layout_width="280dp"
         android:text="Login"
         android:textColor="@color/fontColor"
@@ -63,6 +89,7 @@
         android:clickable="true"/>
 
     <Button
+        android:id="@+id/register"
         android:layout_width="280dp"
         android:text="Register"
         android:textColor="@color/fontColor"
@@ -74,6 +101,7 @@
         android:background="@drawable/register_btn" />
 
     <TextView
+        android:id="@+id/reset"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:text="Reset Password"
@@ -84,6 +112,8 @@
         android:textSize="20dp"
         android:gravity="center"
         android:clickable="true"/>
+
+    </RelativeLayout>
 
 
 
