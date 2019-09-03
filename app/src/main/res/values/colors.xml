@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="fontColor">#FFFFFF</color>
+    <color name="signupbtn">#1492E6</color>
 </resources>

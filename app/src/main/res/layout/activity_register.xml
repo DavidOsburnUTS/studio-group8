@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="SignUp"
+        android:textColor="@color/fontColor"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:paddingHorizontal="90dp"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="102dp"
+        android:layout_marginTop="47dp"
+        android:background="@drawable/ic_keyboard_arrow_left_24px"
+        android:onClick="cancel">
+    </ImageView>
+
+    <Button
+        android:id="@+id/buyerBtn"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"
+        android:background="@drawable/register_buyer_btn"
+        android:drawableTop="@drawable/buyerimage"
+        android:drawablePadding="20dp"
+        android:text="Register as a buyer"
+        android:textAllCaps="false"
+        android:textColor="@color/fontColor"
+        android:paddingVertical="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:onClick="register_buyer"/>
+
+
+    <Button
+        android:id="@+id/sellerBtn"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="360dp"
+        android:background="@drawable/register_seller_btn"
+        android:drawablePadding="20dp"
+        android:drawableTop="@drawable/sellerimage"
+        android:paddingVertical="20dp"
+        android:text="Register as a seller"
+        android:textAllCaps="false"
+        android:textColor="@color/fontColor"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:onClick="register_seller"/>
+
+
+
+
+</RelativeLayout>

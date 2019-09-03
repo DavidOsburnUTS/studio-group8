@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#40DEAD">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="625dp"
+        android:layout_marginBottom="3dp" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0.5"
+        android:layout_above="@+id/SliderDots"
+        android:background="@color/fontColor"
+        android:layout_marginBottom="25dp">
+    </View>
+
+
+    <LinearLayout
+        android:id="@+id/SliderDots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:layout_marginBottom="25dp">
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:textSize="16dp"
+        android:layout_marginTop="625dp"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:id="@+id/next"
+        android:textColor="@color/fontColor">
+
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textSize="16dp"
+        android:layout_marginTop="625dp"
+        android:layout_alignParentLeft="true"
+        android:background="@null"
+        android:visibility="invisible"
+        android:id="@+id/back"
+        android:textColor="@color/fontColor">
+
+    </Button>
+
+
+
+</RelativeLayout>

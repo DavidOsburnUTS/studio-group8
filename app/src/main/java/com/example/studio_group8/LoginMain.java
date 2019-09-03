@@ -3,13 +3,15 @@ package com.example.studio_group8;
 import android.Manifest;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -21,6 +23,7 @@ import android.widget.Toast;
 public class LoginMain extends AppCompatActivity {
 
     Button loginBtn;
+
 
     static final int requestcode = 1;
     Animation rightleft;
@@ -58,6 +61,18 @@ public class LoginMain extends AppCompatActivity {
 //        mAuth = FirebaseAuth.getInstance();
 
 }
+
+
+    public void register_page(View view) {
+        Intent register = new Intent(LoginMain.this, RegisterActivity.class);
+        startActivity(register);
+        overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+    }
+
+
+
+
+
 
     public void checkPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

@@ -85,7 +85,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="460dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/login_btn"
+        android:background="@drawable/login_btn_click"
         android:clickable="true"/>
 
     <Button
@@ -98,7 +98,8 @@
         android:textSize="20dp"
         android:layout_marginTop="530dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/register_btn" />
+        android:background="@drawable/register_btn_click"
+        android:onClick="register_page"/>
 
     <TextView
         android:id="@+id/reset"
