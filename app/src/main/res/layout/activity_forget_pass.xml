@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="Reset Password"
+        android:textColor="@color/fontColor"
+        android:textSize="50dp">
+    </TextView>
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/fontColor"
+        android:textSize="20dp"
+        android:text="We just need your registered email address to rest your password"
+        android:gravity="center_horizontal">
+    </TextView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:paddingTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:layout_gravity="center"
+        android:src="@drawable/phonelock">
+    </ImageView>
+
+    <EditText
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/fontColor"
+        android:drawableStart="@drawable/baseline_email_white_24dp"
+        android:gravity="center"
+        android:hint="Email Address"
+        android:layout_gravity="center"
+        android:paddingStart="25dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/fontColor"
+        android:textStyle="bold">
+    </EditText>
+
+    <Button
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/forget_pass_btn_bg"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        android:clickable="true"
+        android:text="Forget Password"
+        android:textColor="@color/fontColor"
+        android:textSize="17dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_gravity="center"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:onClick="cancel"
+        android:textColor="@color/fontColor">
+    </TextView>
+
+
+</LinearLayout>

@@ -112,7 +112,8 @@
         android:textStyle="bold"
         android:textSize="20dp"
         android:gravity="center"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:onClick="forgot_pass"/>
 
     </RelativeLayout>
 

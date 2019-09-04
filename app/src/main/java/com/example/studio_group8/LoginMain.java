@@ -69,6 +69,12 @@ public class LoginMain extends AppCompatActivity {
         overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
     }
 
+    public void forgot_pass(View view) {
+        Intent forget = new Intent(LoginMain.this, ForgotPassActivity.class);
+        startActivity(forget);
+        overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+    }
+
 
 
 

@@ -36,6 +36,10 @@
             android:name=".RegisterSellerActivity"
             android:label="OneVice" >
         </activity>
+        <activity
+            android:name=".ForgotPassActivity"
+            android:label="OneVice" >
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
