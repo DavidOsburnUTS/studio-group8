@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8E8E8">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="208dp"
+            android:background="@drawable/bubble" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="Home page"
+            android:textColor="@color/fontColor"
+            android:textSize="40dp" />
+
+        <SearchView
+            android:id="@+id/search_view"
+            android:layout_width="285dp"
+            android:layout_height="35dp"
+            android:background="@drawable/bg_white_rounded"
+            android:layout_marginLeft="20dp"
+            android:queryHint="Search"
+            android:layout_marginTop="80dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/placeholder"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="140dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categories"
+            android:fontFamily="@font/raleway_semibold"
+            android:textSize="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="300dp"
+            android:textColor="#2B2B2B">
+        </TextView>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/categories_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="350dp">
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trending"
+            android:drawableLeft="@drawable/ic_whatshot_24px"
+            android:paddingStart="15dp"
+            android:fontFamily="@font/raleway_semibold"
+            android:textSize="25dp"
+            android:drawablePadding="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="585dp"
+            android:textColor="#2B2B2B">
+        </TextView>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nintendo"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="640dp"
+            android:layout_marginBottom="20dp">
+        </ImageView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nintendo"
+            android:layout_marginLeft="165dp"
+            android:layout_marginTop="640dp"
+            android:layout_marginBottom="20dp">
+        </ImageView>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nintendo"
+            android:layout_marginLeft="290dp"
+            android:layout_marginTop="640dp"
+            android:layout_marginBottom="20dp">
+        </ImageView>
+
+
+
+
+    </RelativeLayout>
+
+</ScrollView>
+
+
+
+
+
+
+
+
+</LinearLayout>

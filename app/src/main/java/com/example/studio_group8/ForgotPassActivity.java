@@ -8,13 +8,7 @@ public class ForgotPassActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
         setContentView(R.layout.activity_forget_pass);
-
-
-
     }
 
     public void cancel(View view) {

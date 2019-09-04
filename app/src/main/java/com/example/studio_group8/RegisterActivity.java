@@ -53,77 +53,12 @@ public class RegisterActivity extends Activity {
 
 
 
-/*        Dots_Layout = (LinearLayout) findViewById(R.id.SliderDots);
-        createDots(0);
-
-        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                createDots(position);
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-    }
-
-
-
-    private void createDots (int current_position) {
-        if(Dots_Layout!=null)
-            Dots_Layout.removeAllViews();
-
-        dots = new ImageView[layouts.length];
-        for(int i =0; i<layouts.length;i++) {
-            dots[i] = new ImageView(this);
-            if(i==current_position) {
-                dots[i].setImageDrawable(ContextCompat.getDrawable(this, R.drawable.active_dot));
-            }
-            else {
-                dots[i].setImageDrawable(ContextCompat.getDrawable(this, R.drawable.nonactive_dot));
-            }
-
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT);
-
-            params.setMargins(4,0,4,0);
-
-            Dots_Layout.addView(dots[i], params);
-        }
-    }*/
-
-
 
     public void cancel(View view) {
         finish();
     }
 
 
-//    public void check(View  view) {
-//        SafetyNet.getClient(this).verifyWithRecaptcha("6LeJXrYUAAAAAHRsW-8Qbzqp4igKRdZYgwfXCSBa")
-//            .addOnSuccessListener(this, new OnSuccessListener<SafetyNetApi.RecaptchaTokenResponse>() {
-//                @Override
-//                public void onSuccess(SafetyNetApi.RecaptchaTokenResponse recaptchaTokenResponse) {
-//                    Toast.makeText(RegisterActivity.this, "Success", Toast.LENGTH_LONG).show();
-//
-//                }
-//            })
-//                .addOnFailureListener(this, new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Toast.makeText(RegisterActivity.this, "Failure", Toast.LENGTH_LONG).show();
-//
-//                    }
-//                });
-//    }
 
 
 }

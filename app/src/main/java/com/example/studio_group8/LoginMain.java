@@ -75,6 +75,13 @@ public class LoginMain extends AppCompatActivity {
         overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
     }
 
+    public void main_page (View view) {
+        Intent main = new Intent(LoginMain.this, MainActivity.class);
+        startActivity(main);
+        overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+
+    }
+
 
 
 

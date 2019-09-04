@@ -27,7 +27,7 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
 //    Site Code : 6LeJXrYUAAAAAHRsW-8Qbzqp4igKRdZYgwfXCSBa
 //    Secret code: 6LeJXrYUAAAAAFm0xEHcoZ__UvXswV8H7uR6JLXe
     private ViewPager mPager;
-    private int[] layouts = {R.layout.register_second_user, R.layout.activity_register_account_confirm};
+    private int[] layouts = {R.layout.activity_register_buyer, R.layout.activity_register_account_confirm};
     private MpagerAdapter mpagerAdapter;
     private LinearLayout Dots_Layout;
     private int dotscount;

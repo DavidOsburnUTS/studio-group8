@@ -86,7 +86,8 @@
         android:layout_marginTop="460dp"
         android:layout_height="wrap_content"
         android:background="@drawable/login_btn_click"
-        android:clickable="true"/>
+        android:onClick="main_page"
+        />
 
     <Button
         android:id="@+id/register"
