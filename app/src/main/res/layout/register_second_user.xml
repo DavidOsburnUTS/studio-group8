@@ -39,7 +39,7 @@
 
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/email_address"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="105dp"
@@ -53,7 +53,7 @@
         android:textColorHint="@color/fontColor" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/first_name"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/fontColor"
@@ -68,7 +68,7 @@
 
 
     <EditText
-        android:id="@+id/phonenumber"
+        android:id="@+id/username"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/fontColor"
@@ -83,7 +83,7 @@
 
 
     <EditText
-        android:id="@+id/passwordreg"
+        android:id="@+id/password"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/fontColor"
@@ -98,7 +98,7 @@
 
 
     <EditText
-        android:id="@+id/confirmpass"
+        android:id="@+id/confirm_password"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/fontColor"

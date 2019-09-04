@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.util.Patterns;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -19,8 +21,13 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.gms.safetynet.SafetyNet;
 import com.google.android.gms.safetynet.SafetyNetApi;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterBuyerActivity extends Activity implements View.OnClickListener{
 
@@ -32,6 +39,13 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
     private LinearLayout Dots_Layout;
     private int dotscount;
     private Button BtnNext, BtnBack;
+    EditText emailAddress;
+    EditText firstName;
+    EditText Username;
+    EditText Password;
+    EditText confirmPassword;
+
+    private FirebaseAuth mAuth;
 
 
     private ImageView[] dots;
@@ -41,6 +55,7 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
 
 
         if(new PreferenceManager(this).checkPreferences()) {
@@ -59,6 +74,12 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
         mpagerAdapter = new MpagerAdapter(layouts, this);
         mPager.setAdapter(mpagerAdapter);
 
+
+        emailAddress = findViewById(R.id.email_address);
+        firstName = findViewById(R.id.first_name);
+        Username = findViewById(R.id.username);
+        Password = findViewById(R.id.password);
+        confirmPassword = findViewById(R.id.confirm_password);
 
 
 
@@ -144,12 +165,61 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
                 });
     }
 
+    // CODE FOR REGISTER FUNCTION - REQUIRES SOME FIREBASE SETUP
+//    private void registerBuyer(){
+//        String email = emailAddress.getText().toString().trim();
+//        String password = Password.getText().toString().trim();
+//        String check = confirmPassword.getText().toString().trim();
+//        //String name = editText6.getText().toString().trim();
+//
+//        if(email.isEmpty()){
+//            emailAddress.setError("Email is required");
+//            emailAddress.requestFocus();
+//            return;
+//        }
+//        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){   // THIS METHOD CHECKS IF ITS A REAL EMAIL
+//            emailAddress.setError("Please enter a valid email");
+//            emailAddress.requestFocus();
+//            return;
+//        }
+//        if(password.isEmpty()){
+//            Password.setError("Password is required");
+//            Password.requestFocus();
+//            return;
+//        }
+//        if(password.length()< 6){
+//            Password.setError("Minimum characters for a password is 6");
+//            Password.requestFocus();
+//            return;
+//        }
+//        if(!password.equals(check)){
+//            confirmPassword.setError("Passwords don't match");
+//            confirmPassword.requestFocus();
+//            return;
+//        }
+//
+//        mAuth.createUserWithEmailAndPassword(email,password)
+//                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if(task.isSuccessful()){
+//                            Toast.makeText(getApplicationContext(),"You've Successfully Registered", Toast.LENGTH_SHORT).show();
+//                            startActivity(new Intent(RegisterBuyerActivity.this, LoginMain.class));
+//                            finish();
+//                        } else if(task.getException() instanceof FirebaseAuthUserCollisionException){
+//                            Toast.makeText(getApplicationContext(), "You've already registered mate", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
+//    }
+
 
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.next:
                 loadNext();
+//                registerBuyer();
                     break;
             case R.id.back:
                 loadBack();

@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-//import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginMain extends AppCompatActivity {
 
@@ -32,12 +32,15 @@ public class LoginMain extends AppCompatActivity {
     Animation topdown;
     RelativeLayout R1;
     RelativeLayout R2;
-//    FirebaseAuth mAuth;
+
+    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        mAuth = FirebaseAuth.getInstance();
 
 
         R1 = (RelativeLayout) findViewById(R.id.RelativeLayout);
@@ -55,10 +58,6 @@ public class LoginMain extends AppCompatActivity {
         checkPermission();
 
 
-
-
-
-//        mAuth = FirebaseAuth.getInstance();
 
 }
 
