@@ -11,18 +11,30 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginMain extends AppCompatActivity {
 
     Button loginBtn;
+
+    private EditText musername, mpassword;
+
 
 
     static final int requestcode = 1;
@@ -41,7 +53,9 @@ public class LoginMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
-
+        musername = findViewById(R.id.username);
+        mpassword = findViewById(R.id.password);
+        loginBtn =(Button) findViewById(R.id.login);
 
         R1 = (RelativeLayout) findViewById(R.id.RelativeLayout);
         R2 = (RelativeLayout) findViewById(R.id.RelativeLayout2);
@@ -57,6 +71,12 @@ public class LoginMain extends AppCompatActivity {
 
         checkPermission();
 
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginUserAccount();
+            }
+        });
 
 
 }
@@ -134,6 +154,50 @@ public class LoginMain extends AppCompatActivity {
 
 
     }
+
+
+    // Firebase login code
+
+
+
+
+    private void loginUserAccount() {
+
+
+        String email, password;
+        email = musername.getText().toString();
+        password = mpassword.getText().toString();
+
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+
+
+                            Intent intent = new Intent(LoginMain.this, Homefragment.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
+
+                        }
+                    }
+                });
+    }
+
+
+
 
 
 }
