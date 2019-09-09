@@ -39,6 +39,7 @@
     </ImageView>
 
     <EditText
+        android:id="@+id/forgot_email"
         android:layout_width="280dp"
         android:layout_height="60dp"
         android:backgroundTint="@color/fontColor"
@@ -62,6 +63,7 @@
         android:text="Forget Password"
         android:textColor="@color/fontColor"
         android:textSize="17dp"
+        android:onClick="forget_password"
         android:textStyle="bold" />
 
     <TextView
