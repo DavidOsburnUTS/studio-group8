@@ -34,7 +34,7 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
 //    Site Code : 6LeJXrYUAAAAAHRsW-8Qbzqp4igKRdZYgwfXCSBa
 //    Secret code: 6LeJXrYUAAAAAFm0xEHcoZ__UvXswV8H7uR6JLXe
     private ViewPager mPager;
-    private int[] layouts = {R.layout.activity_register_buyer, R.layout.activity_register_account_confirm};
+    private int[] layouts = {R.layout.activity_register_buyer};
     private MpagerAdapter mpagerAdapter;
     private LinearLayout Dots_Layout;
     private int dotscount;
@@ -100,12 +100,14 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
             public void onPageSelected(int position) {
                 createDots(position);
                 if(position==layouts.length-1 && position !=layouts.length-2) {
-                    BtnBack.setVisibility(View.VISIBLE);
+                    BtnBack.setVisibility(View.INVISIBLE);
+//                    BtnBack.setVisibility(View.VISIBLE);
                     BtnNext.setVisibility(View.INVISIBLE);
                 }
                 else {
                     BtnBack.setVisibility(View.INVISIBLE);
-                    BtnNext.setVisibility(View.VISIBLE);
+                    BtnNext.setVisibility(View.INVISIBLE);
+//                    BtnNext.setVisibility(View.VISIBLE);
 
                 }
 

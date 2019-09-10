@@ -39,7 +39,7 @@
             android:id="@+id/username"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="115dp"
+            android:layout_marginTop="145dp"
             android:layout_centerHorizontal="true"
             android:backgroundTint="@color/fontColor"
             android:drawableStart="@drawable/ic_account_box_24px"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/fontColor"
             android:hint="Email Address"
-            android:layout_marginTop="177dp"
+            android:layout_marginTop="220dp"
             android:layout_centerHorizontal="true"
             android:textAlignment="center"
             android:gravity="center"
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/fontColor"
         android:hint="Phone"
-        android:layout_marginTop="239dp"
+        android:layout_marginTop="295dp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:gravity="center"
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/fontColor"
         android:hint="Password"
-        android:layout_marginTop="301dp"
+        android:layout_marginTop="370dp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:gravity="center"
@@ -100,22 +100,26 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/fontColor"
         android:hint="Confirm Password"
-        android:layout_marginTop="364dp"
+        android:layout_marginTop="445dp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:gravity="center"
         android:textColorHint="@color/fontColor"
         android:paddingStart="25dp"/>
 
-    <ImageView
-        android:id="@+id/businessman"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/login"
+        android:layout_width="280dp"
+        android:text="Register Account"
+        android:textColor="@color/fontColor"
+        android:textStyle="bold"
+        android:textSize="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="430dp"
-        android:background="@drawable/business_man" />
-
-
+        android:layout_marginTop="540dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/signup_btn_click"
+        android:clickable="true"
+        android:onClick="check"/>
 
 
 </RelativeLayout>

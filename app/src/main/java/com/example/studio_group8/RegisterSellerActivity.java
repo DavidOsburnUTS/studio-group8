@@ -25,7 +25,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 public class RegisterSellerActivity extends Activity implements View.OnClickListener {
 
     private ViewPager mPager;
-    private int[] layouts = {R.layout.activity_register_business, R.layout.activity_register_account_confirm};
+    private int[] layouts = {R.layout.activity_register_business};
     private MpagerAdapter mpagerAdapter;
     private LinearLayout Dots_Layout;
     private int dotscount;
@@ -73,12 +73,14 @@ public class RegisterSellerActivity extends Activity implements View.OnClickList
             public void onPageSelected(int position) {
                 createDots(position);
                 if(position==layouts.length-1 && position !=layouts.length-2) {
-                    BtnBack.setVisibility(View.VISIBLE);
+//                    BtnBack.setVisibility(View.VISIBLE);
+                    BtnBack.setVisibility(View.INVISIBLE);
                     BtnNext.setVisibility(View.INVISIBLE);
                 }
                 else {
                     BtnBack.setVisibility(View.INVISIBLE);
-                    BtnNext.setVisibility(View.VISIBLE);
+                    BtnNext.setVisibility(View.INVISIBLE);
+//                    BtnNext.setVisibility(View.VISIBLE);
 
                 }
 
