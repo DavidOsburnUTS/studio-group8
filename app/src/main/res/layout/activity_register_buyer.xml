@@ -92,6 +92,7 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:gravity="center"
+        android:inputType="textPassword"
         android:textColorHint="@color/fontColor"
         android:drawableStart="@drawable/ic_lock_outline_24px"
         android:paddingStart="25dp"/>
@@ -107,12 +108,13 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:gravity="center"
+        android:inputType="textPassword"
         android:textColorHint="@color/fontColor"
         android:paddingStart="25dp"/>
 
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/sign_up_button"
         android:layout_width="280dp"
         android:text="Register Account"
         android:textColor="@color/fontColor"
