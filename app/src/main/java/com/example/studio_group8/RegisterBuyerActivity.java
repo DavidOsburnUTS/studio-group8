@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,11 +40,9 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
     private LinearLayout Dots_Layout;
     private int dotscount;
     private Button BtnNext, BtnBack;
-    EditText emailAddress;
-    EditText firstName;
-    EditText Username;
-    EditText Password;
-    EditText confirmPassword;
+
+    private EditText inputEmail, inputPassword, inputConfirmPassword, inputFirstName, inputUsername;
+    private Button btnSignUp;
 
     private FirebaseAuth mAuth;
 
@@ -75,12 +74,50 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
         mPager.setAdapter(mpagerAdapter);
 
 
-        emailAddress = findViewById(R.id.email_address);
-        firstName = findViewById(R.id.first_name);
-        Username = findViewById(R.id.username);
-        Password = findViewById(R.id.password);
-        confirmPassword = findViewById(R.id.confirm_password);
+        inputEmail = (EditText) findViewById(R.id.email_address);
+        inputPassword = (EditText) findViewById(R.id.password);
+        btnSignUp = (Button) findViewById(R.id.sign_up_button);
+        inputConfirmPassword =  (EditText) findViewById(R.id.confirm_password);
 
+        if (mAuth.getCurrentUser() != null) {
+            startActivity(new Intent(RegisterBuyerActivity.this, MainActivity.class));
+            finish();
+        }
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override            public void onClick(View view) {
+                final String email = inputEmail.getText().toString();
+                final String password = inputPassword.getText().toString();
+
+                try {
+                    if (password.length() > 0 && email.length() > 0) {
+                        mAuth.createUserWithEmailAndPassword(email, password)
+                                .addOnCompleteListener(RegisterBuyerActivity.this, new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if (!task.isSuccessful()) {
+                                            Toast.makeText(
+                                                    RegisterBuyerActivity.this,
+                                                    "Authentication Failed",
+                                                    Toast.LENGTH_LONG).show();
+                                            Log.v("error", task.getResult().toString());
+                                        } else {
+                                            Intent intent = new Intent(RegisterBuyerActivity.this, MainActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                    }
+                                });
+                    } else {
+                        Toast.makeText(
+                                RegisterBuyerActivity.this,
+                                "Fill All Fields",
+                                Toast.LENGTH_LONG).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            });
 
 
         Dots_Layout = (LinearLayout) findViewById(R.id.SliderDots);
@@ -167,53 +204,7 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
                 });
     }
 
-    // CODE FOR REGISTER FUNCTION - REQUIRES SOME FIREBASE SETUP
-//    private void registerBuyer(){
-//        String email = emailAddress.getText().toString().trim();
-//        String password = Password.getText().toString().trim();
-//        String check = confirmPassword.getText().toString().trim();
-//        //String name = editText6.getText().toString().trim();
-//
-//        if(email.isEmpty()){
-//            emailAddress.setError("Email is required");
-//            emailAddress.requestFocus();
-//            return;
-//        }
-//        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){   // THIS METHOD CHECKS IF ITS A REAL EMAIL
-//            emailAddress.setError("Please enter a valid email");
-//            emailAddress.requestFocus();
-//            return;
-//        }
-//        if(password.isEmpty()){
-//            Password.setError("Password is required");
-//            Password.requestFocus();
-//            return;
-//        }
-//        if(password.length()< 6){
-//            Password.setError("Minimum characters for a password is 6");
-//            Password.requestFocus();
-//            return;
-//        }
-//        if(!password.equals(check)){
-//            confirmPassword.setError("Passwords don't match");
-//            confirmPassword.requestFocus();
-//            return;
-//        }
-//
-//        mAuth.createUserWithEmailAndPassword(email,password)
-//                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if(task.isSuccessful()){
-//                            Toast.makeText(getApplicationContext(),"You've Successfully Registered", Toast.LENGTH_SHORT).show();
-//                            startActivity(new Intent(RegisterBuyerActivity.this, LoginMain.class));
-//                            finish();
-//                        } else if(task.getException() instanceof FirebaseAuthUserCollisionException){
-//                            Toast.makeText(getApplicationContext(), "You've already registered mate", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-//    }
+
 
 
     @Override
@@ -221,7 +212,6 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
         switch(view.getId()) {
             case R.id.next:
                 loadNext();
-//                registerBuyer();
                     break;
             case R.id.back:
                 loadBack();
