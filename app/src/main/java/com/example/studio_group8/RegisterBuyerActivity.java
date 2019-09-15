@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
@@ -29,6 +30,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterBuyerActivity extends Activity implements View.OnClickListener{
 
@@ -44,6 +48,7 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
     private EditText inputEmail, inputPassword, inputConfirmPassword, inputFirstName, inputUsername;
     private Button btnSignUp;
 
+    static final int requestcode = 1;
     private FirebaseAuth mAuth;
 
 
@@ -54,10 +59,11 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mAuth = FirebaseAuth.getInstance();
 
 
-        if(new PreferenceManager(this).checkPreferences()) {
+        if (new PreferenceManager(this).checkPreferences()) {
             loadHome();
         }
         if (Build.VERSION.SDK_INT >= 19) {
@@ -77,14 +83,21 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
         inputEmail = (EditText) findViewById(R.id.email_address);
         inputPassword = (EditText) findViewById(R.id.password);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
-        inputConfirmPassword =  (EditText) findViewById(R.id.confirm_password);
+        inputConfirmPassword = (EditText) findViewById(R.id.confirm_password);
 
-        if (mAuth.getCurrentUser() != null) {
+
+
+
+
+
+        /*if (mAuth.getCurrentUser() != null) {
             startActivity(new Intent(RegisterBuyerActivity.this, MainActivity.class));
             finish();
         }
+
         btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override            public void onClick(View view) {
+
+            @Override  public void onClick(View view) {
                 final String email = inputEmail.getText().toString();
                 final String password = inputPassword.getText().toString();
 
@@ -117,8 +130,52 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
                     e.printStackTrace();
                 }
             }
-            });
+            });*/
 
+/*
+        public void CreateNewUser(final FirebaseAuth mAuth,  final String email, final String password, final String firstName, final String username) {
+            final User newUser = new User(email, firstName, username);
+            if (email.trim().equals("") || password.trim().equals("") || firstName.trim().equals("") || username.trim().equals("")) {
+                Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                //Changed to object system can use it for images now
+                Toast.makeText(this, "Creating...", Toast.LENGTH_SHORT).show();
+                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(RegisterBuyerActivity.this, "Successful Creation, Please Verify your Email", Toast.LENGTH_SHORT).show();
+                            String id1 = mAuth.getCurrentUser().getUid();
+                            final FirebaseUser user = mAuth.getCurrentUser();
+                            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                            mDatabase.child("User").child(id1).setValue(newUser);
+                            user.sendEmailVerification();
+                            finish();
+
+                        } else
+                        {
+                            Toast.makeText(RegisterBuyerActivity.this, "An error has occurred", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        }
+*/
+
+
+      /*  public void register(View view) {
+
+            EditText firstname = (EditText) findViewById(R.id.first_name);
+            EditText username = (EditText) findViewById(R.id.username);
+            EditText email = (EditText) findViewById(R.id.email_address);
+            EditText password = (EditText) findViewById(R.id.password);
+            EditText confirmpassword = (EditText) findViewById(R.id.confirm_password);
+
+
+            CreateNewUser(mAuth, email.getText().toString(), password.getText().toString(), confirmpassword.getText().toString(), firstname.getText().toString(), username.getText().toString());
+
+        }*/
 
         Dots_Layout = (LinearLayout) findViewById(R.id.SliderDots);
         BtnNext = (Button) findViewById(R.id.next);
@@ -156,6 +213,52 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
             }
         });
     }
+
+
+
+        public void CreateNewUser(final FirebaseAuth mAuth,  final String email, final String password, final String firstName, final String username) {
+            final User newUser = new User(email, firstName, username);
+            if (email.trim().equals("") || password.trim().equals("") || firstName.trim().equals("") || username.trim().equals("")) {
+                Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                //Changed to object system can use it for images now
+
+                Toast.makeText(this, "Creating...", Toast.LENGTH_SHORT).show();
+                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(RegisterBuyerActivity.this, "Successful Creation, Please Verify your Email", Toast.LENGTH_SHORT).show();
+                            String id2 = mAuth.getCurrentUser().getUid();
+                            final FirebaseUser user = mAuth.getCurrentUser();
+                            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                            mDatabase.child("User").child(id2).setValue(newUser);
+                            user.sendEmailVerification();
+                            finish();
+
+                        } else
+                        {
+                            Toast.makeText(RegisterBuyerActivity.this, "An error has occurred", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        }
+
+
+    public void register(View view) {
+
+            EditText firstName = (EditText) findViewById(R.id.first_name);
+            EditText username = (EditText) findViewById(R.id.username);
+            EditText email = (EditText) findViewById(R.id.email_address);
+            EditText password = (EditText) findViewById(R.id.password);
+            EditText confirmpassword = (EditText) findViewById(R.id.confirm_password);
+
+
+            CreateNewUser(mAuth, email.getText().toString(), password.getText().toString(), firstName.getText().toString(), username.getText().toString());
+
+        }
 
 
 

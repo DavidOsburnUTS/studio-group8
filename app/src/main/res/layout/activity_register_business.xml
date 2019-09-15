@@ -36,7 +36,7 @@
 
 
     <EditText
-            android:id="@+id/username"
+            android:id="@+id/sellerName"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="145dp"
@@ -50,7 +50,7 @@
             android:textColorHint="@color/fontColor" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/sellerEmail"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/fontColor"
@@ -80,7 +80,7 @@
 
 
     <EditText
-        android:id="@+id/passwordreg"
+        android:id="@+id/sellerpass"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/fontColor"
@@ -88,6 +88,7 @@
         android:layout_marginTop="370dp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
+        android:inputType="textPassword"
         android:gravity="center"
         android:textColorHint="@color/fontColor"
         android:drawableStart="@drawable/ic_lock_outline_24px"
@@ -95,7 +96,7 @@
 
 
     <EditText
-        android:id="@+id/confirmpass"
+        android:id="@+id/sellerconfirmpass"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/fontColor"
@@ -104,6 +105,7 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:gravity="center"
+        android:inputType="textPassword"
         android:textColorHint="@color/fontColor"
         android:paddingStart="25dp"/>
 
@@ -119,7 +121,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/signup_btn_click"
         android:clickable="true"
-        android:onClick="check"/>
+        android:onClick="registerSeller"/>
 
 
 </RelativeLayout>

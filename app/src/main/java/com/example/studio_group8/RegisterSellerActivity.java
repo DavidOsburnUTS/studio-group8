@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -19,8 +20,15 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.gms.safetynet.SafetyNet;
 import com.google.android.gms.safetynet.SafetyNetApi;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterSellerActivity extends Activity implements View.OnClickListener {
 
@@ -29,6 +37,10 @@ public class RegisterSellerActivity extends Activity implements View.OnClickList
     private MpagerAdapter mpagerAdapter;
     private LinearLayout Dots_Layout;
     private int dotscount;
+    private EditText inputEmail, inputPassword, inputConfirmPassword, inputFirstName, inputUsername;
+    private Button btnSignUp;
+    static final int requestcode = 1;
+    private FirebaseAuth mAuth;
     private Button BtnNext, BtnBack;
 
 
@@ -38,6 +50,7 @@ public class RegisterSellerActivity extends Activity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
         if(new PreferenceManager(this).checkPreferences()) {
             loadHome();
         }
@@ -52,6 +65,7 @@ public class RegisterSellerActivity extends Activity implements View.OnClickList
         mPager = (ViewPager) findViewById(R.id.viewPager);
         mpagerAdapter = new MpagerAdapter(layouts, this);
         mPager.setAdapter(mpagerAdapter);
+
 
 
 
@@ -93,6 +107,51 @@ public class RegisterSellerActivity extends Activity implements View.OnClickList
         });
     }
 
+
+
+    public void CreateNewSeller(final FirebaseAuth mAuth, final String email, final String password, final String name, final String phone) {
+        final User newUser = new User(email, name, phone);
+        if (email.trim().equals("") || password.trim().equals("") || name.trim().equals("") || phone.trim().equals("")) {
+            Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            //Changed to object system can use it for images now
+            Toast.makeText(this, "Creating...", Toast.LENGTH_SHORT).show();
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(RegisterSellerActivity.this, "Successful Creation, Please Verify your Email", Toast.LENGTH_SHORT).show();
+                        String id1 = mAuth.getCurrentUser().getUid();
+                        final FirebaseUser user = mAuth.getCurrentUser();
+                        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                        mDatabase.child("User").child(id1).setValue(newUser);
+                        user.sendEmailVerification();
+                        finish();
+
+                    } else
+                    {
+                        Toast.makeText(RegisterSellerActivity.this, "An error has occurred", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
+
+
+    public void registerSeller(View view) {
+
+        EditText name = (EditText) findViewById(R.id.sellerName);
+        EditText email = (EditText) findViewById(R.id.sellerEmail);
+        EditText phone = (EditText) findViewById(R.id.phonenumber);
+        EditText password = (EditText) findViewById(R.id.sellerpass);
+        EditText confirmpassword = (EditText) findViewById(R.id.sellerconfirmpass);
+
+
+        CreateNewSeller(mAuth, email.getText().toString(), password.getText().toString(), name.getText().toString(), phone.getText().toString());
+
+    }
 
     private void createDots (int current_position) {
         if(Dots_Layout!=null)

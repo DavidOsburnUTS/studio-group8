@@ -124,8 +124,7 @@
         android:layout_marginTop="540dp"
         android:layout_height="wrap_content"
         android:background="@drawable/signup_btn_click"
-        android:clickable="true"
-        android:onClick="check"/>
+        android:onClick="register"/>
 
 
 </RelativeLayout>
