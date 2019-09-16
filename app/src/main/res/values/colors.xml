@@ -6,4 +6,6 @@
     <color name="colorLight">#8CD1EC</color>
     <color name="fontColor">#FFFFFF</color>
     <color name="signupbtn">#00BCD4</color>
+    <color name="gridbg"> #FAFAFA </color>
+    <color name="gridtext">#4268AA</color>
 </resources>

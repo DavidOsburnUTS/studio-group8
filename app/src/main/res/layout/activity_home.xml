@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E8E8E8">
 
@@ -27,21 +29,14 @@
             android:textColor="@color/fontColor"
             android:textSize="40dp" />
 
-        <SearchView
-            android:id="@+id/search_view"
-            android:layout_width="285dp"
-            android:layout_height="35dp"
-            android:background="@drawable/bg_white_rounded"
-            android:layout_marginLeft="20dp"
-            android:queryHint="Search"
-            android:layout_marginTop="80dp"/>
+
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/placeholder"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="140dp"/>
+            android:layout_marginTop="80dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -49,19 +44,146 @@
             android:text="Categories"
             android:fontFamily="@font/raleway_semibold"
             android:textSize="25dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="300dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="250dp"
             android:textColor="#2B2B2B">
         </TextView>
 
 
-        <ImageView
+    <!--    <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/categories_img"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="350dp">
-        </ImageView>
+        </ImageView>-->
+
+
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="345dp"
+            android:layout_height="205dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="300dp"
+            app:columnCount="3"
+            app:rowCount="2"
+            android:paddingStart="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="16dp"
+            android:background="@color/gridbg">
+
+
+
+            <!-- Row 1-->
+            <ImageView
+                android:id="@+id/ivInvite"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_stay_current_phone_24px"
+
+                app:layout_columnWeight="1" />
+
+            <ImageView
+                android:id="@+id/ivNotificationOff"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_laptop_24px"
+
+                app:layout_columnWeight="1" />
+
+            <ImageView
+                android:id="@+id/ivUnblock"
+                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:paddingTop="10dp"
+                android:src="@drawable/ic_photo_camera_24px"
+
+                app:layout_columnWeight="1" />
+
+
+
+            <!-- Row 2 -->
+            <TextView
+                app:layout_gravity="center_horizontal"
+                android:text="Phone"
+                android:textColor="@color/gridtext"
+                android:paddingTop="10dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:textSize="13sp" />
+
+            <TextView
+                app:layout_gravity="center_horizontal"
+                android:text="Laptop"
+
+                android:textColor="@color/gridtext"
+                android:paddingTop="10dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:textSize="12sp"/>
+
+            <TextView
+                app:layout_gravity="center_horizontal"
+                android:text="Camera"
+                android:paddingTop="10dp"
+                android:textColor="@color/gridtext"
+                android:fontFamily="@font/raleway_semibold"
+                android:textSize="12sp"/>
+
+
+            <!-- Row 3 -->
+            <ImageView
+                android:id="@+id/ivShareLocation"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:paddingTop="20dp"
+                android:src="@drawable/ic_speaker_24px"
+                app:layout_columnWeight="1" />
+
+            <ImageView
+                android:id="@+id/ivShareContact"
+                android:layout_marginTop="16dp"
+                android:layout_height="55dp"
+                app:layout_columnWeight="1"
+                android:paddingTop="20dp"
+                android:src="@drawable/ic_videogame_asset_24px"/>
+
+            <ImageView
+                android:id="@+id/ivTakePhoto"
+                android:layout_marginTop="16dp"
+                android:layout_height="60dp"
+                app:layout_columnWeight="1"
+                android:paddingTop="20dp"
+                android:src="@drawable/ic_tv_24px"/>
+
+
+
+            <!-- Row 4 -->
+            <TextView
+                app:layout_gravity="center_horizontal"
+                android:text="Audio"
+                android:paddingTop="10dp"
+                android:textColor="@color/gridtext"
+                android:fontFamily="@font/raleway_semibold"
+                android:textSize="12sp"/>
+
+            <TextView
+                app:layout_gravity="center_horizontal"
+                android:text="Consoles"
+                android:paddingTop="10dp"
+                android:textColor="@color/gridtext"
+                android:fontFamily="@font/raleway_semibold"
+                android:textSize="12sp"/>
+
+            <TextView
+                app:layout_gravity="center_horizontal"
+                android:text="TVs"
+                android:paddingTop="10dp"
+                android:textColor="@color/gridtext"
+                android:fontFamily="@font/raleway_semibold"
+                android:textSize="12sp"/>
+
+
+
+
+
+        </androidx.gridlayout.widget.GridLayout>
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,7 +195,7 @@
             android:textSize="25dp"
             android:drawablePadding="15dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="585dp"
+            android:layout_marginTop="535dp"
             android:textColor="#2B2B2B">
         </TextView>
 
@@ -83,7 +205,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/nintendo"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="640dp"
+            android:layout_marginTop="585dp"
             android:layout_marginBottom="20dp">
         </ImageView>
 
@@ -92,7 +214,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/nintendo"
             android:layout_marginLeft="165dp"
-            android:layout_marginTop="640dp"
+            android:layout_marginTop="585dp"
             android:layout_marginBottom="20dp">
         </ImageView>
 
@@ -102,11 +224,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/nintendo"
             android:layout_marginLeft="290dp"
-            android:layout_marginTop="640dp"
+            android:layout_marginTop="585dp"
             android:layout_marginBottom="20dp">
         </ImageView>
-
-
 
 
     </RelativeLayout>

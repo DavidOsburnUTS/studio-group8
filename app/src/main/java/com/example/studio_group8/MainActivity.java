@@ -42,12 +42,15 @@ public class MainActivity extends AppCompatActivity {
                                 selectedFragment = new Homefragment();
                                 break;
                             case R.id.Bottombaritemtwo:
-                                selectedFragment = new Cartfragment();
+                                selectedFragment = new Searchfragment();
                                 break;
                             case R.id.Bottombaritemthree:
-                                selectedFragment = new Notificationfragment();
+                                selectedFragment = new Cartfragment();
                                 break;
                             case R.id.Bottombaritemfour:
+                                selectedFragment = new Notificationfragment();
+                                break;
+                            case R.id.Bottombaritemfive:
                                 selectedFragment = new Accountfragment();
                                 break;
                         }
