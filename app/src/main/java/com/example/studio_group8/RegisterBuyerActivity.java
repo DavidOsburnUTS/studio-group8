@@ -255,9 +255,12 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
             EditText password = (EditText) findViewById(R.id.password);
             EditText confirmpassword = (EditText) findViewById(R.id.confirm_password);
 
-
-            CreateNewUser(mAuth, email.getText().toString(), password.getText().toString(), firstName.getText().toString(), username.getText().toString());
-
+            if (password.getText().toString() == confirmpassword.getText().toString()) {
+                CreateNewUser(mAuth, email.getText().toString(), password.getText().toString(), firstName.getText().toString(), username.getText().toString());
+            }
+            else {
+                Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
+            }
         }
 
 
