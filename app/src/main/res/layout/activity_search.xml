@@ -1,24 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/gradient_background">
 
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="hello Search">
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Search Page"
+        android:textColor="@color/fontColor"
+        android:textSize="40dp" />
 
-    </TextView>
+   <!-- <androidx.appcompat.widget.SearchView
+       android:id="@+id/search_field"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_rounded"
+        android:layout_marginTop="80dp"
+        android:hint="Search..."
+        android:layout_marginLeft="20dp"
+        android:clickable="true">
+    </androidx.appcompat.widget.SearchView>-->
 
-    <SearchView
-        android:id="@+id/search_view"
-        android:layout_width="285dp"
+
+
+    <EditText
+        android:id="@+id/search_field"
+        android:layout_width="280dp"
         android:layout_height="35dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/bg_white_rounded"
         android:layout_marginLeft="20dp"
-        android:queryHint="Search"
-        android:layout_marginTop="80dp"/>
+        android:hint="Search..."
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+    </EditText>
 
-</LinearLayout>
+    <ImageButton
+        android:id="@+id/search_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/searchbtn"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_field">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

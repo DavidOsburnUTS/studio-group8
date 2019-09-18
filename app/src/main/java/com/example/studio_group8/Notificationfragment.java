@@ -15,4 +15,6 @@ public class Notificationfragment extends Fragment {
         View v = inflater.inflate(R.layout.activity_notif,container, false);
         return v;
     }
+
+
 }
