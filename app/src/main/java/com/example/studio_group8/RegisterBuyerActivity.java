@@ -255,7 +255,7 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
             EditText password = (EditText) findViewById(R.id.password);
             EditText confirmpassword = (EditText) findViewById(R.id.confirm_password);
 
-            if (password.getText().toString() == confirmpassword.getText().toString()) {
+            if (password.getText().toString().equals(confirmpassword.getText().toString())) {
                 CreateNewUser(mAuth, email.getText().toString(), password.getText().toString(), firstName.getText().toString(), username.getText().toString());
             }
             else {
