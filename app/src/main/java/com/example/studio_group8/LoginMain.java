@@ -56,6 +56,9 @@ public class LoginMain extends AppCompatActivity {
         musername = findViewById(R.id.username);
         mpassword = findViewById(R.id.password);
         loginBtn =(Button) findViewById(R.id.login);
+        final   EditText emailfield   = (EditText) findViewById(R.id.username);
+
+        emailfield.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_person_outline_24px, 0, 0, 0);
 
         R1 = (RelativeLayout) findViewById(R.id.RelativeLayout);
         R2 = (RelativeLayout) findViewById(R.id.RelativeLayout2);

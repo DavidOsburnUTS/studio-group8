@@ -53,9 +53,11 @@
         android:backgroundTint="@color/fontColor"
         android:drawableStart="@drawable/ic_person_outline_24px"
         android:gravity="center"
-        android:paddingStart="25dp"
-
-        android:hint="UserName"
+        android:inputType="textEmailAddress"
+        android:paddingStart="15dp"
+        android:drawablePadding="15dp"
+        android:hint="Email Address"
+        android:scrollHorizontally="true"
         android:textAlignment="center"
         android:textColorHint="@color/fontColor" />
 
@@ -69,10 +71,13 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:gravity="center"
+        android:layout_alignParentBottom="@+id/username"
+        android:scrollHorizontally="true"
         android:inputType="textPassword"
+        android:paddingStart="15dp"
+        android:drawablePadding="15dp"
         android:textColorHint="@color/fontColor"
-        android:drawableStart="@drawable/ic_lock_outline_24px"
-        android:paddingStart="25dp"/>
+        android:drawableStart="@drawable/ic_lock_outline_24px"/>
 
 
 
