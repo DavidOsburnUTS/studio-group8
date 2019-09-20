@@ -5,16 +5,18 @@ public class Product {
     public String name;
     public String desc;
     public String image;
+    public String sellerId;
 
     public Product() {
 
     }
 
 
-    public Product(String name, String desc, String image) {
+    public Product(String name, String desc, String image, String sellerId) {
         this.name = name;
         this.desc = desc;
         this.image = image;
+        this.sellerId = sellerId;
 
     }
 

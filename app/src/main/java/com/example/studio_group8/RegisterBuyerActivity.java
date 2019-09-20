@@ -222,30 +222,51 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
                 Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
             }
             else {
+
+                SafetyNet.getClient(this).verifyWithRecaptcha("6LeJXrYUAAAAAHRsW-8Qbzqp4igKRdZYgwfXCSBa")
+                        .addOnSuccessListener(this, new OnSuccessListener<SafetyNetApi.RecaptchaTokenResponse>() {
+                            @Override
+                            public void onSuccess(SafetyNetApi.RecaptchaTokenResponse recaptchaTokenResponse) {
+                                Toast.makeText(RegisterBuyerActivity.this, "Success", Toast.LENGTH_LONG).show();
+                                Create(email, password, newUser);
+
+                            }
+                        })
+                        .addOnFailureListener(this, new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(RegisterBuyerActivity.this, "Failure", Toast.LENGTH_LONG).show();
+
+                            }
+                        });
                 //Changed to object system can use it for images now
 
-                Toast.makeText(this, "Creating...", Toast.LENGTH_SHORT).show();
-                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(RegisterBuyerActivity.this, "Successful Creation, Please Verify your Email", Toast.LENGTH_SHORT).show();
-                            String id2 = mAuth.getCurrentUser().getUid();
-                            final FirebaseUser user = mAuth.getCurrentUser();
-                            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-                            mDatabase.child("User").child(id2).setValue(newUser);
-                            user.sendEmailVerification();
-                            finish();
-
-                        } else
-                        {
-                            Toast.makeText(RegisterBuyerActivity.this, "An error has occurred", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
             }
         }
 
+        public void Create(final String email, final String password, final User newUser){
+
+            Toast.makeText(this, "Creating...", Toast.LENGTH_SHORT).show();
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(RegisterBuyerActivity.this, "Successful Creation, Please Verify your Email", Toast.LENGTH_SHORT).show();
+                        String id2 = mAuth.getCurrentUser().getUid();
+                        final FirebaseUser user = mAuth.getCurrentUser();
+                        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                        mDatabase.child("User").child(id2).setValue(newUser);
+                        user.sendEmailVerification();
+                        finish();
+
+                    } else
+                    {
+                        Toast.makeText(RegisterBuyerActivity.this, "An error has occurred", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+        }
 
     public void register(View view) {
 
