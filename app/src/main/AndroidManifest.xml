@@ -43,6 +43,10 @@
             android:label="OneVice" >
         </activity>
         <activity
+            android:name=".EditBuyerProfile"
+            android:label="OneVice" >
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"

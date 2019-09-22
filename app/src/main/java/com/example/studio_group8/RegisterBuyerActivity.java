@@ -255,7 +255,7 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
                         String id2 = mAuth.getCurrentUser().getUid();
                         final FirebaseUser user = mAuth.getCurrentUser();
                         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-                        mDatabase.child("User").child(id2).setValue(newUser);
+                        mDatabase.child("User").child("buyer").child(id2).setValue(newUser);
                         user.sendEmailVerification();
                         finish();
 

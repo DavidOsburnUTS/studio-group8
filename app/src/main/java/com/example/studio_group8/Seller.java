@@ -14,7 +14,7 @@ public class Seller {
     }
 
 
-    public Seller(String name, String email, String phone)
+    public Seller(String email, String name, String phone)
     {
         this.email = email;
         this.name = name;
