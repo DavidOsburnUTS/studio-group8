@@ -2,13 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="#E8E8E8">
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Cart page"-->
+<!--        android:textColor="@color/fontColor"/>-->
+
+    <ImageView
+        android:layout_width="430dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="-10dp"
+        android:background="@drawable/cartbubble" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cart page"
-        android:textColor="@color/fontColor"/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="-100dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Cart"
+        android:textColor="@color/fontColor"
+        android:textSize="40dp" />
+
+    <View
+        android:layout_width="310dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="49dp"
+        android:layout_marginTop="540dp"
+        android:layout_centerHorizontal="true"
+        android:background="#707070"/>
 
 </LinearLayout>
+
+
