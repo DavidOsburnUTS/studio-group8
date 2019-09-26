@@ -6,6 +6,7 @@ public class Product {
     public String desc;
     public String image;
     public String sellerId;
+    public int quantity;
 
     public Product() {
 
@@ -20,6 +21,10 @@ public class Product {
 
     }
 
+    public void setSellerId(String sellerId) {
+
+        this.sellerId = sellerId;
+    }
 
     public void setName(String name) {
 
@@ -34,6 +39,19 @@ public class Product {
     public void setImage(String image) {
 
         this.image = image;
+    }
+
+    public String getSellerID() {
+
+        return sellerId;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getDesc() {
