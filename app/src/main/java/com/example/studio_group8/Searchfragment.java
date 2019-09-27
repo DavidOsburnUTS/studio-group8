@@ -1,13 +1,10 @@
 package com.example.studio_group8;
 
 import android.content.Context;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -15,13 +12,8 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatCallback;
-import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -138,8 +130,8 @@ public class Searchfragment extends Fragment {
         public void setDetails(Context ctx, String name, String desc, String productImage){
 
             TextView product_name = (TextView) mview.findViewById(R.id.name_text);
-            TextView product_desc = (TextView) mview.findViewById(R.id.desc_text);
-            ImageView product_image = (ImageView) mview.findViewById(R.id.profile_image);
+            TextView product_desc = (TextView) mview.findViewById(R.id.notif_text);
+            ImageView product_image = (ImageView) mview.findViewById(R.id.notif_image);
 
 
             product_name.setText(name);

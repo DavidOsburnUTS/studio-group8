@@ -6,7 +6,7 @@
 
 
     <ImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/notif_image"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignParentStart="true"
@@ -23,21 +23,21 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
-        android:layout_toEndOf="@+id/profile_image"
+        android:layout_toEndOf="@+id/notif_image"
         android:fontFamily="@font/raleway_semibold"
         android:text="Username"
         android:textColor="#555555"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/desc_text"
+        android:id="@+id/notif_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name_text"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="5dp"
-        android:layout_toEndOf="@+id/profile_image"
+        android:layout_toEndOf="@+id/notif_image"
         android:fontFamily="@font/raleway_semibold"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
         android:textColor="#999999"

@@ -1,14 +1,149 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<?xmlversion="1.0"encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/signupbtn">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
+<RelativeLayout
+android:layout_width="match_parent"
+android:layout_height="350dp"
+android:background="#3F6CF4">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/ic_settings_24px"></Button>
+
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Account page"
-        android:textColor="@color/fontColor"/>
+        android:layout_gravity="center"
+        android:background="@drawable/elon_musk_royal_society"></ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Elon Musk"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:textSize="32dp"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
+        android:layout_gravity="center"
+        android:textColor="#FFFFFF"
+        android:text="Buyer"
+        android:textStyle="bold"
+        android:textSize="14dp"></TextView>
+
 
 </LinearLayout>
+
+</RelativeLayout>
+
+<LinearLayout
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#E4E4E4">
+
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_centerHorizontal="true"
+    android:background="#FFFFFF"
+    android:drawableStart="@drawable/ic_create_24px"
+    android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
+    android:drawablePadding="15dp"
+    android:padding="12dp"
+    android:paddingStart="31dp"
+    android:paddingEnd="31dp"
+    android:text="EDIT PROFILE"
+    android:textColor="#828282"
+    android:textSize="14dp"
+    android:textStyle="bold"></Button>
+
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_centerHorizontal="true"
+    android:background="#FFFFFF"
+    android:drawableStart="@drawable/ic_history_24px"
+    android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
+    android:drawablePadding="15dp"
+    android:text="ORDER HISTORY"
+    android:textStyle="bold"
+    android:textSize="14dp"
+    android:textColor="#828282"
+    android:padding="12dp"
+    android:paddingStart="27dp"
+    android:paddingEnd="31dp"
+    ></Button>
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_centerHorizontal="true"
+    android:background="#FFFFFF"
+    android:drawableStart="@drawable/ic_star_24px"
+    android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
+    android:drawablePadding="15dp"
+    android:text="RECOMMENDATION"
+    android:textStyle="bold"
+    android:textSize="14dp"
+    android:textColor="#828282"
+    android:padding="12dp"
+    android:paddingStart="27dp"
+    android:paddingEnd="31dp"
+    ></Button>
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_centerHorizontal="true"
+    android:background="#FFFFFF"
+    android:drawableStart="@drawable/ic_place_24px"
+    android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
+    android:drawablePadding="15dp"
+    android:text="TRACKING ORDER"
+    android:textStyle="bold"
+    android:textSize="14dp"
+    android:textColor="#828282"
+    android:padding="12dp"
+    android:paddingStart="30dp"
+    android:paddingEnd="31dp"
+    ></Button>
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_marginTop="45dp"
+    android:layout_centerHorizontal="true"
+    android:background="#FFFFFF"
+    android:drawableStart="@drawable/ic_input_24px"
+    android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
+    android:drawablePadding="15dp"
+    android:text="SIGN OUT"
+    android:textStyle="bold"
+    android:textSize="14dp"
+    android:textColor="#828282"
+    android:padding="12dp"
+    android:paddingStart="27dp"
+    android:paddingEnd="31dp"
+    ></Button>
+
+
+</LinearLayout>
+
+
+
+    </LinearLayout>

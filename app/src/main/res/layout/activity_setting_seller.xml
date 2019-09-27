@@ -1,0 +1,249 @@
+<?xmlversion="1.0"encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#3F6CF4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="70dp"
+                android:background="@drawable/ic_keyboard_arrow_left_24px"
+                android:gravity="center"
+                android:padding="25dp"></Button>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:text="SETTING"
+                android:textStyle="bold"
+                android:textSize="40dp"
+                android:textColor="#FFFFFF"
+                android:padding="27dp"
+                ></TextView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="##F5F8F8">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:padding="12dp"
+            android:text="ACCOUNT"
+            android:textAlignment="center"
+            android:textColor="#B4B4B4"
+            android:textSize="10dp"></TextView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:background="#FFFFFF"
+            android:drawableStart="@drawable/ic_lock_24px"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
+            android:drawablePadding="15dp"
+            android:padding="12dp"
+            android:paddingStart="31dp"
+            android:paddingEnd="31dp"
+            android:text="LOGIN &amp; SECURITY"
+            android:textColor="#828282"
+            android:textSize="14dp"
+            android:textStyle="bold"></Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:background="#FFFFFF"
+            android:drawableStart="@drawable/ic_payment_24px"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
+            android:drawablePadding="15dp"
+            android:text="MANAGE PAYMENT OPTIONS"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:textColor="#828282"
+            android:padding="12dp"
+            android:paddingStart="27dp"
+            android:paddingEnd="31dp"
+            ></Button>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:background="#FFFFFF"
+            android:drawableStart="@drawable/ic_account_circle_24px"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
+            android:drawablePadding="15dp"
+            android:text="MANAGE PERSONAL DETAILS"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:textColor="#828282"
+            android:padding="12dp"
+            android:paddingStart="27dp"
+            android:paddingEnd="31dp"
+            ></Button>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:padding="12dp"
+            android:text="NOTICATIONS &amp; SEARCH"
+            android:textAlignment="center"
+            android:textColor="#B4B4B4"
+            android:textSize="10dp"></TextView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:background="#FFFFFF"
+            android:drawableStart="@drawable/ic_notification_24px"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
+            android:drawablePadding="15dp"
+            android:text="MANAGE NOTIFICATIONS"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:textColor="#828282"
+            android:padding="12dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="31dp"
+            ></Button>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:background="#FFFFFF"
+            android:drawableStart="@drawable/ic_youtube_searched_for_24px"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
+            android:drawablePadding="10dp"
+            android:text="CLEAR SEARCH HISTORY"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:textColor="#828282"
+            android:padding="12dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="31dp"
+            ></Button>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:padding="12dp"
+            android:text="ORDER"
+            android:textAlignment="center"
+            android:textColor="#B4B4B4"
+            android:textSize="10dp"></TextView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:background="#FFFFFF"
+            android:drawableStart="@drawable/ic_refund_24pxx"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
+            android:drawablePadding="8dp"
+            android:text="MANAGE REFUND REQUEST"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:textColor="#828282"
+            android:padding="12dp"
+            android:paddingStart="22dp"
+            android:paddingEnd="31dp"
+            ></Button>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:background="#FFFFFF"
+            android:drawableStart="@drawable/ic_editproduct_24px"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
+            android:drawablePadding="15dp"
+            android:text="EDIT PRODUCT"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:textColor="#828282"
+            android:padding="12dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="31dp"
+            ></Button>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:padding="12dp"
+            android:text="FEEDBACK"
+            android:textAlignment="center"
+            android:textColor="#B4B4B4"
+            android:textSize="10dp"></TextView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:background="#FFFFFF"
+            android:drawableStart="@drawable/ic_thumbs_up_down_24px"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
+            android:drawablePadding="15dp"
+            android:text="FEEDBACK"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:textColor="#828282"
+            android:padding="12dp"
+            android:paddingStart="27dp"
+            android:paddingEnd="31dp"
+            ></Button>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:background="#FFFFFF"
+            android:drawableStart="@drawable/ic_supervisor_account_24px"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
+            android:drawablePadding="15dp"
+            android:text="ABOUT US"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:textColor="#828282"
+            android:padding="12dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="31dp"
+            ></Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:background="#F34F4F"
+            android:text="REMOVE ACCOUNT"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="#FFFFFF"
+            ></Button>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
