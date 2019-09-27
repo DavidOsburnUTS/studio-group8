@@ -38,10 +38,46 @@
 
     <ImageView
         android:layout_width="275dp"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
         android:layout_marginTop="70dp"
         android:layout_marginLeft="69dp"
+
         android:background="@drawable/bluebutt" />
+
+    <ImageView
+        android:layout_width="370dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="-240dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/cartrectangle" />
+
+    <ImageView
+        android:layout_width="370dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="-210dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/cartrectangle" />
+
+    <ImageView
+        android:layout_width="370dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="-210dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/cartrectangle" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="-150dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textStyle="bold"
+        android:text="Your device cart"
+        android:textColor="#2B2B2B"
+        android:textSize="29dp" />
+
+
 
 <!--    Use "catch" to skip code errors-->
 
