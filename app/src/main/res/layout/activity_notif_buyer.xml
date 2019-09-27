@@ -12,6 +12,5 @@
         android:layout_marginTop="-32"
         app:srcCompat="@drawable/notification_header" />
 
-    <
-        />
+
 </ScrollView>
