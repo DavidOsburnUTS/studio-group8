@@ -34,6 +34,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.regex.Pattern;
+
 public class RegisterBuyerActivity extends Activity implements View.OnClickListener{
 
 //    Site Code : 6LeJXrYUAAAAAHRsW-8Qbzqp4igKRdZYgwfXCSBa
@@ -85,98 +87,6 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         inputConfirmPassword = (EditText) findViewById(R.id.confirm_password);
 
-
-
-
-
-
-        /*if (mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(RegisterBuyerActivity.this, MainActivity.class));
-            finish();
-        }
-
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-
-            @Override  public void onClick(View view) {
-                final String email = inputEmail.getText().toString();
-                final String password = inputPassword.getText().toString();
-
-                try {
-                    if (password.length() > 0 && email.length() > 0) {
-                        mAuth.createUserWithEmailAndPassword(email, password)
-                                .addOnCompleteListener(RegisterBuyerActivity.this, new OnCompleteListener<AuthResult>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<AuthResult> task) {
-                                        if (!task.isSuccessful()) {
-                                            Toast.makeText(
-                                                    RegisterBuyerActivity.this,
-                                                    "Authentication Failed",
-                                                    Toast.LENGTH_LONG).show();
-                                            Log.v("error", task.getResult().toString());
-                                        } else {
-                                            Intent intent = new Intent(RegisterBuyerActivity.this, MainActivity.class);
-                                            startActivity(intent);
-                                            finish();
-                                        }
-                                    }
-                                });
-                    } else {
-                        Toast.makeText(
-                                RegisterBuyerActivity.this,
-                                "Fill All Fields",
-                                Toast.LENGTH_LONG).show();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            });*/
-
-/*
-        public void CreateNewUser(final FirebaseAuth mAuth,  final String email, final String password, final String firstName, final String username) {
-            final User newUser = new User(email, firstName, username);
-            if (email.trim().equals("") || password.trim().equals("") || firstName.trim().equals("") || username.trim().equals("")) {
-                Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
-            }
-            else {
-                //Changed to object system can use it for images now
-                Toast.makeText(this, "Creating...", Toast.LENGTH_SHORT).show();
-                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(RegisterBuyerActivity.this, "Successful Creation, Please Verify your Email", Toast.LENGTH_SHORT).show();
-                            String id1 = mAuth.getCurrentUser().getUid();
-                            final FirebaseUser user = mAuth.getCurrentUser();
-                            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-                            mDatabase.child("User").child(id1).setValue(newUser);
-                            user.sendEmailVerification();
-                            finish();
-
-                        } else
-                        {
-                            Toast.makeText(RegisterBuyerActivity.this, "An error has occurred", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-            }
-        }
-*/
-
-
-      /*  public void register(View view) {
-
-            EditText firstname = (EditText) findViewById(R.id.first_name);
-            EditText username = (EditText) findViewById(R.id.username);
-            EditText email = (EditText) findViewById(R.id.email_address);
-            EditText password = (EditText) findViewById(R.id.password);
-            EditText confirmpassword = (EditText) findViewById(R.id.confirm_password);
-
-
-            CreateNewUser(mAuth, email.getText().toString(), password.getText().toString(), confirmpassword.getText().toString(), firstname.getText().toString(), username.getText().toString());
-
-        }*/
-
         Dots_Layout = (LinearLayout) findViewById(R.id.SliderDots);
         BtnNext = (Button) findViewById(R.id.next);
         BtnBack = (Button) findViewById(R.id.back);
@@ -215,6 +125,32 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
     }
 
 
+    private static final Pattern PASSWORD_PATTERN =
+            Pattern.compile("^" +
+                    //"(?=.*[0-9])" +         //at least 1 digit
+                    //"(?=.*[a-z])" +         //at least 1 lower case letter
+                    //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                    "(?=.*[a-zA-Z])" +      //any letter
+                    "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                    "(?=\\S+$)" +           //no white spaces
+                    ".{6,}" +               //at least 4 characters
+                    "$");
+
+    public boolean validPassword() {
+        String passwordInput = inputPassword.getText().toString().trim();
+        if(passwordInput.isEmpty()) {
+            inputPassword.setError("Field can't be empty");
+            return false;
+        }  else if (!PASSWORD_PATTERN.matcher(passwordInput).matches()) {
+            inputPassword.setError("Password too weak");
+            return false;
+        } else {
+            inputPassword.setError(null);
+            return true;
+        }
+    }
+
+
 
         public void CreateNewUser(final FirebaseAuth mAuth,  final String email, final String password, final String firstName, final String username) {
             final User newUser = new User(email, firstName, username);
@@ -229,7 +165,6 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
                             public void onSuccess(SafetyNetApi.RecaptchaTokenResponse recaptchaTokenResponse) {
                                 Toast.makeText(RegisterBuyerActivity.this, "Success", Toast.LENGTH_LONG).show();
                                 Create(email, password, newUser);
-
                             }
                         })
                         .addOnFailureListener(this, new OnFailureListener() {
@@ -286,6 +221,8 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
 
 
 
+
+
     private void createDots (int current_position) {
         if(Dots_Layout!=null)
             Dots_Layout.removeAllViews();
@@ -312,6 +249,9 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
     public void back(View view) {
         finish();
     }
+
+
+
 
     public void check(View  view) {
         SafetyNet.getClient(this).verifyWithRecaptcha("6LeJXrYUAAAAAHRsW-8Qbzqp4igKRdZYgwfXCSBa")

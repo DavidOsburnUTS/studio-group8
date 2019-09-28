@@ -2,9 +2,14 @@ package com.example.studio_group8;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.OvershootInterpolator;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
@@ -13,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.roughike.bottombar.BottomBar;
@@ -21,10 +27,14 @@ import com.roughike.bottombar.OnMenuTabClickListener;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 
         bottomNav.setOnNavigationItemSelectedListener(navListener);
@@ -33,7 +43,24 @@ public class MainActivity extends AppCompatActivity {
                 new Homefragment()).commit();
 
     }
-        private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+
+
+
+
+
+
+
+    public void add_product(View view) {
+        Intent add = new Intent(MainActivity.this, SellProduct.class);
+        startActivity(add);
+        overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+    }
+
+
+
+
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -64,10 +91,6 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 };
-
-
-
-
 
 
 
