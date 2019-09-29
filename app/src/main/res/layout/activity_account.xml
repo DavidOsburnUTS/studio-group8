@@ -1,6 +1,5 @@
-<?xmlversion="1.0"encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,13 +19,17 @@ android:background="#3F6CF4">
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_margin="10dp"
-        android:background="@drawable/ic_settings_24px"></Button>
+        android:background="@drawable/ic_settings_24px">
+
+    </Button>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/elon_musk_royal_society"></ImageView>
+        android:background="@drawable/elon_musk_royal_society">
+
+    </ImageView>
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,7 +39,9 @@ android:background="#3F6CF4">
         android:text="Elon Musk"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
-        android:textSize="32dp"></TextView>
+        android:textSize="32dp">
+
+    </TextView>
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,7 +51,9 @@ android:background="#3F6CF4">
         android:textColor="#FFFFFF"
         android:text="Buyer"
         android:textStyle="bold"
-        android:textSize="14dp"></TextView>
+        android:textSize="14dp">
+
+    </TextView>
 
 
 </LinearLayout>
@@ -73,7 +80,9 @@ android:background="#E4E4E4">
     android:text="EDIT PROFILE"
     android:textColor="#828282"
     android:textSize="14dp"
-    android:textStyle="bold"></Button>
+    android:textStyle="bold">
+
+</Button>
 
 <Button
     android:layout_width="match_parent"
@@ -89,8 +98,8 @@ android:background="#E4E4E4">
     android:textColor="#828282"
     android:padding="12dp"
     android:paddingStart="27dp"
-    android:paddingEnd="31dp"
-    ></Button>
+    android:paddingEnd="31dp">
+</Button>
 <Button
     android:layout_width="match_parent"
     android:layout_height="45dp"
@@ -105,8 +114,8 @@ android:background="#E4E4E4">
     android:textColor="#828282"
     android:padding="12dp"
     android:paddingStart="27dp"
-    android:paddingEnd="31dp"
-    ></Button>
+    android:paddingEnd="31dp">
+</Button>
 <Button
     android:layout_width="match_parent"
     android:layout_height="45dp"
@@ -121,8 +130,9 @@ android:background="#E4E4E4">
     android:textColor="#828282"
     android:padding="12dp"
     android:paddingStart="30dp"
-    android:paddingEnd="31dp"
-    ></Button>
+    android:paddingEnd="31dp">
+
+</Button>
 <Button
     android:layout_width="match_parent"
     android:layout_height="45dp"
@@ -138,8 +148,8 @@ android:background="#E4E4E4">
     android:textColor="#828282"
     android:padding="12dp"
     android:paddingStart="27dp"
-    android:paddingEnd="31dp"
-    ></Button>
+    android:paddingEnd="31dp">
+</Button>
 
 
 </LinearLayout>

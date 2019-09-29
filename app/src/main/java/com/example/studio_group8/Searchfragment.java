@@ -23,6 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+import org.w3c.dom.Text;
+
 public class Searchfragment extends Fragment {
 
 
@@ -30,7 +32,6 @@ public class Searchfragment extends Fragment {
     private ImageButton mSearchBtn;
     private RecyclerView mResultList;
     private SearchView mSearch;
-
     private DatabaseReference mProductDatabase;
     private Context context;
 
@@ -98,8 +99,7 @@ public class Searchfragment extends Fragment {
                 @Override
                 protected void populateViewHolder(ProductViewHolder viewHolder, Product model, int position) {
 
-
-                    viewHolder.setDetails(getActivity().getApplicationContext(), model.getName(), model.getDesc(), model.getImage());
+                    viewHolder.setDetails(getActivity().getApplicationContext(), model.getName(), model.getDesc(), model.getImage(), model.getQuantity());
 
                 }
 
@@ -127,18 +127,18 @@ public class Searchfragment extends Fragment {
 
         }
 
-        public void setDetails(Context ctx, String name, String desc, String productImage){
+        public void setDetails(Context ctx, String name, String desc, String productImage, int quantity){
 
             TextView product_name = (TextView) mview.findViewById(R.id.name_text);
             TextView product_desc = (TextView) mview.findViewById(R.id.notif_text);
             ImageView product_image = (ImageView) mview.findViewById(R.id.notif_image);
-
+            TextView product_quantity = (TextView) mview.findViewById(R.id.quantity);
 
             product_name.setText(name);
             product_desc.setText(desc);
 
             Glide.with(ctx).load(productImage).into(product_image);
-
+            product_quantity.setText(quantity);
 
         }
     }

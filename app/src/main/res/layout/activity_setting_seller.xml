@@ -1,4 +1,4 @@
-<?xmlversion="1.0"encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -21,7 +21,9 @@
                 android:layout_marginLeft="70dp"
                 android:background="@drawable/ic_keyboard_arrow_left_24px"
                 android:gravity="center"
-                android:padding="25dp"></Button>
+                android:padding="25dp">
+
+            </Button>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -33,7 +35,9 @@
                 android:textSize="40dp"
                 android:textColor="#FFFFFF"
                 android:padding="27dp"
-                ></TextView>
+                >
+
+            </TextView>
 
         </LinearLayout>
 
@@ -43,7 +47,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="##F5F8F8">
+        android:background="#F5F8F8">
 
         <TextView
             android:layout_width="match_parent"
@@ -52,7 +56,9 @@
             android:text="ACCOUNT"
             android:textAlignment="center"
             android:textColor="#B4B4B4"
-            android:textSize="10dp"></TextView>
+            android:textSize="10dp">
+
+        </TextView>
 
         <Button
             android:layout_width="match_parent"
@@ -68,7 +74,9 @@
             android:text="LOGIN &amp; SECURITY"
             android:textColor="#828282"
             android:textSize="14dp"
-            android:textStyle="bold"></Button>
+            android:textStyle="bold">
+
+        </Button>
 
         <Button
             android:layout_width="match_parent"
@@ -85,7 +93,9 @@
             android:padding="12dp"
             android:paddingStart="27dp"
             android:paddingEnd="31dp"
-            ></Button>
+            >
+
+        </Button>
         <Button
             android:layout_width="match_parent"
             android:layout_height="45dp"
@@ -101,7 +111,9 @@
             android:padding="12dp"
             android:paddingStart="27dp"
             android:paddingEnd="31dp"
-            ></Button>
+            >
+
+        </Button>
 
         <TextView
             android:layout_width="match_parent"
@@ -110,7 +122,9 @@
             android:text="NOTICATIONS &amp; SEARCH"
             android:textAlignment="center"
             android:textColor="#B4B4B4"
-            android:textSize="10dp"></TextView>
+            android:textSize="10dp">
+
+        </TextView>
 
         <Button
             android:layout_width="match_parent"
@@ -127,7 +141,9 @@
             android:padding="12dp"
             android:paddingStart="30dp"
             android:paddingEnd="31dp"
-            ></Button>
+            >
+
+        </Button>
         <Button
             android:layout_width="match_parent"
             android:layout_height="45dp"
@@ -143,7 +159,9 @@
             android:padding="12dp"
             android:paddingStart="30dp"
             android:paddingEnd="31dp"
-            ></Button>
+            >
+
+        </Button>
 
         <TextView
             android:layout_width="match_parent"
@@ -152,7 +170,9 @@
             android:text="ORDER"
             android:textAlignment="center"
             android:textColor="#B4B4B4"
-            android:textSize="10dp"></TextView>
+            android:textSize="10dp">
+
+        </TextView>
 
         <Button
             android:layout_width="match_parent"
@@ -169,7 +189,9 @@
             android:padding="12dp"
             android:paddingStart="22dp"
             android:paddingEnd="31dp"
-            ></Button>
+            >
+
+        </Button>
         <Button
             android:layout_width="match_parent"
             android:layout_height="45dp"
@@ -185,7 +207,9 @@
             android:padding="12dp"
             android:paddingStart="25dp"
             android:paddingEnd="31dp"
-            ></Button>
+            >
+
+        </Button>
 
         <TextView
             android:layout_width="match_parent"
@@ -194,7 +218,9 @@
             android:text="FEEDBACK"
             android:textAlignment="center"
             android:textColor="#B4B4B4"
-            android:textSize="10dp"></TextView>
+            android:textSize="10dp">
+
+        </TextView>
 
         <Button
             android:layout_width="match_parent"
@@ -211,7 +237,9 @@
             android:padding="12dp"
             android:paddingStart="27dp"
             android:paddingEnd="31dp"
-            ></Button>
+            >
+
+        </Button>
         <Button
             android:layout_width="match_parent"
             android:layout_height="45dp"
@@ -227,7 +255,9 @@
             android:padding="12dp"
             android:paddingStart="30dp"
             android:paddingEnd="31dp"
-            ></Button>
+            >
+
+        </Button>
 
         <Button
             android:layout_width="match_parent"
@@ -239,7 +269,9 @@
             android:textStyle="bold"
             android:textSize="18dp"
             android:textColor="#FFFFFF"
-            ></Button>
+            >
+
+        </Button>
 
 
     </LinearLayout>

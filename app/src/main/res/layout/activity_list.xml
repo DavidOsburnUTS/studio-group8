@@ -42,4 +42,18 @@
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
         android:textColor="#999999"
         android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name_text"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_toEndOf="@+id/notif_image"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Quantity: 5"
+        android:textColor="#999999"
+        android:textSize="14sp" />
 </RelativeLayout>

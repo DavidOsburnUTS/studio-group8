@@ -10,7 +10,6 @@ public class User
     public String username;
 
     public String isAdmin;
-    public double donation = 0;
 
 
     public User() {
