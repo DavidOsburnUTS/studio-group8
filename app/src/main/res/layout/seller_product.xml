@@ -62,7 +62,7 @@
 
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/title"
         android:layout_width="307dp"
         android:layout_height="53dp"
         android:layout_marginStart="8dp"
@@ -194,7 +194,7 @@
 
 
     <Button
-
+        android:id="@+id/upload"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:background="@drawable/upload_btn"

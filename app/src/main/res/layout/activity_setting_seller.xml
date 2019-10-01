@@ -192,7 +192,9 @@
             >
 
         </Button>
+
         <Button
+            android:id="@+id/add_product"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_centerHorizontal="true"
@@ -200,14 +202,13 @@
             android:drawableStart="@drawable/ic_editproduct_24px"
             android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
             android:drawablePadding="15dp"
-            android:text="EDIT PRODUCT"
-            android:textStyle="bold"
-            android:textSize="14dp"
-            android:textColor="#828282"
             android:padding="12dp"
             android:paddingStart="25dp"
             android:paddingEnd="31dp"
-            >
+            android:text="ADD PRODUCT"
+            android:textColor="#828282"
+            android:textSize="14dp"
+            android:textStyle="bold">
 
         </Button>
 
