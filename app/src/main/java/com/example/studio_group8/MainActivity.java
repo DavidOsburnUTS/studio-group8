@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Camera;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -45,6 +46,43 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    //Categories
+    public void phone_category(View view) {
+        Intent phone = new Intent(MainActivity.this, PhoneCategory.class);
+        startActivity(phone);
+        overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+    }
+
+    public void laptop_category(View view) {
+        Intent laptop = new Intent(MainActivity.this, LaptopCategory.class);
+        startActivity(laptop);
+        overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+    }
+
+    public void camera_category(View view) {
+        Intent camera = new Intent(MainActivity.this, CameraCategory.class);
+        startActivity(camera);
+        overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+    }
+    public void audio_category(View view) {
+        Intent audio = new Intent(MainActivity.this, AudioCategory.class);
+        startActivity(audio);
+        overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+    }
+    public void tv_category(View view) {
+        Intent tv = new Intent(MainActivity.this, TvCategory.class);
+        startActivity(tv);
+        overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+    }
+    public void console_category(View view) {
+        Intent console = new Intent(MainActivity.this, ConsoleCategory.class);
+        startActivity(console);
+        overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+    }
+
+
+
+
 
 
 
@@ -56,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
         overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
     }
 
+    public void cancel( View view) {
+        finish();
+    }
 
 
 

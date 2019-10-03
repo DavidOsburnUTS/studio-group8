@@ -27,16 +27,12 @@ public class RegisterActivity extends Activity {
 
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
         setContentView(R.layout.activity_register);
-
-
-
     }
+
     public void register_buyer (View view) {
         Intent registerbuy = new Intent(RegisterActivity.this, RegisterBuyerActivity.class);
         startActivity(registerbuy);

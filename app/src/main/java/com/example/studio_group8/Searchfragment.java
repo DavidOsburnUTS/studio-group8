@@ -86,9 +86,7 @@ public class Searchfragment extends Fragment {
         }
 
         else {
-
             Query firebaseSearchQuery = mProductDatabase.orderByChild("name").startAt(searchText).endAt(searchText + "\uf8ff");
-
             FirebaseRecyclerAdapter<Product, ProductViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Product, ProductViewHolder>(
                     Product.class,
                     R.layout.activity_list,
@@ -98,7 +96,6 @@ public class Searchfragment extends Fragment {
 
                 @Override
                 protected void populateViewHolder(ProductViewHolder viewHolder, Product model, int position) {
-
                     viewHolder.setDetails(getActivity().getApplicationContext(), model.getName(), model.getDesc(), model.getImage(), model.getQuantity());
 
                 }
@@ -107,7 +104,7 @@ public class Searchfragment extends Fragment {
             };
             mResultList.setAdapter(firebaseRecyclerAdapter);
 
-            Toast.makeText(context, "Found", Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, "Found", Toast.LENGTH_LONG).show();
 
 
         }
@@ -124,22 +121,17 @@ public class Searchfragment extends Fragment {
         public ProductViewHolder(View itemView) {
             super(itemView);
             mview = itemView;
-
         }
 
-        public void setDetails(Context ctx, String name, String desc, String productImage, int quantity){
-
+        public void setDetails(Context ctx, String name, String desc, String productImage, String quantity){
             TextView product_name = (TextView) mview.findViewById(R.id.name_text);
             TextView product_desc = (TextView) mview.findViewById(R.id.notif_text);
             ImageView product_image = (ImageView) mview.findViewById(R.id.notif_image);
             TextView product_quantity = (TextView) mview.findViewById(R.id.quantity);
-
             product_name.setText(name);
             product_desc.setText(desc);
-
             Glide.with(ctx).load(productImage).into(product_image);
             product_quantity.setText(quantity);
-
         }
     }
 }

@@ -4,30 +4,30 @@ public class Product {
 
     public String name;
     public String desc;
-   public String image;
-    public String sellerId;
-    public int quantity;
+    public String image;
+//    public String sellerId;
+    public String quantity;
 
     public Product() {
 
     }
 
 
-    public Product(String sellerId, String name, String desc, int quantity) {
-        this.sellerId = sellerId;
+    public Product(String name, String desc, String image, String quantity) {
         this.name = name;
         this.desc = desc;
+        this.image = image;
         this.quantity=quantity;
-
+//        this.sellerId = sellerId;
 
     }
 
-
+/*
     public void setSellerId(String sellerId) {
 
         this.sellerId = sellerId;
     }
-
+*/
 
     public void setName(String name) {
 
@@ -39,22 +39,22 @@ public class Product {
         this.desc = desc;
     }
 
-//    public void setImage(String image) {
-//
-//        this.image = image;
-//    }
+    public void setImage(String image) {
 
-    public void setQuantity(int quantity) {
+        this.image = image;
+    }
+
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 
 
-
+/*
     public String getSellerID() {
 
         return sellerId;
     }
-
+*/
 
 
     public String getDesc() {
@@ -71,11 +71,10 @@ public class Product {
 
         return image;
     }
-    public int getQuantity() {
+    public String getQuantity() {
 
         return quantity;
     }
-
 
 
 }

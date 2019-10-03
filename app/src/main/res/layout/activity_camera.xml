@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8E8E8">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="415dp"
+            android:layout_height="150dp"
+            android:background="@drawable/category_bg"
+            android:text="Camera"
+            android:id="@+id/camera_cat"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="50dp"
+            android:textAlignment="center">
+        </TextView>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="65dp"
+            android:background="@drawable/ic_close_24px"
+            android:onClick="back">
+        </ImageView>
+
+    </RelativeLayout>
+
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:background="#FBFBFB">
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+
+
+</LinearLayout>

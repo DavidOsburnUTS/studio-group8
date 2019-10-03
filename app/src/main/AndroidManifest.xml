@@ -30,6 +30,24 @@
             android:name=".RegisterActivity"
             android:label="OneVice" >
         </activity>
+        <activity android:name=".PhoneCategory"
+            android:label="OneVice">
+        </activity>
+        <activity android:name=".LaptopCategory"
+            android:label="OneVice">
+        </activity>
+        <activity android:name=".CameraCategory"
+            android:label="OneVice">
+        </activity>
+        <activity android:name=".AudioCategory"
+            android:label="OneVice">
+        </activity>
+        <activity android:name=".TvCategory"
+            android:label="OneVice">
+        </activity>
+        <activity android:name=".ConsoleCategory"
+            android:label="OneVice">
+        </activity>
         <activity
         android:name=".RegisterBuyerActivity"
         android:label="OneVice" >

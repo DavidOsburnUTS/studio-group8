@@ -57,6 +57,7 @@
         android:paddingStart="15dp"
         android:drawablePadding="15dp"
         android:hint="Email Address"
+        android:text="poodlemcdoodle12@gmail.com"
         android:scrollHorizontally="true"
         android:textAlignment="center"
         android:textColorHint="@color/fontColor" />
@@ -67,6 +68,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/fontColor"
         android:hint="Password"
+        android:text="shazza"
         android:layout_marginTop="390dp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
