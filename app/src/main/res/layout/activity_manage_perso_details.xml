@@ -11,12 +11,13 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_alignParentTop="true"
             android:layout_marginStart="70dp"
             android:layout_marginTop="46dp"
-            android:background="@drawable/ic_keyboard_arrow_left_24px" />
+            android:background="@drawable/ic_keyboard_arrow_left_24px"
+            android:onClick="back"/>
 
         <TextView
             android:id="@+id/textView4"
@@ -24,13 +25,15 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginEnd="83dp"
-            android:layout_marginBottom="-4dp"
+            android:layout_marginBottom="3dp"
+            android:fontFamily="@font/raleway_semibold"
             android:gravity="center"
             android:padding="27dp"
             android:text="ACCOUNT"
             android:textColor="#FFFFFF"
-            android:textSize="40sp"
+            android:textSize="35sp"
             android:textStyle="bold" />
     </RelativeLayout>
 
@@ -79,6 +82,7 @@
             android:layout_height="33dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="100dp"
             android:layout_marginEnd="16dp"
@@ -117,6 +121,7 @@
             android:layout_height="33dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="200dp"
             android:layout_marginEnd="16dp"
@@ -155,6 +160,7 @@
             android:layout_height="33dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="300dp"
             android:layout_marginEnd="16dp"
@@ -193,6 +199,7 @@
             android:layout_height="33dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="17dp"
             android:layout_marginTop="400dp"
             android:layout_marginEnd="16dp"
@@ -217,7 +224,9 @@
             android:layout_width="275dp"
             android:layout_height="65dp"
             android:layout_alignParentStart="true"
+            android:layout_alignParentTop="false"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="74dp"
             android:layout_marginBottom="58dp"
             android:background="@drawable/bluebutt"

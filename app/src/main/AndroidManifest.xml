@@ -70,10 +70,22 @@
             android:name=".ForgotPassActivity"
             android:label="OneVice" >
         </activity>
+
+        <activity
+            android:name=".LoginSecurity"
+            android:label="OneVice" >
+        </activity>
+
         <activity
             android:name=".CartActivity"
             android:label="OneVice" >
         </activity>
+
+        <activity
+            android:name=".ManagePersoDetails"
+            android:label="OneVice" >
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"

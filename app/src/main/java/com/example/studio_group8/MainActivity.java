@@ -94,12 +94,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
-
-
     public void add_product(View view) {
         Intent add = new Intent(MainActivity.this, SellProduct.class);
         startActivity(add);
