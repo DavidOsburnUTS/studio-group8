@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E8E8E8">
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView2"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Cart page"-->
-<!--        android:textColor="@color/fontColor"/>-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView2"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Cart page"-->
+    <!--        android:textColor="@color/fontColor"/>-->
 
     <ImageView
         android:layout_width="430dp"
@@ -19,7 +20,6 @@
         android:background="@drawable/cartbubble" />
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -33,45 +33,51 @@
         android:layout_width="310dp"
         android:layout_height="1dp"
         android:layout_marginLeft="49dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="360dp"
         android:layout_centerHorizontal="true"
-        android:background="#707070"/>
+        android:background="#707070"
+        android:gravity="center" />
 
-    <ImageView
+    <Button
         android:layout_width="275dp"
         android:layout_height="55dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="88dp"
         android:layout_marginLeft="69dp"
-
-        android:background="@drawable/bluebutt" />
+        android:background="@drawable/bluebutt"
+        android:text="PROCEED TO CHECKOUT"
+        android:textSize="18.5dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textColor="#FFFFFF"
+        android:gravity="center" />
 
     <ImageView
         android:layout_width="370dp"
         android:layout_height="100dp"
-        android:layout_marginTop="-240dp"
+        android:layout_marginTop="-290dp"
         android:layout_marginLeft="20dp"
-        android:background="@drawable/cartrectangle" />
+        android:background="@drawable/cartrectangle"
+        android:gravity="center" />
+
+<!--    <ImageView-->
+<!--        android:layout_width="370dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginTop="-210dp"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:background="@drawable/cartrectangle" />-->
 
     <ImageView
         android:layout_width="370dp"
         android:layout_height="100dp"
         android:layout_marginTop="-210dp"
         android:layout_marginLeft="20dp"
-        android:background="@drawable/cartrectangle" />
-
-    <ImageView
-        android:layout_width="370dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="-210dp"
-        android:layout_marginLeft="20dp"
-        android:background="@drawable/cartrectangle" />
+        android:background="@drawable/cartrectangle"
+        android:gravity="center" />
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="-150dp"
+        android:layout_marginTop="-155dp"
         android:fontFamily="@font/raleway_semibold"
         android:textStyle="bold"
         android:text="Your device cart"
@@ -79,8 +85,153 @@
         android:textSize="29dp" />
 
 
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="22dp"
+        android:text="Order total"
+        android:layout_marginTop="303dp"
+        android:layout_marginLeft="60dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#52A5FF"
+        android:fontFamily="@font/raleway_semibold"
+        android:textSize="15.5dp" />
 
-<!--    Use "catch" to skip code errors-->
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="22dp"
+        android:text="Subtotal (2 items)"
+        android:layout_marginTop="-90dp"
+        android:layout_marginLeft="60dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#52A5FF"
+        android:fontFamily="@font/raleway_semibold"
+        android:textSize="15.5dp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="22dp"
+        android:text="AU $2000.00"
+        android:layout_marginTop="-21dp"
+        android:layout_marginLeft="248dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#2B2B2B"
+        android:fontFamily="@font/raleway_semibold"
+        android:textSize="15.5dp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="22dp"
+        android:text="AU $2000.00"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="248dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#2B2B2B"
+        android:fontFamily="@font/raleway_semibold"
+        android:textSize="15.5dp" />
+
+    <ImageView
+        android:layout_width="67dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="-185dp"
+        android:layout_marginLeft="44dp"
+        android:background="@drawable/nintendo"
+        android:gravity="center" />
+
+    <ImageView
+        android:layout_width="67dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="-169dp"
+        android:layout_marginLeft="44dp"
+        android:background="@drawable/nintendo"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="-65dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textStyle="bold"
+        android:text="Nintendo Switch"
+        android:textColor="#2B2B2B"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textStyle="bold"
+        android:text="Nintendo Switch"
+        android:textColor="#2B2B2B"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="-127dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textStyle="bold"
+        android:text="Harrison"
+        android:textColor="#555555"
+        android:textSize="11dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textStyle="bold"
+        android:text="Harrison"
+        android:textColor="#555555"
+        android:textSize="11dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="-130dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textStyle="bold"
+        android:text="$1000"
+        android:textColor="#5CB7D7"
+        android:textSize="13dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textStyle="bold"
+        android:text="$1000"
+        android:textColor="#5CB7D7"
+        android:textSize="13dp" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="-189dp"
+        android:layout_marginLeft="350dp"
+        android:background="@drawable/xred" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="350dp"
+        android:background="@drawable/xred" />
+
+
+
+
+
+
+
+    <!--    Use "catch" to skip code errors-->
 
 </LinearLayout>
 
