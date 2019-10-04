@@ -2,6 +2,7 @@ package com.example.studio_group8;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +22,8 @@ public class SellProduct extends AppCompatActivity {
 
     private EditText mtitle, mdesc, mquantity;
     private Button mupload;
-    private int mquint;
+    private int mquint =1;
+    private String selectedItemText;
 //    int quantity = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class SellProduct extends AppCompatActivity {
         mdesc   = (EditText) findViewById(R.id.desc);
         mquantity   = (EditText) findViewById(R.id.quantity_edit_text);
         mupload = (Button) findViewById(R.id.upload);
+
         /*String value = mquantity.getText().toString();
         mquint =Integer.parseInt(value);*/
         final int mquint = Integer.parseInt(mquantity.getText().toString().trim());
@@ -47,13 +50,25 @@ public class SellProduct extends AppCompatActivity {
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner1);
 
-
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(SellProduct.this,
                 R.layout.spinner_item, getResources().getStringArray(R.array.names));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(myAdapter);
 
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedItemText = (String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+    });
     }
+
 
 
     public void increment (View view) {
@@ -92,7 +107,8 @@ public class SellProduct extends AppCompatActivity {
         else {
             DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.child("product").child(addProduct.name).setValue(addProduct);
-            Toast.makeText(this, "Number" + mquint, Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(this, "Number" + mquint + selectedItemText , Toast.LENGTH_SHORT).show();
         }
 
     }
