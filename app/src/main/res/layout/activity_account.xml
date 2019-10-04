@@ -16,10 +16,11 @@ android:background="#3F6CF4">
     android:orientation="vertical">
 
     <Button
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_margin="10dp"
         android:background="@drawable/ic_settings_24px"
+        android:onClick="setting_buyer"
         >
 
     </Button>
@@ -137,7 +138,7 @@ android:background="#E4E4E4">
 <Button
     android:layout_width="match_parent"
     android:layout_height="45dp"
-    android:layout_marginTop="45dp"
+    android:layout_marginTop="30dp"
     android:layout_centerHorizontal="true"
     android:background="#FFFFFF"
     android:drawableStart="@drawable/ic_input_24px"

@@ -60,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(laptop);
         overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
     }
+    public void setting_buyer(View view) {
+        Intent buyersetting = new Intent(MainActivity.this, BuyerSettingActivity.class);
+        startActivity(buyersetting);
+        overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+    }
 
     public void camera_category(View view) {
         Intent camera = new Intent(MainActivity.this, CameraCategory.class);
