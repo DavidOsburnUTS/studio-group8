@@ -141,7 +141,6 @@ public class LoginMain extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
         } else {
             showDetails();
-
         }
     }
 
