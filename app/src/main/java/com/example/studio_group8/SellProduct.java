@@ -18,11 +18,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SellProduct extends AppCompatActivity {
 
-    int quantity = 0;
+
     private EditText mtitle, mdesc, mquantity;
     private Button mupload;
     private int mquint;
-
+//    int quantity = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +33,9 @@ public class SellProduct extends AppCompatActivity {
         mdesc   = (EditText) findViewById(R.id.desc);
         mquantity   = (EditText) findViewById(R.id.quantity_edit_text);
         mupload = (Button) findViewById(R.id.upload);
-        String value = mquantity.getText().toString();
-        mquint =Integer.parseInt(value);
+        /*String value = mquantity.getText().toString();
+        mquint =Integer.parseInt(value);*/
+        final int mquint = Integer.parseInt(mquantity.getText().toString().trim());
         mupload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,16 +57,16 @@ public class SellProduct extends AppCompatActivity {
 
 
     public void increment (View view) {
-        quantity = quantity +1;
-        display(quantity);
+        mquint = mquint +1;
+        display(mquint);
 
     }
 
 
     public void decrement(View view) {
-        if(quantity>0) {
-            quantity = quantity - 1;
-            display(quantity);
+        if(mquint>1) {
+            mquint = mquint - 1;
+            display(mquint);
         }
     }
 
@@ -84,13 +85,14 @@ public class SellProduct extends AppCompatActivity {
 
     public void AddProduct(String currentuser, String mtitle, String mdesc, int mquantity){
         final Product addProduct = new Product(currentuser, mtitle, mdesc, mquantity);
-        if (mtitle.trim().equals("") || mdesc.trim().equals("") || mquantity== 0) {
+        if (mtitle.trim().equals("") || mdesc.trim().equals("") ) {
             Toast.makeText(this, "Please enter all details", Toast.LENGTH_SHORT).show();
         }
+
         else {
             DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.child("product").child(addProduct.name).setValue(addProduct);
-
+            Toast.makeText(this, "Number" + mquint, Toast.LENGTH_SHORT).show();
         }
 
     }

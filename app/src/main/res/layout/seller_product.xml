@@ -148,12 +148,14 @@
         <EditText
             android:id="@+id/quantity_edit_text"
             android:gravity="center"
+            android:editable="false"
+            android:focusable="false"
             android:layout_width="30dp"
             android:layout_height="40dp"
             android:background="@drawable/login_rec"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:text="0"
+            android:text="1"
             android:inputType="number"
             android:textColor="#000000" />
 
