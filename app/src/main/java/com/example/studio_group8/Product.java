@@ -6,14 +6,14 @@ public class Product {
     public String desc;
     public String image;
 //    public String sellerId;
-    public String quantity;
+    public int quantity;
 
     public Product() {
 
     }
 
 
-    public Product(String name, String desc, String image, String quantity) {
+    public Product(String name, String desc, String image, int quantity) {
         this.name = name;
         this.desc = desc;
         this.image = image;
@@ -44,7 +44,7 @@ public class Product {
         this.image = image;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -71,7 +71,7 @@ public class Product {
 
         return image;
     }
-    public String getQuantity() {
+    public int getQuantity() {
 
         return quantity;
     }

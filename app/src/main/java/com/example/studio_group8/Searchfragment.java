@@ -123,7 +123,7 @@ public class Searchfragment extends Fragment {
             mview = itemView;
         }
 
-        public void setDetails(Context ctx, String name, String desc, String productImage, String quantity){
+        public void setDetails(Context ctx, String name, String desc, String productImage, int quantity){
             TextView product_name = (TextView) mview.findViewById(R.id.name_text);
             TextView product_desc = (TextView) mview.findViewById(R.id.notif_text);
             ImageView product_image = (ImageView) mview.findViewById(R.id.notif_image);

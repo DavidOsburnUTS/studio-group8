@@ -44,7 +44,9 @@
         </activity>
         <activity android:name=".TvCategory"
             android:label="OneVice">
+
         </activity>
+
         <activity android:name=".ConsoleCategory"
             android:label="OneVice">
         </activity>

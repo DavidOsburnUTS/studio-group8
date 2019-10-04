@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
     }
 
+
+
     public void laptop_category(View view) {
         Intent laptop = new Intent(MainActivity.this, LaptopCategory.class);
         startActivity(laptop);
