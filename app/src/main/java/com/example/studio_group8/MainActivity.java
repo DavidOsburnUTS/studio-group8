@@ -82,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
         overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
     }
 
+    public void checkout(View view) {
+        Intent check = new Intent(MainActivity.this, CartActivity.class);
+        startActivity(check);
+        overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+    }
 
 
 
