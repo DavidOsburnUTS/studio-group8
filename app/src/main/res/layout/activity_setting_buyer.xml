@@ -16,26 +16,26 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="25dp"
                 android:layout_marginLeft="70dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/ic_keyboard_arrow_left_24px"
                 android:gravity="center"
-                android:padding="25dp"
                 android:onClick="back"
-                ></Button>
+                android:padding="25dp"></Button>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:fontFamily="@font/raleway_semibold"
 
-                android:text="SETTING"
-                android:textStyle="bold"
-                android:textSize="40dp"
-                android:textColor="#FFFFFF"
+                android:gravity="center"
                 android:padding="27dp"
-                ></TextView>
+                android:text="SETTING"
+                android:textColor="#FFFFFF"
+                android:textSize="35dp"
+                android:textStyle="bold"></TextView>
 
         </LinearLayout>
 

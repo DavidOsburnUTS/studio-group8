@@ -20,4 +20,10 @@ public class LoginSecurity extends AppCompatActivity {
         finish();
     }
 
+    public void login_security_password(View view) {
+        Intent logSecPass = new Intent(LoginSecurity.this, LoginSecurityPassword.class);
+        startActivity(logSecPass);
+        overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
+    }
+
 }

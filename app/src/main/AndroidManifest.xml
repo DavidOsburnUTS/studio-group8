@@ -77,12 +77,22 @@
         </activity>
 
         <activity
+            android:name=".LoginSecurityPassword"
+            android:label="OneVice" >
+        </activity>
+
+        <activity
             android:name=".CartActivity"
             android:label="OneVice" >
         </activity>
 
         <activity
             android:name=".ManagePersoDetails"
+            android:label="OneVice" >
+        </activity>
+
+        <activity
+            android:name=".ManagePersoDetailsAddress"
             android:label="OneVice" >
         </activity>
 
