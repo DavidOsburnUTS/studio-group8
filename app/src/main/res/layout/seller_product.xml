@@ -56,7 +56,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="190dp"
-        app:srcCompat="@drawable/ic_add_icon" />
+        app:srcCompat="@drawable/ic_add_icon"
+        android:onClick="getImage"/>
 
 
 
