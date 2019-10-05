@@ -23,7 +23,7 @@ public class SellProduct extends AppCompatActivity {
     private EditText mtitle, mdesc, mquantity;
     private Button mupload;
     private int mquint =1;
-    private String selectedItemText;
+    private String selectedItemText, image = "123aa";
 //    int quantity = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class SellProduct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                AddProduct(currentuser, mtitle.getText().toString(), mdesc.getText().toString(), mquint);
+                AddProduct( mtitle.getText().toString(), mdesc.getText().toString(), image, mquint,  selectedItemText);
 
             }
         });
@@ -98,15 +98,15 @@ public class SellProduct extends AppCompatActivity {
         finish();
     }
 
-    public void AddProduct(String currentuser, String mtitle, String mdesc, int mquantity){
-        final Product addProduct = new Product(currentuser, mtitle, mdesc, mquantity);
+    public void AddProduct( String mtitle, String mdesc, String img, int mquantity, String cat){
+        final Product addProduct = new Product(mtitle, mdesc, img, mquantity, cat);
         if (mtitle.trim().equals("") || mdesc.trim().equals("") ) {
             Toast.makeText(this, "Please enter all details", Toast.LENGTH_SHORT).show();
         }
 
         else {
             DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-            mDatabase.child("product").child(addProduct.name).setValue(addProduct);
+            mDatabase.child("Product").child(addProduct.name).setValue(addProduct);
 
             Toast.makeText(this, "Number" + mquint + selectedItemText , Toast.LENGTH_SHORT).show();
         }
