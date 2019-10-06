@@ -61,7 +61,7 @@ private Uri image_uri;
 
         /*String value = mquantity.getText().toString();
         mquint =Integer.parseInt(value);*/
-        final int mquint = Integer.parseInt(mquantity.getText().toString().trim());
+       // final int mquint = Integer.parseInt(mquantity.getText().toString().trim());
 
         mupload.setOnClickListener(new View.OnClickListener() {
             @Override
