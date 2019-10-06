@@ -20,9 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -131,6 +129,7 @@ private Uri image_uri;
         else {
             DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.child("Product").child(addProduct.getcategory()).child(addProduct.name).setValue(addProduct);
+//            mDatabase.child("Product").child(addProduct.name).setValue(addProduct);
 
             Toast.makeText(this, "added successfully"+image , Toast.LENGTH_SHORT).show();
         }
@@ -153,7 +152,6 @@ private Uri image_uri;
             image = null;
             try {
                 imag = MediaStore.Images.Media.getBitmap(this.getContentResolver(), image_uri);
-
                 final StorageReference eventRef = storageRef.child(image_uri.getLastPathSegment());
                 UploadTask uploadTask = eventRef.putFile(image_uri);
 

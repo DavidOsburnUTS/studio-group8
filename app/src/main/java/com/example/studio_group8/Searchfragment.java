@@ -23,8 +23,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-import org.w3c.dom.Text;
-
 public class Searchfragment extends Fragment {
 
 
@@ -66,7 +64,7 @@ public class Searchfragment extends Fragment {
             public void onClick(View view) {
 
                 String searchText = mSearchField.getText().toString();
-                firebaseProductSearch(searchText);
+//                firebaseProductSearch(searchText);
 
             }
         });
@@ -78,7 +76,7 @@ public class Searchfragment extends Fragment {
 
     }
 
-    private void firebaseProductSearch(String searchText) {
+/*    private void firebaseProductSearch(String searchText) {
 
         if(mSearchField.getText().toString().trim().equals("")) {
 
@@ -108,7 +106,7 @@ public class Searchfragment extends Fragment {
 
 
         }
-    }
+    }*/
 
 
 
