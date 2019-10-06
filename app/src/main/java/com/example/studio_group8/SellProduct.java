@@ -53,6 +53,7 @@ private Uri image_uri;
         setContentView(R.layout.seller_product);
 
         final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         mtitle   = (EditText) findViewById(R.id.title);
         mdesc   = (EditText) findViewById(R.id.desc);
         mquantity   = (EditText) findViewById(R.id.quantity_edit_text);
@@ -66,7 +67,7 @@ private Uri image_uri;
             @Override
             public void onClick(View v) {
 
-                AddProduct( mtitle.getText().toString(), mdesc.getText().toString(), image, mquint,  selectedItemText);
+                AddProduct(currentuser, mtitle.getText().toString(), mdesc.getText().toString(), image, mquint,  selectedItemText);
 
             }
         });
@@ -121,8 +122,8 @@ private Uri image_uri;
         finish();
     }
 
-    public void AddProduct( String mtitle, String mdesc, String img, int mquantity, String cat){
-        final Product addProduct = new Product(mtitle, mdesc, img, mquantity, cat);
+    public void AddProduct(String seller, String mtitle, String mdesc, String img, int mquantity, String cat){
+        final Product addProduct = new Product(seller, mtitle, mdesc, img, mquantity, cat);
         if (mtitle.trim().equals("") || mdesc.trim().equals("") ) {
             Toast.makeText(this, "Please enter all details", Toast.LENGTH_SHORT).show();
         }
