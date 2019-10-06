@@ -130,7 +130,7 @@ private Uri image_uri;
 
         else {
             DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-            mDatabase.child("Product").child(addProduct.name).setValue(addProduct);
+            mDatabase.child("Product").child(addProduct.getcategory()).child(addProduct.name).setValue(addProduct);
 
             Toast.makeText(this, "added successfully"+image , Toast.LENGTH_SHORT).show();
         }
