@@ -8,22 +8,30 @@ public class Product {
     public String category;
     public String sellerid;
     public int quantity;
+    public double price;
 
     public Product() {
 
     }
 
 
-    public Product(String sellerid, String name, String desc, String image, int quantity, String category) {
+    public Product(String sellerid, String name, String desc, String image, int quantity, String category, double price) {
         this.sellerid = sellerid;
         this.name = name;
         this.desc = desc;
         this.image = image;
         this.quantity=quantity;
         this.category=category;
+        this.price = price;
 
 
     }
+
+    public void setprice(double price) {
+
+        this.price = price;
+    }
+
 
 
     public void setSellerid(String sellerid) {
@@ -55,6 +63,10 @@ public void setcategory(String category) {
         this.quantity = quantity;
     }
 
+    public double getprice() {
+
+        return price;
+    }
 
 
     public String getSellerid() {

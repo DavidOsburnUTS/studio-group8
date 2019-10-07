@@ -68,7 +68,7 @@ private Uri image_uri;
             @Override
             public void onClick(View v) {
 
-                AddProduct(currentuser, mtitle.getText().toString(), mdesc.getText().toString(), image, mquint,  selectedItemText);
+                AddProduct(currentuser, mtitle.getText().toString(), mdesc.getText().toString(), image, mquint,  selectedItemText, mprice.getText().toString());
 
             }
         });
@@ -123,8 +123,9 @@ private Uri image_uri;
         finish();
     }
 
-    public void AddProduct(String seller, String mtitle, String mdesc, String img, int mquantity, String cat){
-        final Product addProduct = new Product(seller, mtitle, mdesc, img, mquantity, cat);
+    public void AddProduct(String seller, String mtitle, String mdesc, String img, int mquantity, String cat, String price){
+        double d = Double.parseDouble(price);
+        final Product addProduct = new Product(seller, mtitle, mdesc, img, mquantity, cat, d);
         if (mtitle.trim().equals("") || mdesc.trim().equals("") ) {
             Toast.makeText(this, "Please enter all details", Toast.LENGTH_SHORT).show();
         }
