@@ -83,7 +83,7 @@ public class Homefragment extends Fragment implements View.OnClickListener {
 
         mRecyclerView = v.findViewById(R.id.recyclerproducts);
 //
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Product").child("Audio");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Product");
 
 //        mDatabase = database.getReference("Product"
 
@@ -126,7 +126,7 @@ public class Homefragment extends Fragment implements View.OnClickListener {
 
                         holder.productName.setText(model.getName());
                         holder.productDesc.setText(model.getDesc());
-//                        holder.productQuantity.setText(model.getQuantity());
+                        holder.productQuantity.setText(String.valueOf(model.getQuantity()));
 //                        holder.productPrice.setText("Price = " + model.getPrice() + "$");
 
 //                        Glide.with(context).load("https://media.wired.com/photos/5b8999943667562d3024c321/master/w_2560%2Cc_limit/trash2-01.jpg").into(holder.productImage);
