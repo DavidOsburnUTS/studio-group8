@@ -95,10 +95,10 @@
         android:hint="Description (in 30 words or less)"
         android:focusable="true"
         android:enabled="true"
+        android:scrollbars="vertical"
         android:inputType="textMultiLine"
         android:padding="16dp"
-        android:isScrollContainer="true"
-        android:maxLength="150"
+        android:maxLength="100"
         android:color="#29000000" />
 
 

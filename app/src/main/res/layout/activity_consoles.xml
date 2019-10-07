@@ -38,12 +38,16 @@
 
 
 
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_gravity="center"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:background="#FBFBFB">
+        android:scrollbars="vertical"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/console_recyclerview"
+        android:layout_height="600dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="20dp">
     </androidx.recyclerview.widget.RecyclerView>
 
 

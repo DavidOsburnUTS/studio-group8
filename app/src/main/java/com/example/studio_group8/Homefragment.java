@@ -46,13 +46,14 @@ public class Homefragment extends Fragment implements View.OnClickListener {
     StorageReference mStorageRefrence;
     private RecyclerView.LayoutManager layoutManager;
 
-
-    private Uri image_uri;
-
     private FirebaseDatabase database;
 
     private DatabaseReference mDatabase;
     Query query;
+
+
+    private Uri image_uri;
+
 
 
     FloatingActionButton fabmain, fabone, fabtwo;
@@ -83,32 +84,26 @@ public class Homefragment extends Fragment implements View.OnClickListener {
         View v = inflater.inflate(R.layout.activity_home_seller,container, false);
         fabmain = (FloatingActionButton) v.findViewById(R.id.fabmain);
         fabone = (FloatingActionButton) v.findViewById(R.id.fab1);
-
-//        mStorageRefrence = FirebaseStorage.getInstance().getReference();
         FirebaseStorage storage  = FirebaseStorage.getInstance();
 
         mStorageRefrence = storage.getReference();
 
         mRecyclerView = v.findViewById(R.id.recyclerproducts);
-//
+
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Product");
 
 
-//        mDatabase = database.getReference("Product"
-
-//        mDatabase = FirebaseDatabase.getInstance().getReference("Product");
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-       // mRecyclerView.setLayoutManager(layoutManager);
+
 
         fabone.setAlpha(0f);
 
         fabone.setTranslationY(translationY);
 
         fabmain.setOnClickListener(this);
-//        fabone.setOnClickListener(this);
 
         return v;
 
@@ -134,8 +129,6 @@ public class Homefragment extends Fragment implements View.OnClickListener {
                 new FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
                     @Override
                     protected void onBindViewHolder(@NonNull ProductViewHolder holder, int i, @NonNull Product model) {
-
-                        String internetUrl = "https://firebasestorage.googleapis.com/v0/b/studio-group8.appspot.com/o/1234895868?alt=media&token=0adf7a2d-56b1-4006-8a09-52c0b2721d07";
 
 
                         holder.productName.setText(model.getName());
@@ -168,23 +161,6 @@ public class Homefragment extends Fragment implements View.OnClickListener {
 
 
 
-/*    private void initFabMenu() {
-
-
-
-        fabone.setAlpha(0f);
-        fabtwo.setAlpha(0f);
-
-        fabone.setTranslationY(translationY);
-        fabtwo.setTranslationY(translationY);
-
-
-        fabmain.setOnClickListener(this);
-        fabone.setOnClickListener(this);
-        fabtwo.setOnClickListener(this);
-
-
-    }*/
 
 
 
@@ -220,14 +196,6 @@ public class Homefragment extends Fragment implements View.OnClickListener {
                     openMenu();
                 }
                 break;
-     /*       case R.id.fab1:
-                Log.i(TAG, "onClick: fab one");
-                if (isMenuOpen) {
-                    closeMenu();
-                } else {
-                    openMenu();
-                }
-                break;*/
         }
     }
 
