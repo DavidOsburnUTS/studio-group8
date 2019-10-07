@@ -2,9 +2,12 @@ package com.example.studio_group8;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -57,12 +60,13 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
     private ImageView[] dots;
 
 
-
+    public Drawable customErrorDrawable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mAuth = FirebaseAuth.getInstance();
+
 
 
         if (new PreferenceManager(this).checkPreferences()) {
@@ -80,9 +84,12 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
         mPager = (ViewPager) findViewById(R.id.viewPager);
         mpagerAdapter = new MpagerAdapter(layouts, this);
         mPager.setAdapter(mpagerAdapter);
+        customErrorDrawable = getResources().getDrawable(R.drawable.error_icon);
+        customErrorDrawable.setBounds(0, 0, customErrorDrawable.getIntrinsicWidth(), customErrorDrawable.getIntrinsicHeight());
 
 
-        inputEmail = (EditText) findViewById(R.id.email_address);
+        inputUsername = (EditText) findViewById(R.id.username);
+        inputFirstName = (EditText) findViewById(R.id.first_name);
         inputPassword = (EditText) findViewById(R.id.password);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         inputConfirmPassword = (EditText) findViewById(R.id.confirm_password);
@@ -93,6 +100,8 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
         BtnBack.setOnClickListener(this);
         BtnNext.setOnClickListener(this);
         createDots(0);
+
+
 
         mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -149,15 +158,58 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
         }
     }
 
+    private boolean validateEmail() {
+        String emailInput = inputEmail.getText().toString().trim();
 
+        if (emailInput.isEmpty()) {
+            inputEmail.setError("Field can't be empty");
+            return false;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
+            inputEmail.setError("Please enter a valid email address");
+            return false;
+        } else {
+            inputEmail.setError(null);
+            return true;
+        }
+    }
+
+
+    private boolean validateUsername() {
+        String usernameInput = inputUsername.getText().toString().trim();
+
+        if (usernameInput.isEmpty()) {
+            inputUsername.setError("Field can't be empty");
+            return false;
+        } else if (usernameInput.length() > 15) {
+            inputUsername.setError("Username too long");
+            return false;
+        } else {
+            inputUsername.setError(null);
+            return true;
+        }
+    }
 
         public void CreateNewUser(final FirebaseAuth mAuth,  final String email, final String password, final String firstName, final String username) {
+            inputEmail = (EditText) findViewById(R.id.email_address);
+            inputPassword = (EditText) findViewById(R.id.password);
+            inputUsername = (EditText) findViewById(R.id.username);
+            inputFirstName = (EditText) findViewById(R.id.first_name);
             final User newUser = new User(email, firstName, username);
             if (email.trim().equals("") || password.trim().equals("") || firstName.trim().equals("") || username.trim().equals("")) {
-                Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
+
+
+                inputFirstName.setError("Please enter a name", customErrorDrawable);
+                inputUsername.setError("Please enter a username", customErrorDrawable);
+                inputEmail.setError("Incorrect Email", customErrorDrawable);
+                inputPassword.setError("Incorrect Password", customErrorDrawable);
+
+//                Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
             }
             else {
-
+                inputFirstName.setError(null);
+                inputUsername.setError(null);
+                inputPassword.setError(null);
+                inputEmail.setError(null);
                 SafetyNet.getClient(this).verifyWithRecaptcha("6LeJXrYUAAAAAHRsW-8Qbzqp4igKRdZYgwfXCSBa")
                         .addOnSuccessListener(this, new OnSuccessListener<SafetyNetApi.RecaptchaTokenResponse>() {
                             @Override
@@ -211,10 +263,12 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
             EditText confirmpassword = (EditText) findViewById(R.id.confirm_password);
 
             if (password.getText().toString().equals(confirmpassword.getText().toString())) {
+                password.setError(null);
                 CreateNewUser(mAuth, email.getText().toString(), password.getText().toString(), firstName.getText().toString(), username.getText().toString());
             }
             else {
-                Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
+                password.setError("Mismatching Passwords", customErrorDrawable);
+//                Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
             }
         }
 

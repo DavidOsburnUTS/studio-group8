@@ -12,6 +12,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +30,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.victor.loading.rotate.RotateLoading;
 
 import org.w3c.dom.Text;
 
@@ -39,15 +41,18 @@ public class LoginMain extends AppCompatActivity {
     private EditText musername, mpassword;
 
 
+    public RotateLoading rotateLoading;
 
     static final int requestcode = 1;
     Animation rightleft;
+    protected int defaultInterval;
     LinearLayout L1;
     Animation bottomup;
     Animation topdown;
     RelativeLayout R1;
     RelativeLayout R2;
 
+    private long mLastClickTime = 0;
     private FirebaseAuth mAuth;
 
 
@@ -55,9 +60,11 @@ public class LoginMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         mAuth = FirebaseAuth.getInstance();
         musername = findViewById(R.id.username);
         mpassword = findViewById(R.id.password);
+        rotateLoading = findViewById(R.id.rotateloading);
         loginBtn =(Button) findViewById(R.id.login);
         final   EditText emailfield   = (EditText) findViewById(R.id.username);
 
@@ -77,15 +84,37 @@ public class LoginMain extends AppCompatActivity {
 
         checkPermission();
 
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginUserAccount();
+                if(rotateLoading.isStart() ){
+                    rotateLoading.stop();
+                    loginUserAccount();
+                    loginBtn.setText("Login");
+                    return;
+                }
+                else{
+                    loginBtn.setEnabled(false);
+                    mLastClickTime = SystemClock.elapsedRealtime();
+                    loginUserAccount();
+                    rotateLoading.start();
+                    loginBtn.setText("Logging In");
+                }
             }
         });
 
-
 }
+
+
+    public static void preventTwoClick(final View view){
+        view.setEnabled(false);
+        view.postDelayed(new Runnable() {
+            public void run() {
+                view.setEnabled(true);
+            }
+        }, 500);
+    }
 
 
     public void register_page(View view) {
@@ -174,7 +203,9 @@ public class LoginMain extends AppCompatActivity {
 
 
 
+
     private void loginUserAccount() {
+
 
 
         String email, password;
@@ -195,6 +226,7 @@ public class LoginMain extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            rotateLoading.stop();
                             Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
 
 
@@ -202,7 +234,10 @@ public class LoginMain extends AppCompatActivity {
                             startActivity(intent);
                         }
                         else {
+                            rotateLoading.stop();
                             Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
+                            loginBtn.setText("Login");
+                            loginBtn.setEnabled(true);
 
                         }
                     }

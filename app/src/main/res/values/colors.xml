@@ -5,6 +5,7 @@
     <color name="login_light">#5CF3F3F3</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorLight">#8CD1EC</color>
+    <color name="errorColor">#002db3</color>
     <color name="fontColor">#FFFFFF</color>
     <color name="signupbtn">#00BCD4</color>
     <color name="gridbg"> #FAFAFA </color>

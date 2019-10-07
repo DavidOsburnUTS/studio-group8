@@ -37,7 +37,6 @@
 
 
 
-
     <EditText
         android:id="@+id/email_address"
         android:layout_width="280dp"
@@ -51,13 +50,16 @@
         android:paddingStart="25dp"
         android:hint="Email Address"
         android:inputType="textEmailAddress"
+        app:errorEnabled="true"
         android:textAlignment="center"
         android:textColorHint="@color/fontColor" />
 
-    <EditText
+
+<EditText
         android:id="@+id/first_name"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
+        app:errorEnabled="true"
         android:backgroundTint="@color/fontColor"
         android:hint="First Name"
         android:layout_marginTop="220dp"
@@ -71,9 +73,12 @@
         android:paddingStart="25dp"/>
 
 
+
+
     <EditText
         android:id="@+id/username"
         android:layout_width="280dp"
+        app:errorEnabled="true"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/fontColor"
         android:hint="Username"
@@ -132,7 +137,8 @@
         android:layout_marginTop="540dp"
         android:layout_height="wrap_content"
         android:background="@drawable/signup_btn_click"
-        android:onClick="register"/>
+        android:onClick="register"
+        />
 
 
 </RelativeLayout>

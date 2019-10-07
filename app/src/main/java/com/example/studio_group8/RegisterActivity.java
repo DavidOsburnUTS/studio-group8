@@ -31,6 +31,9 @@ public class RegisterActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+
+
     }
 
     public void register_buyer (View view) {
@@ -44,6 +47,7 @@ public class RegisterActivity extends Activity {
         startActivity(registersell);
         overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
     }
+
 
 
 
