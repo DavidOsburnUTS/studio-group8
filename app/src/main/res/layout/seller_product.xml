@@ -103,8 +103,8 @@
 
 
 
- <!--   <EditText
-        android:id="@+id/quantity"
+    <EditText
+        android:id="@+id/price"
         android:layout_width="307dp"
         android:layout_height="53dp"
         android:layout_marginStart="8dp"
@@ -114,17 +114,40 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/login_rec"
-        android:hint="Product Quantity"
-        android:inputType="number"
+        android:hint="Price"
+        android:focusable="true"
+        android:enabled="true"
+        android:inputType="numberDecimal"
         android:padding="16dp"
-        android:color="#29000000" />-->
+        android:isScrollContainer="true"
+        android:maxLength="150"
+        android:color="#29000000" />
+
+
+
+
+    <!--   <EditText
+           android:id="@+id/quantity"
+           android:layout_width="307dp"
+           android:layout_height="53dp"
+           android:layout_marginStart="8dp"
+           android:layout_marginLeft="8dp"
+           android:layout_centerHorizontal="true"
+           android:layout_marginTop="550dp"
+           android:layout_marginEnd="8dp"
+           android:layout_marginRight="8dp"
+           android:background="@drawable/login_rec"
+           android:hint="Product Quantity"
+           android:inputType="number"
+           android:padding="16dp"
+           android:color="#29000000" />-->
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="640dp"
         android:text="Quantity"
         android:textColor="#85000000"
         android:textSize="18dp">
@@ -134,7 +157,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="675dp"
         android:layout_centerHorizontal="true">
 
         <Button
@@ -175,7 +198,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="660dp"
+        android:layout_marginTop="750dp"
         android:text="Category"
         android:textColor="#85000000"
         android:textSize="18dp">
@@ -184,7 +207,7 @@
     <Spinner
         android:layout_width="307dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="700dp"
+        android:layout_marginTop="795dp"
         android:background="@drawable/spinner_bg"
         android:popupBackground="@drawable/login_rec"
         android:textColor="@color/white"
@@ -203,7 +226,7 @@
         android:background="@drawable/upload_btn"
         android:textStyle="bold"
         android:textSize="20dp"
-        android:layout_marginTop="760dp"
+        android:layout_marginTop="865dp"
         android:text="UPLOAD"
         android:inputType="number"
         android:textColor="@color/white"

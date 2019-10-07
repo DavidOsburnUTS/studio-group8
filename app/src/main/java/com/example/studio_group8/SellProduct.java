@@ -35,7 +35,7 @@ import java.io.IOException;
 public class SellProduct extends AppCompatActivity {
 
 
-    private EditText mtitle, mdesc, mquantity;
+    private EditText mtitle, mdesc, mquantity, mprice;
     private Button mupload;
     private int mquint =1;
     private String selectedItemText, image = "123aa";
@@ -58,6 +58,7 @@ private Uri image_uri;
         mdesc   = (EditText) findViewById(R.id.desc);
         mquantity   = (EditText) findViewById(R.id.quantity_edit_text);
         mupload = (Button) findViewById(R.id.upload);
+        mprice = (EditText) findViewById(R.id.price);
 
         /*String value = mquantity.getText().toString();
         mquint =Integer.parseInt(value);*/
