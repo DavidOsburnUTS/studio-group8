@@ -1,6 +1,7 @@
 package com.example.studio_group8;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
+import java.io.Console;
 
 public class ConsoleCategory extends AppCompatActivity {
 
@@ -78,13 +81,22 @@ public class ConsoleCategory extends AppCompatActivity {
                         holder.productName.setText(model.getName());
                         holder.productDesc.setText(model.getDesc());
                         holder.productQuantity.setText(String.valueOf(model.getQuantity()));
-                        holder.productPrice.setText( "$" + model.getprice());
 
+                        holder.productPrice.setText( "$" + String.format("%.2f",model.getprice()));
                         GlideApp.
                                 with(ConsoleCategory.this)
                                 .load(model.getImage())
                                 .into(holder.productImage);
 //                        Picasso.get().load(model.getImage()).into(holder.productImage);
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(ConsoleCategory.this, ProductDetails.class);
+                                intent.putExtra("name", model.getName());
+//                                intent.putExtra("pid", model.getPid());
+                                startActivity(intent);
+                            }
+                        });
                     }
 
                     @NonNull

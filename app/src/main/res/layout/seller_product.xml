@@ -96,9 +96,10 @@
         android:focusable="true"
         android:enabled="true"
         android:scrollbars="vertical"
+        android:maxLines="3"
         android:inputType="textMultiLine"
         android:padding="16dp"
-        android:maxLength="100"
+        android:maxLength="80"
         android:color="#29000000" />
 
 

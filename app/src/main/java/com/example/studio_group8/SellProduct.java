@@ -68,7 +68,7 @@ private Uri image_uri;
             @Override
             public void onClick(View v) {
 
-                AddProduct(currentuser, mtitle.getText().toString(), mdesc.getText().toString(), image, mquint,  selectedItemText, mprice.getText().toString());
+                AddProduct(currentuser, mtitle.getText().toString().toUpperCase(), mdesc.getText().toString(), image, mquint,  selectedItemText, mprice.getText().toString());
 
             }
         });
@@ -135,6 +135,7 @@ private Uri image_uri;
             mDatabase.child("Product").child(addProduct.name).setValue(addProduct);
 
             Toast.makeText(this, "added successfully"+image , Toast.LENGTH_SHORT).show();
+            finish();
         }
 
     }

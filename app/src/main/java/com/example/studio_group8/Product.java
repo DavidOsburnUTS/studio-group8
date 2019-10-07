@@ -1,5 +1,7 @@
 package com.example.studio_group8;
 
+import java.text.DecimalFormat;
+
 public class Product {
 
     public String name;
@@ -10,12 +12,16 @@ public class Product {
     public int quantity;
     public double price;
 
+    DecimalFormat df = new DecimalFormat(" #.00");
+
+
     public Product() {
 
     }
 
 
     public Product(String sellerid, String name, String desc, String image, int quantity, String category, double price) {
+
         this.sellerid = sellerid;
         this.name = name;
         this.desc = desc;
@@ -28,7 +34,6 @@ public class Product {
     }
 
     public void setprice(double price) {
-
         this.price = price;
     }
 

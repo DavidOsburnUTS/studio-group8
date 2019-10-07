@@ -1,6 +1,7 @@
 package com.example.studio_group8;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -83,12 +84,21 @@ public class PhoneCategory extends AppCompatActivity {
                         holder.productName.setText(model.getName());
                         holder.productDesc.setText(model.getDesc());
                         holder.productQuantity.setText(String.valueOf(model.getQuantity()));
-                        holder.productPrice.setText( "$" + model.getprice());
+                        holder.productPrice.setText( "$" + String.format("%.2f",model.getprice()));
 
                         GlideApp.
                                 with(PhoneCategory.this)
                                 .load(model.getImage())
                                 .into(holder.productImage);
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(PhoneCategory.this, ProductDetails.class);
+                                intent.putExtra("name", model.getName());
+//                                intent.putExtra("pid", model.getPid());
+                                startActivity(intent);
+                            }
+                        });
 //                        Picasso.get().load(model.getImage()).into(holder.productImage);
                     }
 

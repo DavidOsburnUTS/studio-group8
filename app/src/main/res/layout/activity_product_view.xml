@@ -3,22 +3,77 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:paddingBottom="20dp">
+
+
+
+
+
+            <ImageView
         android:id="@+id/prod_image"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:background="@drawable/slider1">
+        android:background="#E8272727">
     </ImageView>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="65dp"
+                android:background="@drawable/ic_close_24px"
+                android:onClick="back">
+            </ImageView>
+
+
+
+            <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textColor="#2196F3"
+        android:padding="10dp"
+        android:background="@drawable/prod_price_bg"
+                android:alpha="0.9"
+        android:id="@+id/prod_price"
+                android:textStyle="bold"
+
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:text="Product Price">
+
+    </TextView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Product Name"
+        android:id="@+id/prod_text"
         android:textStyle="bold"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:textSize="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="325dp">
     </TextView>
+
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,11 +87,12 @@
 
 
 
-    <TextView
+<!--    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/desc_bg"
         android:padding="5dp"
+        android:id="@+id/prod_desc"
         android:layout_centerHorizontal="true"
         android:text="hello sick mad alskdkljaslkdjslkdkljalksjlkdsjsklajjdkladjslkjsdakljadskladjskladsjkladsjkljadskljadjdkl"
         android:maxLines="5"
@@ -44,13 +100,29 @@
         android:textSize="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="425dp">
-    </TextView>
+    </TextView>-->
 
-    <TextView
+            <TextView
+                android:layout_width="375dp"
+                android:layout_height="125dp"
+                android:background="@drawable/desc_bg"
+                android:padding="5dp"
+                android:id="@+id/prod_desc"
+                android:layout_centerHorizontal="true"
+                android:text="hello sick mad alskdkljaslkdjslkdkljalksjlkdsjsklajjdkladjslkjsdakljadskladjskladsjkladsjkljadskljadjdkl"
+                android:maxLines="5"
+                android:textStyle="normal"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="425dp">
+            </TextView>
+
+
+            <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="560dp"
         android:text="Quantity"
         android:textStyle="bold"
         android:textColor="#85000000"
@@ -61,7 +133,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="610dp"
         android:layout_centerHorizontal="true">
 
         <Button
@@ -80,8 +152,10 @@
             android:layout_height="40dp"
             android:background="@drawable/login_rec"
             android:layout_marginLeft="8dp"
+            android:editable="false"
+            android:focusable="false"
             android:layout_marginRight="8dp"
-            android:text="0"
+            android:text="1"
             android:inputType="number"
             android:textColor="#000000" />
 
@@ -97,17 +171,22 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/addtoCart"
         android:layout_width="280dp"
         android:text="Add to cart"
         android:textColor="@color/fontColor"
         android:textStyle="bold"
         android:textSize="20dp"
+        android:clickable="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="660dp"
+        android:layout_marginTop="670dp"
         android:background="@drawable/upload_btn"
         android:layout_height="wrap_content"
         />
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 
 

@@ -1,6 +1,7 @@
 package com.example.studio_group8;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -45,6 +47,7 @@ public class Homefragment extends Fragment implements View.OnClickListener {
     RecyclerView mRecyclerView;
     StorageReference mStorageRefrence;
     private RecyclerView.LayoutManager layoutManager;
+
 
     private FirebaseDatabase database;
 
@@ -134,12 +137,25 @@ public class Homefragment extends Fragment implements View.OnClickListener {
                         holder.productName.setText(model.getName());
                         holder.productDesc.setText(model.getDesc());
                         holder.productQuantity.setText(String.valueOf(model.getQuantity()));
-                        holder.productPrice.setText( "$" + model.getprice());
 
+                        holder.productPrice.setText( "$" + String.format("%.2f",model.getprice()));
                         GlideApp.
                                 with(getActivity())
                                 .load(model.getImage())
                                 .into(holder.productImage);
+
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(getContext(), ProductDetails.class);
+                                intent.putExtra("name", model.getName());
+//                                intent.putExtra("pid", model.getPid());
+                                startActivity(intent);
+                            }
+                        });
+
+
+
 //                        Picasso.get().load(model.getImage()).into(holder.productImage);
                     }
 
