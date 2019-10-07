@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/card_list_click"
     android:clickable="true"
+
     android:dividerHeight="10dp"
     >
 
@@ -26,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="35dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
@@ -57,7 +58,7 @@
         android:layout_below="@+id/product_text"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="50dp"
         android:layout_toEndOf="@+id/product_image"
         android:fontFamily="@font/raleway_semibold"
         android:text="Price"
@@ -73,7 +74,7 @@
     android:layout_below="@+id/product_text"
     android:layout_marginLeft="130dp"
     android:layout_marginRight="30dp"
-    android:layout_marginTop="65dp"
+    android:layout_marginTop="50dp"
         android:paddingBottom="10dp"
     android:layout_toEndOf="@+id/product_image"
     android:fontFamily="@font/raleway_semibold"

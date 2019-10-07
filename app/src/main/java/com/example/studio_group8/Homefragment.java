@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,10 +29,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.io.InputStream;
+
 
 
 public class Homefragment extends Fragment implements View.OnClickListener {
@@ -40,6 +43,7 @@ public class Homefragment extends Fragment implements View.OnClickListener {
 
 
     RecyclerView mRecyclerView;
+    StorageReference mStorageRefrence;
     private RecyclerView.LayoutManager layoutManager;
 
 
@@ -56,11 +60,13 @@ public class Homefragment extends Fragment implements View.OnClickListener {
     OvershootInterpolator interpolator = new OvershootInterpolator();
 
 
+    public ImageView prodImage;
     private static String TAG = "MainActivity";
 
     Boolean isMenuOpen = false;
 
     private Context context;
+
 
 
 
@@ -78,12 +84,16 @@ public class Homefragment extends Fragment implements View.OnClickListener {
         fabmain = (FloatingActionButton) v.findViewById(R.id.fabmain);
         fabone = (FloatingActionButton) v.findViewById(R.id.fab1);
 
+//        mStorageRefrence = FirebaseStorage.getInstance().getReference();
+        FirebaseStorage storage  = FirebaseStorage.getInstance();
 
-
+        mStorageRefrence = storage.getReference();
 
         mRecyclerView = v.findViewById(R.id.recyclerproducts);
 //
+
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Product");
+
 
 //        mDatabase = database.getReference("Product"
 
@@ -109,8 +119,6 @@ public class Homefragment extends Fragment implements View.OnClickListener {
 
 
 
-
-
     @Override
     public void onStart() {
         super.onStart();
@@ -127,12 +135,18 @@ public class Homefragment extends Fragment implements View.OnClickListener {
                     @Override
                     protected void onBindViewHolder(@NonNull ProductViewHolder holder, int i, @NonNull Product model) {
 
+                        String internetUrl = "https://firebasestorage.googleapis.com/v0/b/studio-group8.appspot.com/o/1234895868?alt=media&token=0adf7a2d-56b1-4006-8a09-52c0b2721d07";
+
+
                         holder.productName.setText(model.getName());
                         holder.productDesc.setText(model.getDesc());
                         holder.productQuantity.setText(String.valueOf(model.getQuantity()));
                         holder.productPrice.setText( "$" + model.getprice());
 
-//                        Glide.with(context).load("https://media.wired.com/photos/5b8999943667562d3024c321/master/w_2560%2Cc_limit/trash2-01.jpg").into(holder.productImage);
+                        GlideApp.
+                                with(getActivity())
+                                .load(model.getImage())
+                                .into(holder.productImage);
 //                        Picasso.get().load(model.getImage()).into(holder.productImage);
                     }
 
@@ -219,4 +233,7 @@ public class Homefragment extends Fragment implements View.OnClickListener {
 
 
 
+
 }
+
+
