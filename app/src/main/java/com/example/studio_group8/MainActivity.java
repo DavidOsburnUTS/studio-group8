@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     //Categories
     public void phone_category(View view) {
         Intent phone = new Intent(MainActivity.this, PhoneCategory.class);

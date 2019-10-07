@@ -90,6 +90,7 @@ public class Homefragment extends Fragment implements View.OnClickListener {
 //        mDatabase = FirebaseDatabase.getInstance().getReference("Product");
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
        // mRecyclerView.setLayoutManager(layoutManager);
 
         fabone.setAlpha(0f);
@@ -103,6 +104,8 @@ public class Homefragment extends Fragment implements View.OnClickListener {
 
 
     }
+
+
 
 
 
@@ -127,7 +130,7 @@ public class Homefragment extends Fragment implements View.OnClickListener {
                         holder.productName.setText(model.getName());
                         holder.productDesc.setText(model.getDesc());
                         holder.productQuantity.setText(String.valueOf(model.getQuantity()));
-//                        holder.productPrice.setText("Price = " + model.getPrice() + "$");
+                        holder.productPrice.setText( "$" + model.getprice());
 
 //                        Glide.with(context).load("https://media.wired.com/photos/5b8999943667562d3024c321/master/w_2560%2Cc_limit/trash2-01.jpg").into(holder.productImage);
 //                        Picasso.get().load(model.getImage()).into(holder.productImage);
