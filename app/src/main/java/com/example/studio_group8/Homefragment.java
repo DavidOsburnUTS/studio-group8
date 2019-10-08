@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -89,6 +90,7 @@ public class Homefragment extends Fragment implements View.OnClickListener {
         fabone = (FloatingActionButton) v.findViewById(R.id.fab1);
         FirebaseStorage storage  = FirebaseStorage.getInstance();
 
+
         mStorageRefrence = storage.getReference();
 
         mRecyclerView = v.findViewById(R.id.recyclerproducts);
@@ -148,8 +150,9 @@ public class Homefragment extends Fragment implements View.OnClickListener {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(getContext(), ProductDetails.class);
-                                intent.putExtra("name", model.getName());
-//                                intent.putExtra("pid", model.getPid());
+//                                intent.putExtra("name", model.getName());
+//                                intent.putExtra("desc", model.getDesc());
+                                intent.putExtra("productid", model.getproductid());
                                 startActivity(intent);
                             }
                         });

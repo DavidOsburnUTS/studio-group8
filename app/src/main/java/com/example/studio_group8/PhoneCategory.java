@@ -94,8 +94,9 @@ public class PhoneCategory extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(PhoneCategory.this, ProductDetails.class);
-                                intent.putExtra("name", model.getName());
+//                                intent.putExtra("name", model.getName());
 //                                intent.putExtra("pid", model.getPid());
+                                intent.putExtra("productid", model.getproductid());
                                 startActivity(intent);
                             }
                         });

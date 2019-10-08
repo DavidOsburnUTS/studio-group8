@@ -107,8 +107,10 @@ public class Searchfragment extends Fragment {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(getContext(), ProductDetails.class);
-                                intent.putExtra("name", model.getName());
+//                                intent.putExtra("name", model.getName());
 //                                intent.putExtra("pid", model.getPid());
+
+                                intent.putExtra("productid", model.getproductid());
                                 startActivity(intent);
                             }
                         });

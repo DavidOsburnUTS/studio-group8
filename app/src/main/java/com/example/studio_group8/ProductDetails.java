@@ -1,5 +1,7 @@
 package com.example.studio_group8;
 
+import android.content.Intent;
+import android.icu.util.Calendar;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -8,10 +10,13 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,10 +25,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+
 public class ProductDetails extends AppCompatActivity {
     private ImageView prodImage;
     private Button addCart;
     private TextView  prodPrice, prodDescription, prodName;
+    private EditText productQuantity;
     private String productID = "";
 
 
@@ -35,22 +44,75 @@ public class ProductDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_view);
 
-//        productID = getIntent().getStringExtra("pid");
+        productID = getIntent().getStringExtra("productid");
 
-        productID = getIntent().getStringExtra("name");
+
+
+
+//        productID = getIntent().getStringExtra("name");
 
         addCart = (Button) findViewById(R.id.addtoCart);
+        productQuantity = (EditText) findViewById(R.id.quantity_edit_text);
         prodImage = (ImageView) findViewById(R.id.prod_image);
         prodPrice = (TextView) findViewById(R.id.prod_price);
         prodDescription = (TextView) findViewById(R.id.prod_desc);
         prodName = (TextView) findViewById(R.id.prod_text);
 
 
+
         prodName.setSelected(true);
         getProductDetails(productID);
+
+
+        addCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addingToCartList(); 
+            }
+        });
+
     }
 
+    private void addingToCartList() {
 
+        String saveCurrentTime, saveCurrentDate;
+
+        Calendar calDate = Calendar.getInstance();
+        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+
+        saveCurrentDate = currentDate.format(calDate.getTime());
+
+        SimpleDateFormat currentTime = new SimpleDateFormat("MMM dd, yyyy");
+
+        saveCurrentTime = currentDate.format(calDate.getTime());
+
+        DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
+
+
+        final HashMap<String, Object> cartMap = new HashMap<>();
+        cartMap.put("productid", productID);
+        cartMap.put("name", prodName.getText().toString());
+        cartMap.put("desc", prodDescription.getText().toString());
+        cartMap.put("quantity", productQuantity.getText().toString());
+        cartMap.put("price", prodPrice.getText().toString());
+//        cartMap.put("image", prodImage);
+//        cartMap.put("price", prodPrice.);
+//        cartMap.put("quantity", n);
+
+        cartListRef.child("User View")
+                .child("Product")
+                .child(productID)
+                .updateChildren(cartMap)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()) {
+                            Toast.makeText(ProductDetails.this, "Added to cart List", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                });
+    }
 
 
     private void getProductDetails(String productID) {

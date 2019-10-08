@@ -92,7 +92,8 @@ public class ConsoleCategory extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(ConsoleCategory.this, ProductDetails.class);
-                                intent.putExtra("name", model.getName());
+//                                intent.putExtra("name", model.getName());
+                                intent.putExtra("productid", model.getproductid());
 //                                intent.putExtra("pid", model.getPid());
                                 startActivity(intent);
                             }
