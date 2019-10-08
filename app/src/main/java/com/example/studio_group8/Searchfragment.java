@@ -1,6 +1,7 @@
 package com.example.studio_group8;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,9 +21,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+
+import java.util.Collections;
 
 public class Searchfragment extends Fragment {
 
@@ -33,11 +38,12 @@ public class Searchfragment extends Fragment {
     private DatabaseReference mProductDatabase;
     private Context context;
 
+    private String searchText;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        this.context=context;
+        this.context = context;
     }
 
 
@@ -49,8 +55,7 @@ public class Searchfragment extends Fragment {
         mSearchBtn = (ImageButton) view.findViewById(R.id.search_btn);
         mResultList = (RecyclerView) view.findViewById(R.id.searchList);
 
-        mProductDatabase = FirebaseDatabase.getInstance().getReference("product");
-
+//        mProductDatabase = FirebaseDatabase.getInstance().getReference("product");
 
 
         mResultList = (RecyclerView) view.findViewById(R.id.searchList);
@@ -58,23 +63,77 @@ public class Searchfragment extends Fragment {
         mResultList.setLayoutManager(new LinearLayoutManager(context));
 
 
-
         mSearchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String searchText = mSearchField.getText().toString();
+                searchText = mSearchField.getText().toString().toUpperCase();
 //                firebaseProductSearch(searchText);
 
+                onStart();
             }
         });
-
-
-
         return view;
 
-
     }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Product");
+
+        FirebaseRecyclerOptions<Product> options =
+                new FirebaseRecyclerOptions.Builder<Product>()
+                        .setQuery(reference.orderByChild("name").startAt(searchText).endAt(searchText + "\uf8ff"), Product.class)
+                        .build();
+
+        FirebaseRecyclerAdapter<Product, ProductViewHolder> adapter =
+                new FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull ProductViewHolder holder, int i, @NonNull Product model) {
+
+                        holder.productName.setText(model.getName());
+                        holder.productDesc.setText(model.getDesc());
+                        holder.productQuantity.setText(String.valueOf(model.getQuantity()));
+                        holder.productPrice.setText( "$" + String.format("%.2f",model.getprice()));
+                        GlideApp.
+                                with(getActivity())
+                                .load(model.getImage())
+                                .into(holder.productImage);
+
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(getContext(), ProductDetails.class);
+                                intent.putExtra("name", model.getName());
+//                                intent.putExtra("pid", model.getPid());
+                                startActivity(intent);
+                            }
+                        });
+
+                    }
+
+                    @NonNull
+                    @Override
+                    public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_list, parent, false);
+                        ProductViewHolder holder = new ProductViewHolder(view);
+                        return holder;
+                    }
+                };
+
+        mResultList.setAdapter(adapter);
+        adapter.startListening();
+    }
+
+
+}
+
+
+
+
 
 /*    private void firebaseProductSearch(String searchText) {
 
@@ -113,7 +172,7 @@ public class Searchfragment extends Fragment {
 
 
 
-    public static class ProductViewHolder extends RecyclerView.ViewHolder {
+   /* public static class ProductViewHolder extends RecyclerView.ViewHolder {
         View mview;
 
         public ProductViewHolder(View itemView) {
@@ -131,8 +190,8 @@ public class Searchfragment extends Fragment {
             Glide.with(ctx).load(productImage).into(product_image);
             product_quantity.setText(quantity);
         }
-    }
-}
+    }*/
+
 
 
 
