@@ -48,9 +48,10 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
     private MpagerAdapter mpagerAdapter;
     private LinearLayout Dots_Layout;
     private int dotscount;
+    public String confirmpassord;
     private Button BtnNext, BtnBack;
 
-    private EditText inputEmail, inputPassword, inputConfirmPassword, inputFirstName, inputUsername;
+    public EditText inputEmail, inputPassword, inputConfirmPassword, inputFirstName, inputUsername;
     private Button btnSignUp;
 
     static final int requestcode = 1;
@@ -90,6 +91,7 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
 
         inputUsername = (EditText) findViewById(R.id.username);
         inputFirstName = (EditText) findViewById(R.id.first_name);
+
         inputPassword = (EditText) findViewById(R.id.password);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         inputConfirmPassword = (EditText) findViewById(R.id.confirm_password);
@@ -147,10 +149,10 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
     public boolean validPassword() {
         String passwordInput = inputPassword.getText().toString().trim();
         if(passwordInput.isEmpty()) {
-            inputPassword.setError("Field can't be empty");
+            inputPassword.setError("Field can't be empty", customErrorDrawable);
             return false;
         }  else if (!PASSWORD_PATTERN.matcher(passwordInput).matches()) {
-            inputPassword.setError("Password too weak");
+            inputPassword.setError("Password too weak", customErrorDrawable);
             return false;
         } else {
             inputPassword.setError(null);
@@ -162,10 +164,10 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
         String emailInput = inputEmail.getText().toString().trim();
 
         if (emailInput.isEmpty()) {
-            inputEmail.setError("Field can't be empty");
+            inputEmail.setError("Field can't be empty", customErrorDrawable);
             return false;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
-            inputEmail.setError("Please enter a valid email address");
+            inputEmail.setError("Please enter a valid email address", customErrorDrawable);
             return false;
         } else {
             inputEmail.setError(null);
@@ -178,10 +180,10 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
         String usernameInput = inputUsername.getText().toString().trim();
 
         if (usernameInput.isEmpty()) {
-            inputUsername.setError("Field can't be empty");
+            inputUsername.setError("Field can't be empty", customErrorDrawable);
             return false;
         } else if (usernameInput.length() > 15) {
-            inputUsername.setError("Username too long");
+            inputUsername.setError("Username too long", customErrorDrawable);
             return false;
         } else {
             inputUsername.setError(null);
@@ -189,27 +191,64 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
         }
     }
 
-        public void CreateNewUser(final FirebaseAuth mAuth,  final String email, final String password, final String firstName, final String username) {
+    public boolean validateConfirmPassword() {
+        String confirmPassword = inputConfirmPassword.getText().toString().trim();
+        String passwordInput = inputPassword.getText().toString().trim();
+        if (confirmPassword.isEmpty()) {
+            inputConfirmPassword.setError("Field can't be empty", customErrorDrawable);
+            return false;
+        } else if (passwordInput.equals(confirmPassword)) {
+            inputConfirmPassword.setError(null);
+            return true;
+        } else {
+            inputConfirmPassword.setError("Mismatching Passwords", customErrorDrawable);
+            return false;
+        }
+    }
+
+
+
+
+    private boolean validateFirstName() {
+        String firstNameInput = inputFirstName.getText().toString().trim();
+        if (firstNameInput.isEmpty()) {
+            inputFirstName.setError("Field can't be empty", customErrorDrawable);
+            return false;
+        }
+         else {
+            inputFirstName.setError(null);
+            return true;
+        }
+    }
+
+
+
+    public void CreateNewUser(final FirebaseAuth mAuth,  final String email, final String password, final String firstName, final String username) {
             inputEmail = (EditText) findViewById(R.id.email_address);
             inputPassword = (EditText) findViewById(R.id.password);
+
             inputUsername = (EditText) findViewById(R.id.username);
             inputFirstName = (EditText) findViewById(R.id.first_name);
             final User newUser = new User(email, firstName, username);
-            if (email.trim().equals("") || password.trim().equals("") || firstName.trim().equals("") || username.trim().equals("")) {
 
+            if(!validPassword()| !validateUsername()| !validateEmail()| !validateFirstName()| !validateConfirmPassword())  {
+                return;
 
-                inputFirstName.setError("Please enter a name", customErrorDrawable);
-                inputUsername.setError("Please enter a username", customErrorDrawable);
-                inputEmail.setError("Incorrect Email", customErrorDrawable);
-                inputPassword.setError("Incorrect Password", customErrorDrawable);
+//            if (email.trim().equals("") || password.trim().equals("") || firstName.trim().equals("") || username.trim().equals("")) {
+
+//
+//                inputFirstName.setError("Please enter a name", customErrorDrawable);
+//                inputUsername.setError("Please enter a username", customErrorDrawable);
+//                inputEmail.setError("Incorrect Email", customErrorDrawable);
+//                inputPassword.setError("Incorrect Password", customErrorDrawable);
 
 //                Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
             }
             else {
-                inputFirstName.setError(null);
-                inputUsername.setError(null);
-                inputPassword.setError(null);
-                inputEmail.setError(null);
+//                inputFirstName.setError(null);
+//                inputUsername.setError(null);
+//                inputPassword.setError(null);
+//                inputEmail.setError(null);
                 SafetyNet.getClient(this).verifyWithRecaptcha("6LeJXrYUAAAAAHRsW-8Qbzqp4igKRdZYgwfXCSBa")
                         .addOnSuccessListener(this, new OnSuccessListener<SafetyNetApi.RecaptchaTokenResponse>() {
                             @Override
@@ -255,21 +294,28 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
         }
 
     public void register(View view) {
-
+//
             EditText firstName = (EditText) findViewById(R.id.first_name);
             EditText username = (EditText) findViewById(R.id.username);
             EditText email = (EditText) findViewById(R.id.email_address);
             EditText password = (EditText) findViewById(R.id.password);
             EditText confirmpassword = (EditText) findViewById(R.id.confirm_password);
 
-            if (password.getText().toString().equals(confirmpassword.getText().toString())) {
-                password.setError(null);
-                CreateNewUser(mAuth, email.getText().toString(), password.getText().toString(), firstName.getText().toString(), username.getText().toString());
-            }
-            else {
-                password.setError("Mismatching Passwords", customErrorDrawable);
+        inputConfirmPassword = (EditText) findViewById(R.id.confirm_password);
+        inputPassword  = (EditText) findViewById(R.id.password);
+
+//            if (password.getText().toString().equals(confirmpassword.getText().toString())) {
+//                password.setError(null);
+
+
+//                CreateNewUser(mAuth, email.getText().toString(), password.getText().toString(), firstName.getText().toString(), username.getText().toString());
+
+            CreateNewUser(mAuth, email.getText().toString(), password.getText().toString(), firstName.getText().toString(), username.getText().toString());
+
+//            else {
+//                confirmpassword.setError("Mismatching Passwords", customErrorDrawable);
 //                Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
-            }
+
         }
 
 

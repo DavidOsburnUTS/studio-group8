@@ -2,9 +2,12 @@ package com.example.studio_group8;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.telephony.PhoneNumberUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -30,6 +33,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.regex.Pattern;
+
 public class RegisterSellerActivity extends Activity implements View.OnClickListener {
 
     private ViewPager mPager;
@@ -37,12 +42,13 @@ public class RegisterSellerActivity extends Activity implements View.OnClickList
     private MpagerAdapter mpagerAdapter;
     private LinearLayout Dots_Layout;
     private int dotscount;
-    private EditText inputEmail, inputPassword, inputConfirmPassword, inputFirstName, inputUsername;
+    public EditText inputEmail, inputPassword, inputConfirmPassword, inputFirstName, inputPhone;
     private Button btnSignUp;
     static final int requestcode = 1;
     private FirebaseAuth mAuth;
     private Button BtnNext, BtnBack;
 
+    public Drawable customErrorDrawable;
 
     private ImageView[] dots;
 
@@ -66,8 +72,20 @@ public class RegisterSellerActivity extends Activity implements View.OnClickList
         mpagerAdapter = new MpagerAdapter(layouts, this);
         mPager.setAdapter(mpagerAdapter);
 
+        customErrorDrawable = getResources().getDrawable(R.drawable.error_icon);
+        customErrorDrawable.setBounds(0, 0, customErrorDrawable.getIntrinsicWidth(), customErrorDrawable.getIntrinsicHeight());
 
 
+
+
+
+        inputEmail = (EditText) findViewById(R.id.sellerEmail);
+        inputPhone = (EditText) findViewById(R.id.phonenumber);
+        inputFirstName = (EditText) findViewById(R.id.sellerName);
+
+        inputPassword = (EditText) findViewById(R.id.sellerpass);
+        btnSignUp = (Button) findViewById(R.id.sign_up_button);
+        inputConfirmPassword = (EditText) findViewById(R.id.sellerconfirmpass);
 
 
         Dots_Layout = (LinearLayout) findViewById(R.id.SliderDots);
@@ -107,12 +125,110 @@ public class RegisterSellerActivity extends Activity implements View.OnClickList
         });
     }
 
+    private static final Pattern PASSWORD_PATTERN =
+            Pattern.compile("^" +
+                    //"(?=.*[0-9])" +         //at least 1 digit
+                    //"(?=.*[a-z])" +         //at least 1 lower case letter
+                    //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                    "(?=.*[a-zA-Z])" +      //any letter
+                    "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                    "(?=\\S+$)" +           //no white spaces
+                    ".{6,}" +               //at least 4 characters
+                    "$");
+
+
+    public boolean validPassword() {
+        String passwordInput = inputPassword.getText().toString().trim();
+        if(passwordInput.isEmpty()) {
+            inputPassword.setError("Field can't be empty", customErrorDrawable);
+            return false;
+        }  else if (!PASSWORD_PATTERN.matcher(passwordInput).matches()) {
+            inputPassword.setError("Password too weak", customErrorDrawable);
+            return false;
+        } else {
+            inputPassword.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validateEmail() {
+        String emailInput = inputEmail.getText().toString().trim();
+
+        if (emailInput.isEmpty()) {
+            inputEmail.setError("Field can't be empty", customErrorDrawable);
+            return false;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
+            inputEmail.setError("Please enter a valid email address", customErrorDrawable);
+            return false;
+        } else {
+            inputEmail.setError(null);
+            return true;
+        }
+    }
+
+
+    private boolean validatePhone() {
+        String phone = inputPhone.getText().toString().trim();
+
+
+        if (phone.isEmpty()) {
+            inputPhone.setError("Field can't be empty", customErrorDrawable);
+            return false;
+        } else if (!Patterns.PHONE.matcher(phone).matches()) {
+            inputPhone.setError("Invalid Phone Number", customErrorDrawable);
+            return false;
+        } else {
+            inputPhone.setError(null);
+            return true;
+        }
+    }
+
+    public boolean validateConfirmPassword() {
+        String confirmPassword = inputConfirmPassword.getText().toString().trim();
+        String passwordInput = inputPassword.getText().toString().trim();
+        if (confirmPassword.isEmpty()) {
+            inputConfirmPassword.setError("Field can't be empty", customErrorDrawable);
+            return false;
+        } else if (passwordInput.equals(confirmPassword)) {
+            inputConfirmPassword.setError(null);
+            return true;
+        } else {
+            inputConfirmPassword.setError("Mismatching Passwords", customErrorDrawable);
+            return false;
+        }
+    }
+
+
+
+
+    private boolean validateFirstName() {
+        String firstNameInput = inputFirstName.getText().toString().trim();
+        if (firstNameInput.isEmpty()) {
+            inputFirstName.setError("Field can't be empty", customErrorDrawable);
+            return false;
+        }
+        else {
+            inputFirstName.setError(null);
+            return true;
+        }
+    }
+
+
 
 
     public void CreateNewSeller(final FirebaseAuth mAuth, final String email, final String password, final String name, final String phone) {
         final Seller newSeller = new Seller(email, name, phone);
-        if (email.trim().equals("") || password.trim().equals("") || name.trim().equals("") || phone.trim().equals("")) {
-            Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
+
+        inputEmail = (EditText) findViewById(R.id.sellerEmail);
+        inputPhone = (EditText) findViewById(R.id.phonenumber);
+        inputFirstName = (EditText) findViewById(R.id.sellerName);
+
+
+        if(!validPassword()| !validatePhone()| !validateEmail()| !validateFirstName()| !validateConfirmPassword()) {
+            return;
+//        if (email.trim().equals("") || password.trim().equals("") || name.trim().equals("") || phone.trim().equals("")) {
+//            Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
+//        }
         }
         else {
             SafetyNet.getClient(this).verifyWithRecaptcha("6LeJXrYUAAAAAHRsW-8Qbzqp4igKRdZYgwfXCSBa")
@@ -169,6 +285,9 @@ public class RegisterSellerActivity extends Activity implements View.OnClickList
         EditText password = (EditText) findViewById(R.id.sellerpass);
         EditText confirmpassword = (EditText) findViewById(R.id.sellerconfirmpass);
 
+
+        inputConfirmPassword = (EditText) findViewById(R.id.sellerconfirmpass);
+        inputPassword  = (EditText) findViewById(R.id.sellerpass);
 
         CreateNewSeller(mAuth, email.getText().toString(), password.getText().toString(), name.getText().toString(), phone.getText().toString());
 
