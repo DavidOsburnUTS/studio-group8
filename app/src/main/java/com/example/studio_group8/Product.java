@@ -11,6 +11,7 @@ public class Product {
     public String sellerid;
     public int quantity;
     public double price;
+    public String productid;
 
     DecimalFormat df = new DecimalFormat(" #.00");
 
@@ -20,8 +21,9 @@ public class Product {
     }
 
 
-    public Product(String sellerid, String name, String desc, String image, int quantity, String category, double price) {
+    public Product(String productid, String sellerid, String name, String desc, String image, int quantity, String category, double price) {
 
+        this.productid =productid;
         this.sellerid = sellerid;
         this.name = name;
         this.desc = desc;
@@ -37,7 +39,10 @@ public class Product {
         this.price = price;
     }
 
+    public void setproductid(String productid) {
 
+        this.productid = productid;
+    }
 
     public void setSellerid(String sellerid) {
 
@@ -71,6 +76,11 @@ public void setcategory(String category) {
     public double getprice() {
 
         return price;
+    }
+
+    public String getproductid() {
+
+        return productid;
     }
 
 

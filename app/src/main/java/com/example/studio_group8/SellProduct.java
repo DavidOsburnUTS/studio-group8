@@ -31,6 +31,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.UUID;
 
 public class SellProduct extends AppCompatActivity {
 
@@ -59,6 +60,7 @@ private Uri image_uri;
         mquantity   = (EditText) findViewById(R.id.quantity_edit_text);
         mupload = (Button) findViewById(R.id.upload);
         mprice = (EditText) findViewById(R.id.price);
+        final String productid = UUID.randomUUID().toString();
 
         /*String value = mquantity.getText().toString();
         mquint =Integer.parseInt(value);*/
@@ -68,7 +70,7 @@ private Uri image_uri;
             @Override
             public void onClick(View v) {
 
-                AddProduct(currentuser, mtitle.getText().toString().toUpperCase(), mdesc.getText().toString(), image, mquint,  selectedItemText, mprice.getText().toString());
+                AddProduct(productid, currentuser, mtitle.getText().toString().toUpperCase(), mdesc.getText().toString(), image, mquint,  selectedItemText, mprice.getText().toString());
 
             }
         });
@@ -123,9 +125,9 @@ private Uri image_uri;
         finish();
     }
 
-    public void AddProduct(String seller, String mtitle, String mdesc, String img, int mquantity, String cat, String price){
+    public void AddProduct(String productid, String seller, String mtitle, String mdesc, String img, int mquantity, String cat, String price){
         double d = Double.parseDouble(price);
-        final Product addProduct = new Product(seller, mtitle, mdesc, img, mquantity, cat, d);
+        final Product addProduct = new Product(productid, seller, mtitle, mdesc, img, mquantity, cat, d);
         if (mtitle.trim().equals("") || mdesc.trim().equals("") ) {
             Toast.makeText(this, "Please enter all details", Toast.LENGTH_SHORT).show();
         }
