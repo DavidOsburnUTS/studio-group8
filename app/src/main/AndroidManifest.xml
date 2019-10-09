@@ -101,6 +101,11 @@
         </activity>
 
         <activity
+            android:name=".CardPayment"
+            android:label="OneVice" >
+        </activity>
+
+        <activity
             android:name=".ManagePersoDetails"
             android:label="OneVice" >
         </activity>
