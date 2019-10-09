@@ -306,6 +306,7 @@
     <Button
         android:layout_width="275dp"
         android:layout_height="55dp"
+        android:onClick="confirmAndPay"
         android:layout_marginTop="88dp"
         android:layout_marginLeft="69dp"
         android:background="@drawable/bluebutt"
