@@ -6,6 +6,7 @@
     android:background="@drawable/gradient_background">
 
 
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"

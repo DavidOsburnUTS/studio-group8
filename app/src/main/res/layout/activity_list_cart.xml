@@ -22,12 +22,14 @@
 
     <TextView
         android:id="@+id/cart_product_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textStyle="bold"
         android:layout_toEndOf="@+id/cart_product_image"
         android:fontFamily="@font/raleway_semibold"
@@ -37,12 +39,12 @@
 
 
     <ImageView
-        android:id="@+id/cross"
+        android:id="@+id/remove_button"
         android:layout_toEndOf="@id/cart_product_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/xred"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="25dp"/>
 
 

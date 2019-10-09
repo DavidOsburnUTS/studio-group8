@@ -31,8 +31,8 @@ import java.util.HashMap;
 public class ProductDetails extends AppCompatActivity {
     private ImageView prodImage;
     private Button addCart;
-    private TextView  prodPrice, prodDescription, prodName;
-    private EditText productQuantity;
+    private TextView   prodDescription, prodName;
+    private EditText prodPrice,productQuantity;
     private String productID = "";
 
 
@@ -54,7 +54,7 @@ public class ProductDetails extends AppCompatActivity {
         addCart = (Button) findViewById(R.id.addtoCart);
         productQuantity = (EditText) findViewById(R.id.quantity_edit_text);
         prodImage = (ImageView) findViewById(R.id.prod_image);
-        prodPrice = (TextView) findViewById(R.id.prod_price);
+        prodPrice = (EditText) findViewById(R.id.prod_price);
         prodDescription = (TextView) findViewById(R.id.prod_desc);
         prodName = (TextView) findViewById(R.id.prod_text);
 
@@ -95,6 +95,7 @@ public class ProductDetails extends AppCompatActivity {
         cartMap.put("desc", prodDescription.getText().toString());
         cartMap.put("quantity", productQuantity.getText().toString());
         cartMap.put("price", prodPrice.getText().toString());
+//        cartMap.put("price", prodPrice.getText().toString());
 //        cartMap.put("image", prodImage);
 //        cartMap.put("price", prodPrice.);
 //        cartMap.put("quantity", n);
@@ -124,7 +125,7 @@ public class ProductDetails extends AppCompatActivity {
                 if(dataSnapshot.exists()) {
                     Product products = dataSnapshot.getValue(Product.class);
                     prodName.setText(products.getName());
-                    prodPrice.setText(String.valueOf("$"+ String.format("%.2f", products.getprice())));
+                    prodPrice.setText(String.valueOf( products.getprice()));
                     prodDescription.setText(products.getDesc());
                     GlideApp.
                             with(ProductDetails.this)

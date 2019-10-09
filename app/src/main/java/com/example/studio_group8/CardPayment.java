@@ -50,7 +50,7 @@ public class CardPayment extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();
-                            Toast.makeText(CardPayment.this, "Thank you for purchase", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CardPayment.this, "Thank you for purchase", Toast.LENGTH_SHORT).show();
                         }
                     });
                     alertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -63,7 +63,7 @@ public class CardPayment extends AppCompatActivity {
                     alertDialog.show();
 
                 }else {
-                    Toast.makeText(CardPayment.this, "Please complete the form", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CardPayment.this, "Please complete the form", Toast.LENGTH_SHORT).show();
                 }
             }
         });

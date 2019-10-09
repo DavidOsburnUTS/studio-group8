@@ -55,16 +55,16 @@
         android:id="@+id/recyclercartlist"
         android:layout_centerHorizontal="true"
         android:layout_height="600dp"
+
         android:layout_marginTop="200dp"
         android:scrollbars="vertical"
-        android:paddingBottom="30dp"
-        android:layout_marginBottom="40dp">
+        android:layout_marginBottom="30dp">
     </androidx.recyclerview.widget.RecyclerView>
 
     <View
         android:id="@+id/line"
         android:layout_width="310dp"
-        android:layout_height="3dp"
+        android:layout_height="1dp"
         android:layout_marginBottom="20dp"
         android:layout_below="@id/recyclercartlist"
         android:layout_centerHorizontal="true"
@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                     android:id="@+id/orderTotal"
-                android:text="Order total"
+                android:text="Order total:"
                 android:layout_below="@+id/line"
                 android:layout_marginLeft="60dp"
                 android:textColor="#52A5FF"
@@ -84,31 +84,39 @@
                 android:textSize="15.5dp" />
 
             <TextView
+                android:id="@+id/total_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/line"
-                android:layout_marginLeft="275dp"
+                android:paddingLeft="100dp"
+                android:inputType="numberDecimal"
+                android:layout_toEndOf="@id/orderTotal"
                 android:fontFamily="@font/raleway_semibold"
-                android:text="AU $2000.00"
+                android:text="$0.00"
                 android:textColor="#2B2B2B"
+                android:singleLine="true"
+                android:marqueeRepeatLimit="@android:integer/config_shortAnimTime"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:textSize="15.5dp" />
 
 
             <Button
+                android:id="@+id/confirm"
                 android:layout_width="275dp"
                 android:layout_height="55dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@id/orderTotal"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/upload_btn"
                 android:fontFamily="@font/raleway_semibold"
                 android:gravity="center"
-                android:background="#4AB0FF"
+                android:onClick="confirmAndPay"
                 android:text="PROCEED TO CHECKOUT"
                 android:textColor="#FFFFFF"
-                android:textSize="20dp"
-                android:onClick="checkout"
-                />
+                android:textSize="20dp" />
 
 
 

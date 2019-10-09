@@ -39,11 +39,13 @@
 
 
 
-            <TextView
+            <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:textColor="#2196F3"
+                android:focusable="false"
+                android:editable="false"
         android:padding="10dp"
         android:background="@drawable/prod_price_bg"
                 android:alpha="0.9"
@@ -55,7 +57,7 @@
         android:layout_marginTop="150dp"
         android:text="Product Price">
 
-    </TextView>
+    </EditText>
 
     <TextView
         android:layout_width="wrap_content"

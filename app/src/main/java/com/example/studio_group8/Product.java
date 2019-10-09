@@ -75,7 +75,7 @@ public void setcategory(String category) {
 
     public double getprice() {
 
-        return price;
+        return Double.parseDouble(df.format(price));
     }
 
     public String getproductid() {
