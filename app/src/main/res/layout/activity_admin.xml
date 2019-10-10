@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E8E8E8">
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="-110dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/raleway_semibold"
         android:text="Home"
         android:gravity="center"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/admin_logout"
         android:onClick="logout"
-        android:layout_marginTop="-35dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="300dp">
 
     </ImageButton>
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/raleway_semibold"
         android:text="Welcome Admin"
         android:gravity="center"
@@ -47,7 +47,7 @@
         android:layout_width="430dp"
         android:layout_height="120dp"
         android:layout_marginLeft="-10dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="620dp"
         android:background="@drawable/bottombubble"/>
 
 
@@ -56,14 +56,14 @@
         android:layout_height="175dp"
         android:layout_marginLeft="20dp"
         android:onClick="account_page"
-        android:layout_marginTop="-570dp"
+        android:layout_marginTop="140dp"
         android:background="@drawable/adminbubble" />
 
     <ImageView
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:layout_marginLeft="215dp"
-        android:layout_marginTop="-175dp"
+        android:layout_marginTop="140dp"
         android:onClick="admin_product"
         android:background="@drawable/adminbubble" />
 
@@ -71,7 +71,7 @@
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:layout_marginLeft="215dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="320dp"
         android:onClick="admin_add_product"
         android:background="@drawable/adminbubble" />
 
@@ -79,7 +79,7 @@
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="-177dp"
+        android:layout_marginTop="320dp"
         android:onClick="admin_transactions"
         android:background="@drawable/adminbubble" />
 
@@ -87,14 +87,14 @@
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_marginLeft="82dp"
-        android:layout_marginTop="-325dp"
+        android:layout_marginTop="370dp"
         android:background="@drawable/adminaccounts" />
 
     <TextView
         android:layout_width="90dp"
         android:layout_height="30dp"
         android:layout_marginLeft="65dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="420dp"
         android:fontFamily="@font/raleway_semibold"
         android:textStyle="bold"
         android:text="Accounts"
@@ -105,14 +105,14 @@
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_marginLeft="275dp"
-        android:layout_marginTop="-75dp"
+        android:layout_marginTop="370dp"
         android:background="@drawable/adminproducts" />
 
     <TextView
         android:layout_width="90dp"
         android:layout_height="30dp"
         android:layout_marginLeft="260dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="420dp"
         android:fontFamily="@font/raleway_semibold"
         android:textStyle="bold"
         android:text="Products"
@@ -123,14 +123,14 @@
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_marginLeft="277dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="190dp"
         android:background="@drawable/admindevices" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginLeft="263dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="242dp"
         android:fontFamily="@font/raleway_semibold"
         android:textStyle="bold"
         android:text="Devices"
@@ -141,14 +141,14 @@
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_marginLeft="83dp"
-        android:layout_marginTop="-80dp"
+        android:layout_marginTop="190dp"
         android:background="@drawable/admintranactions" />
 
     <TextView
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_marginLeft="47dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="242dp"
         android:fontFamily="@font/raleway_semibold"
         android:textStyle="bold"
         android:text="Transactions"
@@ -156,6 +156,6 @@
         android:textSize="19dp" />
 
 
-</LinearLayout>
+</RelativeLayout>
 
 
