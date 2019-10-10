@@ -50,6 +50,10 @@
             android:label="OneVice">
 
         </activity>
+        <activity android:name=".EditProfile"
+            android:label="OneVice">
+
+        </activity>
 
         <activity android:name=".Homefragment"
             android:label="OneVice">

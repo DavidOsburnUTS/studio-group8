@@ -82,9 +82,9 @@ android:background="#E4E4E4">
     android:text="EDIT PROFILE"
     android:textColor="#828282"
     android:textSize="14dp"
-    android:textStyle="bold">
-
-</Button>
+    android:textStyle="bold"
+    android:onClick="edit_profile"
+    ></Button>
 
 <Button
     android:layout_width="match_parent"
