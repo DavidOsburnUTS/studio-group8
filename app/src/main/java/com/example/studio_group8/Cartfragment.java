@@ -118,20 +118,21 @@ public class Cartfragment extends Fragment{
             @Override
             protected void onBindViewHolder(@NonNull CartViewHolder holder, int i, @NonNull Cart model) {
 
+                Double value = new Double(model.getprice());
+                Integer quantity = new Integer(model.getQuantity());
+
+                double eachProductTotalPrice = value * quantity;
 
                 DecimalFormat df = new DecimalFormat(" #.00");
                 holder.productCartQuantity.setText((model.getQuantity()));
-                holder.productCartPrice.setText("$ " + model.getprice());
+                holder.productCartPrice.setText("$ " + eachProductTotalPrice);
                 holder.productCartName.setText(model.getName());
 
 
 
 
 
-                Double value = new Double(model.getprice());
-                Integer quantity = new Integer(model.getQuantity());
 
-                double eachProductTotalPrice = value * quantity;
 
 //                double eachProductTotalPrice = Double.parseDouble(model.getprice()) * Integer.parseInt(model.getQuantity());
 
