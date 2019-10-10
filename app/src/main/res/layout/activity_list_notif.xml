@@ -20,14 +20,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="60dp"
+        android:layout_centerHorizontal="true"
         android:layout_toEndOf="@+id/notif_image"
         android:fontFamily="@font/raleway_semibold"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
         android:textColor="#999999"
         android:textSize="14sp" />
 
-    <EditText
+    <!--<EditText
         android:id="@+id/editText3"
         android:layout_width="54dp"
         android:layout_height="20dp"
@@ -36,7 +36,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:ems="10"
-        android:inputType="date" />
+        android:inputType="date" />-->
 
 
 </RelativeLayout>

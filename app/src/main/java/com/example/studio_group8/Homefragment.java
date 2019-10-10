@@ -140,7 +140,7 @@ public class Homefragment extends Fragment implements View.OnClickListener {
                         holder.productDesc.setText(model.getDesc());
                         holder.productQuantity.setText(String.valueOf(model.getQuantity()));
 
-                        holder.productPrice.setText( "$" + String.format("%.2f",model.getprice()));
+                        holder.productPrice.setText( "$ " + String.format("%.2f",model.getprice()));
                         GlideApp.
                                 with(getActivity())
                                 .load(model.getImage())

@@ -29,7 +29,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/raleway_semibold"
-                android:text="Home page"
+                android:text="Cart page"
                 android:textColor="@color/fontColor"
                 android:textSize="40dp" />
 

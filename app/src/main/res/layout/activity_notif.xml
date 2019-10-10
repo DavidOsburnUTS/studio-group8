@@ -2,19 +2,370 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLight">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/gridbg">
+
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:background="@drawable/bubble" />
+
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/raleway_semibold"
+
         android:text="Notification page"
-        android:textColor="@color/fontColor" />
+        android:textColor="@color/fontColor"
+        android:textSize="40dp" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/card_list_click"
+        android:layout_centerHorizontal="true"
+        android:layout_height="100dp">
+
+    <ImageView
+        android:id="@+id/notif2_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/bin_icon"/>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/notif2_name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textStyle="normal"
+        android:layout_toEndOf="@+id/notif2_image"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="8:45PM"
+        android:textColor="#555555"
+        android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/notif2_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/notif2_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/notif2_image"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="Thank you for shopping with OneVice."
+            android:textColor="#999999"
+            android:textSize="14sp" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="250dp"
+        android:background="@drawable/card_list_click"
+        android:layout_centerHorizontal="true"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/notif3_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/guy_ic"/>
+
+        <TextView
+            android:id="@+id/notif3_name"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textStyle="normal"
+            android:layout_toEndOf="@+id/notif3_image"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="6:45PM"
+            android:textColor="#555555"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/notif3_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/notif3_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/notif3_image"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="Jean-Pierre P. made a review on your product #1234."
+            android:textColor="#999999"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="350dp"
+        android:background="@drawable/card_list_click"
+        android:layout_centerHorizontal="true"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/notif4_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/return_request"/>
+
+        <TextView
+            android:id="@+id/notif4_name"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textStyle="normal"
+            android:layout_toEndOf="@+id/notif4_image"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="20 April"
+            android:textColor="#555555"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/notif4_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/notif4_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/notif4_image"
+            android:fontFamily="@font/raleway_semibold"
+            android:text=" Joseph J. has made a return request."
+            android:textColor="#999999"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="450dp"
+        android:background="@drawable/card_list_click"
+        android:layout_centerHorizontal="true"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/notif5_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/console_sale"/>
+
+        <TextView
+            android:id="@+id/notif5_name"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textStyle="normal"
+            android:layout_toEndOf="@+id/notif5_image"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="1 April"
+            android:textColor="#555555"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/notif5_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/notif5_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/notif5_image"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="50% OFF in Nintendo Switch Lite!"
+            android:textColor="#999999"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="550dp"
+        android:background="@drawable/card_list_click"
+        android:layout_centerHorizontal="true"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/notif6_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/bin_icon"/>
+
+        <TextView
+            android:id="@+id/notif6_name"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textStyle="normal"
+            android:layout_toEndOf="@+id/notif6_image"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="3 Feb"
+            android:textColor="#555555"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/notif6_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/notif6_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/notif6_image"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="Your order #123456 has been successfully processed."
+            android:textColor="#999999"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="650dp"
+        android:background="@drawable/card_list_click"
+        android:layout_centerHorizontal="true"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/notif7_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/stephanie_ic"/>
+
+        <TextView
+            android:id="@+id/notif7_name"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textStyle="normal"
+            android:layout_toEndOf="@+id/notif7_image"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="1 Jan"
+            android:textColor="#555555"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/notif7_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/notif7_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/notif7_image"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="John Weak has made an order."
+            android:textColor="#999999"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
+
+
+    <!--
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/recycler_view"
+            android:layout_centerHorizontal="true"
+            android:layout_height="match_parent"
+
+            android:layout_marginTop="140dp"
+            android:scrollbars="vertical">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    -->
+
+<!--    </RelativeLayout>-->
+
+
 
 </RelativeLayout>
