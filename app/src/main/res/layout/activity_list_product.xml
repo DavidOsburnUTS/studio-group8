@@ -54,7 +54,7 @@
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/product_price"
+        android:id="@+id/textView_order_id_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/product_text"
@@ -70,7 +70,7 @@
 
 
     <TextView
-    android:id="@+id/product_quantity"
+    android:id="@+id/textView_order_quantity_label"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_below="@+id/product_text"

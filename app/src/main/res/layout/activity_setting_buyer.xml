@@ -85,23 +85,6 @@
             android:layout_height="45dp"
             android:layout_centerHorizontal="true"
             android:background="#FFFFFF"
-            android:drawableStart="@drawable/ic_payment_24px"
-            android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
-            android:drawablePadding="15dp"
-            android:text="MANAGE PAYMENT OPTIONS"
-            android:textStyle="bold"
-            android:textSize="14dp"
-            android:textColor="#828282"
-            android:padding="12dp"
-            android:paddingStart="27dp"
-            android:paddingEnd="31dp"
-
-            ></Button>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_centerHorizontal="true"
-            android:background="#FFFFFF"
             android:drawableStart="@drawable/ic_account_circle_24px"
             android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
             android:drawablePadding="15dp"

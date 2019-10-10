@@ -7,11 +7,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.studio_group8.ItemClickListener;
-import com.example.studio_group8.R;
-
-import org.w3c.dom.Text;
-
 public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView productName, productPrice, productQuantity, productDesc;
     public ImageView productImage;
@@ -26,8 +21,8 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.O
 
         productImage = (ImageView) itemView.findViewById(R.id.product_image);
         productName = (TextView) itemView.findViewById(R.id.product_text);
-        productPrice = (TextView) itemView.findViewById(R.id.product_price);
-        productQuantity = (TextView) itemView.findViewById(R.id.product_quantity);
+        productPrice = (TextView) itemView.findViewById(R.id.textView_order_id_label);
+        productQuantity = (TextView) itemView.findViewById(R.id.textView_order_quantity_label);
         productDesc = (TextView) itemView.findViewById(R.id.product_desc);
 
     }
