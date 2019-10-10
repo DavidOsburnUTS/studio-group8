@@ -88,6 +88,22 @@
             android:label="OneVice" >
         </activity>
         <activity
+            android:name=".AdminMaintainProductActivity"
+            android:label="OneVice" >
+        </activity>
+        <activity
+            android:name=".AdminProdPage"
+            android:label="OneVice" >
+        </activity>
+        <activity
+            android:name=".AdminTransPage"
+            android:label="OneVice" >
+        </activity>
+        <activity
+            android:name=".AdminAccPage"
+            android:label="OneVice" >
+        </activity>
+        <activity
             android:name=".RegisterSellerActivity"
             android:label="OneVice" >
         </activity>

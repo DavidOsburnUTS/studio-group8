@@ -6,22 +6,23 @@
         android:id="@+id/RelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="#3F6CF4">
+        android:background="@drawable/page_header_bg">
 
-        <Button
-            android:id="@+id/products_back_button"
-            android:layout_width="20dp"
-            android:layout_height="25dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="46dp"
-            android:background="@drawable/ic_keyboard_arrow_left_24px" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="49dp"
+            android:background="@drawable/ic_keyboard_arrow_left_24px"
+            android:onClick="cancelHome">
+        </ImageView>
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
@@ -30,7 +31,7 @@
             android:fontFamily="@font/raleway_semibold"
             android:gravity="center"
             android:padding="27dp"
-            android:text="TRANSACTION"
+            android:text="Transaction"
             android:textColor="#FFFFFF"
             android:textSize="35sp"
             android:textStyle="bold" />
