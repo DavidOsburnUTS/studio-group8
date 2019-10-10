@@ -11,11 +11,21 @@ import android.app.AlertDialog.Builder;
 
 
 import com.braintreepayments.cardform.view.CardForm;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.UUID;
+
 public class CardPayment extends AppCompatActivity {
 
+String orderid;
+private DatabaseReference cartListRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +61,7 @@ public class CardPayment extends AppCompatActivity {
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();
                             Toast.makeText(CardPayment.this, "Thank you for purchase", Toast.LENGTH_SHORT).show();
+                            CreateOrder();
                         }
                     });
                     alertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -72,5 +83,45 @@ public class CardPayment extends AppCompatActivity {
 
     public void back( View view) {
         finish();
+    }
+
+    public void CreateOrder() {
+        final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        orderid = UUID.randomUUID().toString();
+        cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart");
+        DatabaseReference fromPath = cartListRef.child(currentuser).child("Products");
+        DatabaseReference ordersave = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference toPath = ordersave.child("Order").child(orderid).child(currentuser);
+        AddOrder(fromPath, toPath);
+
+    }
+
+    private void AddOrder(final DatabaseReference fromPath, final DatabaseReference toPath) {
+        fromPath.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                toPath.setValue(dataSnapshot.getValue(), new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(DatabaseError firebaseError, DatabaseReference firebase) {
+                        if (firebaseError != null) {
+                            System.out.println("Copy failed");
+                        } else {
+                            System.out.println("Success");
+                            final String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            cartListRef.child(user)
+                                    .child("Products")
+                                    .removeValue();
+
+                        }
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }

@@ -126,7 +126,7 @@ public class Cartfragment extends Fragment{
 
                 DecimalFormat df = new DecimalFormat(" #.00");
                 holder.productCartQuantity.setText((model.getQuantity()));
-                holder.productCartPrice.setText("$ " + eachProductTotalPrice);
+                holder.productCartPrice.setText(" " + eachProductTotalPrice);
                 holder.productCartName.setText(model.getName());
 //                GlideApp.
 //                        with(getActivity())
@@ -146,7 +146,7 @@ public class Cartfragment extends Fragment{
 
 
 
-                totalPrice.setText("$ " + df.format(overTotalPrice));
+                totalPrice.setText(" " + df.format(overTotalPrice));
 
 //                GlideApp.
 //                        with(getActivity())
@@ -169,7 +169,7 @@ public class Cartfragment extends Fragment{
                     @Override
                     public void onClick(View v) {
                         overTotalPrice = overTotalPrice - eachProductTotalPrice;
-                        totalPrice.setText("$ " + df.format(overTotalPrice));
+                        totalPrice.setText(" " + df.format(overTotalPrice));
                         cartListRef.child(currentuser)
                                 .child("Products")
                                 .child(model.getproductid())
