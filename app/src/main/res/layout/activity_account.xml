@@ -100,7 +100,8 @@ android:background="#E4E4E4">
     android:textColor="#828282"
     android:padding="12dp"
     android:paddingStart="27dp"
-    android:paddingEnd="31dp">
+    android:paddingEnd="31dp"
+    android:onClick="order_history">
 </Button>
 <Button
     android:layout_width="match_parent"

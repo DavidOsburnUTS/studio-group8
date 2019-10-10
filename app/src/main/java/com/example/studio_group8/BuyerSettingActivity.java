@@ -33,4 +33,6 @@ public class BuyerSettingActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
     }
 
+
+
 }

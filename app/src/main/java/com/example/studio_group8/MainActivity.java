@@ -80,6 +80,12 @@ public class MainActivity extends AppCompatActivity {
         overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
     }
 
+    public void order_history(View view) {
+        Intent history = new Intent(MainActivity.this, OrderHistory.class);
+        startActivity(history);
+        overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
+    }
+
     public void camera_category(View view) {
         Intent camera = new Intent(MainActivity.this, CameraCategory.class);
         startActivity(camera);
