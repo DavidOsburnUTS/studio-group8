@@ -114,6 +114,7 @@ android:background="#E4E4E4">
     android:textStyle="bold"
     android:textSize="14dp"
     android:textColor="#828282"
+    android:onClick="recommendation"
     android:padding="12dp"
     android:paddingStart="27dp"
     android:paddingEnd="31dp">

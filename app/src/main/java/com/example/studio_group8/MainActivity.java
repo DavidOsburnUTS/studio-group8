@@ -74,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(editprofile);
         overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
     }
+    public void recommendation(View view) {
+        Intent reco = new Intent(MainActivity.this, Recommendation.class);
+        startActivity(reco);
+        overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+    }
 
     public void camera_category(View view) {
         Intent camera = new Intent(MainActivity.this, CameraCategory.class);

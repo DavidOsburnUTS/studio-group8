@@ -54,6 +54,10 @@
             android:label="OneVice">
 
         </activity>
+        <activity android:name=".Recommendation"
+            android:label="OneVice">
+
+        </activity>
 
         <activity android:name=".Homefragment"
             android:label="OneVice">
