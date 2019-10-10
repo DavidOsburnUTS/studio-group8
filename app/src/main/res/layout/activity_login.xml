@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/fontColor"
         android:hint="Password"
-        android:text="shazza"
+        android:text="shazza123#"
         android:layout_marginTop="390dp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"

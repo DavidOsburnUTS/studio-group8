@@ -58,12 +58,19 @@
             android:label="OneVice">
 
         </activity>
-
         <activity android:name=".Homefragment"
             android:label="OneVice">
 
         </activity>
 
+        <activity android:name=".MainUserActivity"
+            android:label="OneVice">
+
+        </activity>
+        <activity android:name=".AdminPage"
+            android:label="OneVice">
+
+        </activity>
         <activity android:name=".ProductDetails"
             android:label="OneVice">
 

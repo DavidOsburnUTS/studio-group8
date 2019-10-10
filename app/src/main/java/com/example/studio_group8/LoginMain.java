@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.JetPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -30,6 +31,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.victor.loading.rotate.RotateLoading;
 
 import org.w3c.dom.Text;
@@ -223,23 +229,118 @@ public class LoginMain extends AppCompatActivity {
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                        String RegisteredUserID = currentUser.getUid();
+
+                       DatabaseReference LoginDatabase =  FirebaseDatabase.getInstance().getReference().child("User").child(RegisteredUserID);
+
+
+                        LoginDatabase.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                String userType = dataSnapshot.child("type").getValue().toString();
+                                if(userType.equals("buyer")) {
+                                    rotateLoading.stop();
+                                    Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                                    Intent buyer = new Intent(LoginMain.this, MainUserActivity.class);
+                                    startActivity(buyer);
+                                }
+                                else if(userType.equals("seller")) {
+                                    rotateLoading.stop();
+                                    Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                                    Intent seller = new Intent(LoginMain.this, MainActivity.class);
+                                    startActivity(seller);
+                                }
+                                else if(userType.equals("admin")) {
+                                    rotateLoading.stop();
+                                    Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                                    Intent admin = new Intent(LoginMain.this, AdminPage.class);
+                                    startActivity(admin);
+                                }
+                                else {
+                                    rotateLoading.stop();
+                                    Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
+                                    loginBtn.setText("Login");
+                                    loginBtn.setEnabled(true);
+
+                                }
+
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+
+
+
+
+
+
+             /*           final FirebaseUser userTest = mAuth.getCurrentUser();
+
                         if (task.isSuccessful()) {
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            String id2 = mAuth.getCurrentUser().getUid();
+                            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
                             rotateLoading.stop();
                             Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
 
 
-                            Intent intent = new Intent(LoginMain.this, MainActivity.class);
-                            startActivity(intent);
+
+
+
+                            mDatabase.child("User").child("seller").child(id2).child("isAdmin").addValueEventListener(new ValueEventListener() {
+
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    String admin = (String) dataSnapshot.getValue();
+
+                                    if (admin.equals("yes")) {
+                                        rotateLoading.stop();
+                                        Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                                        Intent adminPage = new Intent(LoginMain.this, AdminPage.class);
+                                        startActivity(adminPage);
+
+
+                                    }
+
+
+                                    else {
+                                        rotateLoading.stop();
+                                        Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                                        Intent main = new Intent(LoginMain.this, MainActivity.class);
+                                        startActivity(main);
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+                                    String admin = "false";
+                                }
+                            });
+
+//                            Intent intent = new Intent(LoginMain.this, MainActivity.class);
+//                            startActivity(intent);
                         }
-                        else {
+*/
+
+
+                 /*       else {
                             rotateLoading.stop();
                             Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
                             loginBtn.setText("Login");
                             loginBtn.setEnabled(true);
 
-                        }
+                        }*/
                     }
                 });
     }

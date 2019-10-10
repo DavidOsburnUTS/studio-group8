@@ -9,6 +9,8 @@ public class User
     public String firstname;
     public String username;
 
+
+
     public String isAdmin;
 
 
@@ -22,9 +24,6 @@ public class User
         this.email = email;
         this.firstname = firstname;
         this.username = username;
-
-        this.isAdmin = "no";
-
     }
 
 

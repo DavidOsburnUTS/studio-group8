@@ -264,7 +264,8 @@ public class RegisterSellerActivity extends Activity implements View.OnClickList
                     String id1 = mAuth.getCurrentUser().getUid();
                     final FirebaseUser user = mAuth.getCurrentUser();
                     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-                    mDatabase.child("User").child("seller").child(id1).setValue(newSeller);
+                    mDatabase.child("User").child(id1).setValue(newSeller);
+                    mDatabase.child("User").child(id1).child("type").setValue("seller");
                     user.sendEmailVerification();
                     finish();
 
