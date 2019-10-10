@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,6 +36,7 @@ public class ProductDetails extends AppCompatActivity {
     private EditText prodPrice,productQuantity;
     private String productID = "";
 
+    String currentuser;
 
     private EditText mtitle, mdesc, mquantity;
     private int mquint =1;
@@ -86,7 +88,7 @@ public class ProductDetails extends AppCompatActivity {
 
         saveCurrentTime = currentDate.format(calDate.getTime());
 
-        DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
+        DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart");
 
 
         final HashMap<String, Object> cartMap = new HashMap<>();
@@ -100,8 +102,11 @@ public class ProductDetails extends AppCompatActivity {
 //        cartMap.put("price", prodPrice.);
 //        cartMap.put("quantity", n);
 
-        cartListRef.child("User View")
-                .child("Product")
+        currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
+        cartListRef.child(currentuser)
+                .child("Products")
                 .child(productID)
                 .updateChildren(cartMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

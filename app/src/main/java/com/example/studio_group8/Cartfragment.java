@@ -22,6 +22,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -103,13 +104,13 @@ public class Cartfragment extends Fragment{
     public void onStart() {
         super.onStart();
 
-        final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
-
+        final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart");
+        final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         FirebaseRecyclerOptions<Cart> options =
                 new FirebaseRecyclerOptions.Builder<Cart>()
-                .setQuery(cartListRef.child("User View")
-                .child("Product"), Cart.class)
+                .setQuery(cartListRef.child(currentuser)
+                .child("Products"), Cart.class)
                 .build();
 
         FirebaseRecyclerAdapter<Cart, CartViewHolder> adapter
@@ -164,7 +165,7 @@ public class Cartfragment extends Fragment{
                     public void onClick(View v) {
                         overTotalPrice = overTotalPrice - eachProductTotalPrice;
                         totalPrice.setText("$ " + df.format(overTotalPrice));
-                        cartListRef.child("User View")
+                        cartListRef.child(currentuser)
                                 .child("Product")
                                 .child(model.getproductid())
                                 .removeValue()
