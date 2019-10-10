@@ -128,6 +128,11 @@ public class Cartfragment extends Fragment{
                 holder.productCartQuantity.setText((model.getQuantity()));
                 holder.productCartPrice.setText("$ " + eachProductTotalPrice);
                 holder.productCartName.setText(model.getName());
+//                GlideApp.
+//                        with(getActivity())
+//                        .load(model.getImage())
+//                        .into(holder.productCartImage);
+
 
 
 
@@ -166,7 +171,7 @@ public class Cartfragment extends Fragment{
                         overTotalPrice = overTotalPrice - eachProductTotalPrice;
                         totalPrice.setText("$ " + df.format(overTotalPrice));
                         cartListRef.child(currentuser)
-                                .child("Product")
+                                .child("Products")
                                 .child(model.getproductid())
                                 .removeValue()
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
