@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8E8E8">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#3F6CF4"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="-90dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Home"
+        android:gravity="center"
+        android:textColor="@color/fontColor"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="1dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Welcome Wasif"
+        android:gravity="center"
+        android:textColor="@color/fontColor"
+        android:textSize="35dp" />
+
+    <ImageView
+        android:layout_width="430dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginTop="520dp"
+        android:background="@drawable/bottombubble" />
+
+    <ImageView
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="-590dp"
+        android:background="@drawable/adminbubble" />
+
+    <ImageView
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginLeft="215dp"
+        android:layout_marginTop="-175dp"
+        android:background="@drawable/adminbubble" />
+
+    <ImageView
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginLeft="215dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/adminbubble" />
+
+    <ImageView
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="-177dp"
+        android:background="@drawable/adminbubble" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="82dp"
+        android:layout_marginTop="-325dp"
+        android:background="@drawable/adminaccounts" />
+
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textStyle="bold"
+        android:text="Accounts"
+        android:textColor="#4AB0FF"
+        android:textSize="19dp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="-80dp"
+        android:background="@drawable/adminproducts" />
+
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textStyle="bold"
+        android:text="Products"
+        android:textColor="#4AB0FF"
+        android:textSize="19dp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="110dp"
+        android:background="@drawable/admindevices" />
+
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="265dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textStyle="bold"
+        android:text="Devices"
+        android:textColor="#4AB0FF"
+        android:textSize="19dp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="82dp"
+        android:layout_marginTop="-85dp"
+        android:background="@drawable/admintranactions" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="47dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textStyle="bold"
+        android:text="Transactions"
+        android:textColor="#4AB0FF"
+        android:textSize="19dp" />
+
+
+</LinearLayout>
+
+<!---admin_search_field is a different ID->
+
