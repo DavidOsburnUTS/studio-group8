@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/transaction_image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/nintendo" />
+
+    <TextView
+        android:id="@+id/transaction_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="22dp"
+        android:layout_toEndOf="@id/transaction_image"
+        android:text="Product name"
+        android:textColor="@color/bb_tabletRightBorderDark" />
+
+    <TextView
+        android:id="@+id/transaction_buyer_seller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="41dp"
+        android:text="Buyer/seller"
+        android:textColor="@color/bb_tabletRightBorderDark" />
+
+    <TextView
+        android:id="@+id/transaction_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="60dp"
+        android:layout_toEndOf="@id/transaction_image"
+        android:text="Transaction Date"
+        android:textColor="@color/bb_tabletRightBorderDark" />
+
+    <TextView
+        android:id="@+id/transaction_seller_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/transaction_date"
+        android:layout_marginStart="21dp"
+        android:layout_toEndOf="@id/transaction_image"
+        android:paddingBottom="23dp"
+        android:text="Seller Location"
+        android:textColor="@color/bb_tabletRightBorderDark" />
+
+    <Button
+        android:id="@+id/product_delete_button"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/xred" />
+
+</RelativeLayout>
