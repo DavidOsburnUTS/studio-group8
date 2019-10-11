@@ -16,10 +16,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 
 public class CardPayment extends AppCompatActivity {
@@ -60,6 +64,7 @@ private DatabaseReference cartListRef;
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();
+
                             Toast.makeText(CardPayment.this, "Thank you for purchase", Toast.LENGTH_SHORT).show();
                             CreateOrder();
                         }
@@ -88,11 +93,19 @@ private DatabaseReference cartListRef;
     public void CreateOrder() {
         final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
         orderid = UUID.randomUUID().toString();
+        Date c = Calendar.getInstance().getTime();
+
+
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        String formattedDate = df.format(c);
         cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart");
         DatabaseReference fromPath = cartListRef.child(currentuser).child("Products");
         DatabaseReference ordersave = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference toPath = ordersave.child("Order").child(orderid).child(currentuser);
+        DatabaseReference toPath = ordersave.child("Order").child(formattedDate).child(orderid).child(currentuser);
         AddOrder(fromPath, toPath);
+
+       
+
 
     }
 
