@@ -9,7 +9,7 @@
         android:background="#3F6CF4">
 
         <Button
-            android:id="@+id/products_back_button"
+            android:id="@+id/transaction_back_button"
             android:layout_width="20dp"
             android:layout_height="25dp"
             android:layout_alignParentTop="true"
@@ -19,7 +19,7 @@
             android:onClick="back" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/label_transaction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
