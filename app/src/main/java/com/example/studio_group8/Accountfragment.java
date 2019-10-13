@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -18,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Accountfragment extends Fragment{
 
-
+    Fragment selectedFragment = null;
     private Context context;
     Button loginsec;
 
@@ -37,6 +36,20 @@ public class Accountfragment extends Fragment{
         View v = inflater.inflate(R.layout.activity_account,container, false);
 
         Button signout = (Button) v.findViewById(R.id.sign_out);
+        Button orderhist = (Button) v.findViewById(R.id.order_history);
+
+        orderhist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent order = new Intent(getActivity(), OrderHistStepOne.class);
+               startActivity(order);
+
+
+            }
+        });
+
+
 
 
         signout.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +111,17 @@ public class Accountfragment extends Fragment{
         alertDialog2.show();
 
 
+    }
+
+    public void edit_profile(View view) {
+        Intent editprofile = new Intent(getActivity(), EditProfile.class);
+        startActivity(editprofile);
+        //overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+    }
+    public void order_history(View view) {
+        Intent history = new Intent(getActivity(), OrderHistStepOne.class);
+        startActivity(history);
+        //overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
     }
 
 

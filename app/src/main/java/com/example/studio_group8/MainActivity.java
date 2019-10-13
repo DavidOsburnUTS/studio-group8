@@ -6,21 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -81,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void order_history(View view) {
-        Intent history = new Intent(MainActivity.this, OrderHistory.class);
+        Intent history = new Intent(MainActivity.this, OrderHistStepOne.class);
         startActivity(history);
         overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
     }
