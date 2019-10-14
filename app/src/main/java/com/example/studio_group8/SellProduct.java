@@ -136,7 +136,7 @@ private Uri image_uri;
             DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.child("Product").child(addProduct.productid).setValue(addProduct);
 
-            Toast.makeText(this, "added successfully"+image , Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "added successfully" , Toast.LENGTH_SHORT).show();
             finish();
         }
 

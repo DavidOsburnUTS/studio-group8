@@ -27,7 +27,7 @@ import java.util.Date;
 import java.util.UUID;
 
 public class CardPayment extends AppCompatActivity {
-
+// cart number 5234269538465723
 String orderid;
 private DatabaseReference cartListRef;
 
@@ -101,7 +101,7 @@ private DatabaseReference cartListRef;
         cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart");
         DatabaseReference fromPath = cartListRef.child(currentuser).child("Products");
         DatabaseReference ordersave = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference toPath = ordersave.child("Order").child(currentuser).child(formattedDate).child(orderid);
+        DatabaseReference toPath = ordersave.child("Order").child(currentuser).child("Purchase date "+formattedDate).child(orderid);
         AddOrder(fromPath, toPath);
 
 
