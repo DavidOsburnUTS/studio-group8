@@ -2,6 +2,7 @@ package com.example.studio_group8;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -67,6 +68,8 @@ private DatabaseReference cartListRef;
 
                             Toast.makeText(CardPayment.this, "Thank you for purchase", Toast.LENGTH_SHORT).show();
                             CreateOrder();
+                            Intent home = new Intent(CardPayment.this, MainActivity.class);
+                            startActivity(home);
                         }
                     });
                     alertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
