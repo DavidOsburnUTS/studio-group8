@@ -72,6 +72,7 @@ public class OrderHistStepOne extends AppCompatActivity {
 
         final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+   //     String key = mDatabase.child("posts").push().getKey();
 
 
         FirebaseRecyclerOptions<Orderdate> options =

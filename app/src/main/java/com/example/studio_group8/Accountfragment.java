@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,12 +28,13 @@ public class Accountfragment extends Fragment{
     Fragment selectedFragment = null;
     private Context context;
     Button loginsec;
-    String name;
+    String name, url;
+    ImageView profilepic;
 
     private FirebaseAuth mAuth;
     DatabaseReference UserRef = FirebaseDatabase.getInstance().getReference().child("User");
     String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
+    DatabaseReference ImgRef = FirebaseDatabase.getInstance().getReference().child("Profilepic");
 
 
     @Override
@@ -47,6 +49,27 @@ public class Accountfragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_account,container, false);
         TextView musername = (TextView) v.findViewById(R.id.username);
+         profilepic = (ImageView) v.findViewById(R.id.profile_image);
+
+        ImgRef.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                 url = (String) dataSnapshot.child(currentuser).child("image").getValue();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+        });
+        GlideApp.
+                with(Accountfragment.this)
+                .load(url)
+                .into(profilepic);
+
+
         Button signout = (Button) v.findViewById(R.id.sign_out);
         Button orderhist = (Button) v.findViewById(R.id.order_history);
         DatabaseReference databaseRef=FirebaseDatabase.getInstance()

@@ -58,7 +58,6 @@ public class EditProfile extends AppCompatActivity{
                 EditP(mtitle.getText().toString(), image);
 
 
-
             }
         });
     }
@@ -70,9 +69,11 @@ public class EditProfile extends AppCompatActivity{
 
             DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.child("User").child(currentuser).child("username").setValue(mtitle.getText().toString());
-            mDatabase.child("Profilepic").child(currentuser).setValue(image);
+            mDatabase.child("Profilepic").child(currentuser).child("image").setValue(image);
             Toast.makeText(this, "Edited successfully" , Toast.LENGTH_SHORT).show();
             finish();
+//            Intent order = new Intent(EditProfile.this, Accountfragment.class);
+//            startActivity(order);
         }else {
             Toast.makeText(this, "Please enter all details" , Toast.LENGTH_SHORT).show();
             finish();
