@@ -53,7 +53,7 @@ android:background="#3F6CF4">
         android:layout_marginVertical="20dp"
         android:layout_gravity="center"
         android:textColor="#FFFFFF"
-        android:text="Buyer"
+        android:text="Seller"
         android:textStyle="bold"
         android:textSize="14dp">
 

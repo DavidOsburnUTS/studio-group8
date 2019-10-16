@@ -52,7 +52,7 @@ orderdate = getIntent().getStringExtra("orderdate");
 
 
 
-        mRecyclerView = findViewById(R.id.recyclerorderlist);
+        mRecyclerView = findViewById(R.id.orderlistdetailrecycler);
 
 
 
