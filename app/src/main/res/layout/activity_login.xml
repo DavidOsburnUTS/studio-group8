@@ -59,7 +59,7 @@
         android:paddingStart="15dp"
         android:drawablePadding="15dp"
         android:hint="Email Address"
-        android:text="poodlemcdoodle12@gmail.com"
+        android:text="mrchardog@gmail.com"
         android:scrollHorizontally="true"
         android:textAlignment="center"
         android:textColorHint="@color/fontColor" />
