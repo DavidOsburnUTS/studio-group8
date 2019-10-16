@@ -26,14 +26,16 @@ android:background="#3F6CF4">
     </Button>
 
     <ImageView
+        android:id="@+id/profile_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/elon_musk_royal_society">
+        android:background="@drawable/elon_musk_royal_society"/>
 
-    </ImageView>
+
 
     <TextView
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -69,6 +71,7 @@ android:layout_height="match_parent"
 android:background="#E4E4E4">
 
 <Button
+    android:id="@+id/edit_profile"
     android:layout_width="match_parent"
     android:layout_height="45dp"
     android:layout_centerHorizontal="true"
@@ -87,6 +90,7 @@ android:background="#E4E4E4">
     ></Button>
 
 <Button
+    android:id="@+id/order_history"
     android:layout_width="match_parent"
     android:layout_height="45dp"
     android:layout_centerHorizontal="true"
@@ -101,7 +105,8 @@ android:background="#E4E4E4">
     android:padding="12dp"
     android:paddingStart="27dp"
     android:paddingEnd="31dp"
-    android:onClick="order_history">
+
+    >
 </Button>
 <Button
     android:layout_width="match_parent"

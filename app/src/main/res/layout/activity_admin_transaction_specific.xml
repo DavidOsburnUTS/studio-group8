@@ -10,7 +10,7 @@
         android:background="#3F6CF4">
 
         <Button
-            android:id="@+id/products_back_button"
+            android:id="@+id/transaction_back_button"
             android:layout_width="20dp"
             android:layout_height="25dp"
             android:layout_alignParentTop="true"
@@ -19,7 +19,7 @@
             android:background="@drawable/ic_keyboard_arrow_left_24px" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/label_transaction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -47,7 +47,7 @@
         android:background="#C3E4ECEC">
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/product_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignParentStart="true"
@@ -57,7 +57,7 @@
             app:srcCompat="@drawable/nintendo" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/label_productid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -68,26 +68,215 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/label_transaction_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="137dp"
-            android:layout_marginTop="80dp"
-            android:text="Product ID:"
+            android:layout_marginTop="71dp"
+            android:text="Transaction Date:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="130dp"
+            android:text="Product name:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_product_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="180dp"
+            android:text="Product cost:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_product_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="230dp"
+            android:text="Product description:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_seller_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="280dp"
+            android:text="Seller name:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_seller_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="330dp"
+            android:text="Seller address:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_buyer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="380dp"
+            android:text="Buyer name:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_buyer_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="430dp"
+            android:text="Buyer address:"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editText6"
-            android:layout_width="wrap_content"
-            android:layout_height="33dp"
+            android:id="@+id/productid"
+            android:layout_width="250dp"
+            android:layout_height="25dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="42dp"
-            android:layout_marginEnd="62dp"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="25dp"
+            android:background="#FFFFFF"
             android:ems="10"
             android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/transaction_date"
+            android:layout_width="250dp"
+            android:layout_height="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="91dp"
+            android:layout_marginEnd="25dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/product_name"
+            android:layout_width="370dp"
+            android:layout_height="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="151dp"
+            android:layout_marginEnd="25dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/product_cost"
+            android:layout_width="370dp"
+            android:layout_height="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="199dp"
+            android:layout_marginEnd="25dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/product_description"
+            android:layout_width="370dp"
+            android:layout_height="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="249dp"
+            android:layout_marginEnd="25dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/seller_name"
+            android:layout_width="370dp"
+            android:layout_height="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="25dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/seller_address"
+            android:layout_width="370dp"
+            android:layout_height="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="350dp"
+            android:layout_marginEnd="25dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/buyer_name"
+            android:layout_width="370dp"
+            android:layout_height="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="400dp"
+            android:layout_marginEnd="25dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/buyer_address"
+            android:layout_width="370dp"
+            android:layout_height="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="450dp"
+            android:layout_marginEnd="26dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="500dp"
+            android:layout_marginEnd="0dp"
+            android:background="#F34F4F"
+            android:text="DELETE TRANSACTION"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
     </RelativeLayout>
 
 </RelativeLayout>

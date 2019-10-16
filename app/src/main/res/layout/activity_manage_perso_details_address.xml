@@ -11,10 +11,10 @@
         android:background="#3F6CF4">
 
 
-        <Button
+        <ImageView
             android:id="@+id/products_back_button"
-            android:layout_width="20dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginStart="70dp"
             android:layout_marginTop="46dp"
@@ -77,21 +77,8 @@
             android:translationZ="100dp"
             app:srcCompat="@drawable/ic_keyboard_arrow_grey_left_24px" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
-            android:text="Country / Region"
-            android:textColor="#828282"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinner_country_region"
             android:layout_width="379dp"
             android:layout_height="33dp"
             android:layout_alignParentStart="true"
@@ -103,53 +90,8 @@
             android:spinnerMode="dropdown"
             android:verticalScrollbarPosition="right" />
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="150dp"
-            android:text="Street Address"
-            android:textColor="#828282"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="386dp"
-            android:layout_height="33dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="180dp"
-            android:layout_marginEnd="16dp"
-            android:background="#FFFFFF"
-            android:backgroundTint="#009E2F2F"
-            android:backgroundTintMode="add"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Street and number"
-            android:textColor="#828282"
-            android:textColorLink="#828282"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="240dp"
-            android:text="Suburb:"
-            android:textColor="#828282"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
         <Spinner
-            android:id="@+id/spinner2"
+            android:id="@+id/spinner_suburb"
             android:layout_width="379dp"
             android:layout_height="33dp"
             android:layout_alignParentStart="true"
@@ -161,10 +103,10 @@
             android:spinnerMode="dropdown"
             android:verticalScrollbarPosition="right" />
 
-        <Button
+        <ImageView
             android:id="@+id/button8"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="100dp"
@@ -172,10 +114,10 @@
             android:background="@drawable/ic_expand_more_24px"
             android:clickable="false" />
 
-        <Button
+        <ImageView
             android:id="@+id/button4"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="281dp"
@@ -183,60 +125,10 @@
             android:background="@drawable/ic_expand_more_24px"
             android:clickable="false" />
 
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="462dp"
-            android:layout_marginEnd="23dp"
-            android:background="@drawable/ic_expand_more_24px"
-            android:clickable="false" />
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="330dp"
-            android:text="Postcode"
-            android:textColor="#828282"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="420dp"
-            android:text="State / Territory"
-            android:textColor="#828282"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/editText5"
-            android:layout_width="386dp"
-            android:layout_height="33dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="17dp"
-            android:layout_marginTop="360dp"
-            android:layout_marginEnd="16dp"
-            android:background="#FFFFFF"
-            android:backgroundTint="#009E2F2F"
-            android:backgroundTintMode="add"
-            android:ems="10"
-            android:inputType="textPersonName" />
 
         <Spinner
-            android:id="@+id/spinner3"
+            android:id="@+id/spinner_state_territory"
             android:layout_width="379dp"
             android:layout_height="33dp"
             android:layout_alignParentStart="true"
@@ -263,6 +155,108 @@
             android:textColorHint="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_country_region"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="60dp"
+            android:text="Country / Region"
+            android:textColor="#828282"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_street_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="150dp"
+            android:text="Street Address"
+            android:textColor="#828282"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_suburb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="240dp"
+            android:text="Suburb"
+            android:textColor="#828282"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_postcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="330dp"
+            android:text="Postcode"
+            android:textColor="#828282"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_state_territory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="420dp"
+            android:text="State / Territory"
+            android:textColor="#828282"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/street_address"
+            android:layout_width="386dp"
+            android:layout_height="33dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="16dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Street and number"
+            android:textColor="#828282"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/postcode"
+            android:layout_width="386dp"
+            android:layout_height="33dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="361dp"
+            android:layout_marginEnd="16dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="#828282"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="462dp"
+            android:layout_marginEnd="23dp"
+            android:background="@drawable/ic_expand_more_24px"
+            android:clickable="false" />
 
     </RelativeLayout>
 

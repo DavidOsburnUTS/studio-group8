@@ -2,27 +2,50 @@ package com.example.studio_group8;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.app.AlertDialog.Builder;
 
 
 import com.braintreepayments.cardform.view.CardForm;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ServerValue;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CardPayment extends AppCompatActivity {
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.UUID;
 
+public class CardPayment extends AppCompatActivity {
+// cart number 5234269538465723
+String orderid;
+private DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReference().child("Cart");
+    final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    String total;
+    CardForm cardForm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-        CardForm cardForm = findViewById(R.id.card_form);
+         cardForm = findViewById(R.id.card_form);
         Button buy = findViewById(R.id.btnBuy);
 
 
@@ -52,7 +75,19 @@ public class CardPayment extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();
+
                             Toast.makeText(CardPayment.this, "Thank you for purchase", Toast.LENGTH_SHORT).show();
+                           // CreateOrder();
+                            //GetProduct();
+                            Finalorder();
+
+                            final String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            cartListRef.child(user)
+                                    .child("Products")
+                                    .removeValue();
+
+                            Intent home = new Intent(CardPayment.this, MainActivity.class);
+                            startActivity(home);
                         }
                     });
                     alertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -75,4 +110,80 @@ public class CardPayment extends AppCompatActivity {
     public void back( View view) {
         finish();
     }
-}
+
+//    public void CreateOrder() {
+//        orderid = UUID.randomUUID().toString();
+//        Date c = Calendar.getInstance().getTime();
+//
+//
+//        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+//        String formattedDate = df.format(c);
+//        cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart");
+//        DatabaseReference fromPath = cartListRef.child(currentuser).child("Products");
+//        DatabaseReference ordersave = FirebaseDatabase.getInstance().getReference();
+//        DatabaseReference toPath = ordersave.child("Order").child(currentuser).child("Purchase date "+formattedDate).child(orderid);
+//        //AddOrder(fromPath, toPath);
+//
+//
+//
+//
+//
+//    }
+//
+//    private void AddOrder(final DatabaseReference fromPath, final DatabaseReference toPath) {
+//        fromPath.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                toPath.setValue(dataSnapshot.getValue(), new DatabaseReference.CompletionListener() {
+//                    @Override
+//                    public void onComplete(DatabaseError firebaseError, DatabaseReference firebase) {
+//                        if (firebaseError != null) {
+//                            System.out.println("Copy failed");
+//                        } else {
+//                            System.out.println("Success");
+//                            final String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//                            cartListRef.child(user)
+//                                    .child("Products")
+//                                    .removeValue();
+//
+//                        }
+//                    }
+//                });
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+//    }
+
+//
+    public void Finalorder(){
+        orderid = UUID.randomUUID().toString();
+         double totalamount;
+        DatabaseReference totalamountRef= FirebaseDatabase.getInstance().getReference().child("Total").child(currentuser).child("totalamount");
+        totalamountRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                total = snapshot.getValue().toString();  //prints "Do you have data? You'll love Firebase."
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+
+
+        FinalOrder finalorder = new  FinalOrder(currentuser,orderid,total,cardForm.getCardNumber(), cardForm.getPostalCode(), cardForm.getMobileNumber() );
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("Order").child(orderid).setValue(finalorder);
+
+
+
+
+    }
+
+
+    }

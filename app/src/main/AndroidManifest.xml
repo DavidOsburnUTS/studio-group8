@@ -67,6 +67,11 @@
 
         </activity>
 
+        <activity android:name=".OrderHistStepOne"
+            android:label="OneVice">
+
+        </activity>
+
         <activity android:name=".MainUserActivity"
             android:label="OneVice">
 
@@ -149,11 +154,12 @@
             android:name=".ManagePersoDetailsAddress"
             android:label="OneVice" >
         </activity>
-
         <activity
-            android:name=".OrderHistory"
+            android:name=".OrderHisStepTwo"
             android:label="OneVice" >
         </activity>
+
+
 
         <activity
             android:name=".MainActivity"

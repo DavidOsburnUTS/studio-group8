@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseError;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -227,115 +228,66 @@ public class LoginMain extends AppCompatActivity {
             return;
         }
 
+
         mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-
-
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                        String RegisteredUserID = currentUser.getUid();
-
-                       DatabaseReference LoginDatabase =  FirebaseDatabase.getInstance().getReference().child("User").child(RegisteredUserID);
-
-
-
-                        LoginDatabase.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                String userType = dataSnapshot.child("type").getValue().toString();
-                                if(userType.equals("buyer")) {
-                                    rotateLoading.stop();
-                                    Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
-                                    Intent buyer = new Intent(LoginMain.this, AdminPage.class);
-                                    startActivity(buyer);
-                                }
-                                else if(userType.equals("seller")) {
-                                    rotateLoading.stop();
-                                    Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
-                                    Intent seller = new Intent(LoginMain.this, MainActivity.class);
-                                    startActivity(seller);
-                                }
-                                else if(userType.equals("admin")) {
-                                    rotateLoading.stop();
-                                    Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
-                                    Intent admin = new Intent(LoginMain.this, AdminPage.class);
-                                    startActivity(admin);
-                                }
-
-
-
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
-
-
-
-
-
-
-
-             /*           final FirebaseUser userTest = mAuth.getCurrentUser();
-
                         if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            String id2 = mAuth.getCurrentUser().getUid();
-                            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-
-                            rotateLoading.stop();
-                            Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                            String RegisteredUserID = currentUser.getUid();
 
 
+                            DatabaseReference LoginDatabase =  FirebaseDatabase.getInstance().getReference().child("User").child(RegisteredUserID);
 
 
-
-                            mDatabase.child("User").child("seller").child(id2).child("isAdmin").addValueEventListener(new ValueEventListener() {
-
+                            LoginDatabase.addValueEventListener(new ValueEventListener() {
                                 @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    String admin = (String) dataSnapshot.getValue();
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                                    if (admin.equals("yes")) {
+                                    String userType = dataSnapshot.child("type").getValue().toString();
+                                    if(userType.equals("buyer")) {
                                         rotateLoading.stop();
                                         Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
-                                        Intent adminPage = new Intent(LoginMain.this, AdminPage.class);
-                                        startActivity(adminPage);
-
-
+                                        Intent buyer = new Intent(LoginMain.this, MainUserActivity.class);
+                                        startActivity(buyer);
                                     }
-
-
+                                    else if(userType.equals("seller")) {
+                                        rotateLoading.stop();
+                                        Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                                        Intent seller = new Intent(LoginMain.this, MainActivity.class);
+                                        startActivity(seller);
+                                    }
+                                    else if(userType.equals("admin")) {
+                                        rotateLoading.stop();
+                                        Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                                        Intent admin = new Intent(LoginMain.this, AdminPage.class);
+                                        startActivity(admin);
+                                    }
                                     else {
                                         rotateLoading.stop();
-                                        Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
-                                        Intent main = new Intent(LoginMain.this, MainActivity.class);
-                                        startActivity(main);
+                                        Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
+                                        loginBtn.setText("Login");
+                                        loginBtn.setEnabled(true);
+
                                     }
+
+
                                 }
 
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError databaseError) {
-                                    String admin = "false";
+
                                 }
                             });
+                        } else {
 
-//                            Intent intent = new Intent(LoginMain.this, MainActivity.class);
-//                            startActivity(intent);
-                        }
-*/
-
-
-                 /*       else {
                             rotateLoading.stop();
-                            Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Please enter a valid username and password", Toast.LENGTH_LONG).show();
                             loginBtn.setText("Login");
                             loginBtn.setEnabled(true);
+                        }
 
-                        }*/
                     }
                 });
     }

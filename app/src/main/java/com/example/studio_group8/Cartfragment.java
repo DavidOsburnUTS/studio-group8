@@ -44,6 +44,7 @@ public class Cartfragment extends Fragment{
     private TextView totalPrice;
     private double  overTotalPrice = 0.00;
     public Button Confirm;
+     String currentuser;
 
 
     private Context context;
@@ -83,6 +84,8 @@ public class Cartfragment extends Fragment{
         Confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                DatabaseReference totalamount = FirebaseDatabase.getInstance().getReference();
+                totalamount.child("Total").child(currentuser).child("totalamount").setValue(overTotalPrice);
                 Intent cardpayment = new Intent(getActivity(), CardPayment.class);
                 startActivity(cardpayment);
             }
@@ -104,7 +107,7 @@ public class Cartfragment extends Fragment{
         super.onStart();
 
         final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart");
-        final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         FirebaseRecyclerOptions<Cart> options =
                 new FirebaseRecyclerOptions.Builder<Cart>()
@@ -125,7 +128,7 @@ public class Cartfragment extends Fragment{
 
                 DecimalFormat df = new DecimalFormat(" #.00");
                 holder.productCartQuantity.setText((model.getQuantity()));
-                holder.productCartPrice.setText("$ " + eachProductTotalPrice);
+                holder.productCartPrice.setText(" " + eachProductTotalPrice);
                 holder.productCartName.setText(model.getName());
 //                GlideApp.
 //                        with(getActivity())
@@ -145,7 +148,7 @@ public class Cartfragment extends Fragment{
 
 
 
-                totalPrice.setText("$ " + df.format(overTotalPrice));
+                totalPrice.setText(" " + df.format(overTotalPrice));
 
 //                GlideApp.
 //                        with(getActivity())
@@ -168,7 +171,7 @@ public class Cartfragment extends Fragment{
                     @Override
                     public void onClick(View v) {
                         overTotalPrice = overTotalPrice - eachProductTotalPrice;
-                        totalPrice.setText("$ " + df.format(overTotalPrice));
+                        totalPrice.setText(" " + df.format(overTotalPrice));
                         cartListRef.child(currentuser)
                                 .child("Products")
                                 .child(model.getproductid())
