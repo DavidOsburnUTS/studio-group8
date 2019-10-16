@@ -92,7 +92,7 @@ public class Accountfragment extends Fragment{
             @Override
             public void onClick(View v) {
 
-                Intent order = new Intent(getActivity(), OrderHistStepOne.class);
+                Intent order = new Intent(getActivity(), OrderHistory.class);
                startActivity(order);
 
 
@@ -182,7 +182,7 @@ public class Accountfragment extends Fragment{
         //overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
     }
     public void order_history(View view) {
-        Intent history = new Intent(getActivity(), OrderHistStepOne.class);
+        Intent history = new Intent(getActivity(), OrderHistory.class);
         startActivity(history);
         //overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
     }

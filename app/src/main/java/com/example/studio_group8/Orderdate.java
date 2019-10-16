@@ -26,8 +26,6 @@ public class Orderdate {
 
     public String getdate() {
 
-
-
         return date = mDatabase.push().getKey();
     }
 }
