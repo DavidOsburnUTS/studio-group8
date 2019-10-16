@@ -35,15 +35,17 @@ import java.util.UUID;
 public class CardPayment extends AppCompatActivity {
 // cart number 5234269538465723
 String orderid;
-private DatabaseReference cartListRef;
+private DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReference().child("Cart");
     final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    String total;
+    CardForm cardForm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-        CardForm cardForm = findViewById(R.id.card_form);
+         cardForm = findViewById(R.id.card_form);
         Button buy = findViewById(R.id.btnBuy);
 
         cardForm.cardRequired(true)
@@ -74,7 +76,9 @@ private DatabaseReference cartListRef;
 
                             Toast.makeText(CardPayment.this, "Thank you for purchase", Toast.LENGTH_SHORT).show();
                            // CreateOrder();
-                            GetProduct();
+                            //GetProduct();
+                            Finalorder();
+
                             final String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
                             cartListRef.child(user)
                                     .child("Products")
@@ -153,48 +157,31 @@ private DatabaseReference cartListRef;
 //        });
 //    }
 
-    private void GetProduct(){
+//
+    public void Finalorder(){
         orderid = UUID.randomUUID().toString();
-        Date c = Calendar.getInstance().getTime();
-
-        DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference().child("Cart");
-
-        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        String date = df.format(c);
-
-        DatabaseReference fromPath = cartRef.child(currentuser).child("Products");
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        fromPath.addListenerForSingleValueEvent(new ValueEventListener() {
+         double totalamount;
+        DatabaseReference totalamountRef= FirebaseDatabase.getInstance().getReference().child("Total").child(currentuser).child("totalamount");
+        totalamountRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                GenericTypeIndicator<HashMap<String, Product>> t = new GenericTypeIndicator<HashMap<String, Product>>(){};
-                HashMap<String, Product> dataset = dataSnapshot.getValue(t);
-                if (dataset != null) {
-                    for( String id : dataset.keySet() ){
-                      String productid = dataset.get(id).getproductid();
-                      String productname = dataset.get(id).getName();
-                      String imageurl = dataset.get(id).getImage();
-                      int quentity = dataset.get(id).getQuantity();
-                      
-                      AddOrder(orderid, productid, productname, imageurl, quentity, date);
-                        
-                    }
-                }};
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                }
+            public void onDataChange(DataSnapshot snapshot) {
+                total = snapshot.getValue().toString();  //prints "Do you have data? You'll love Firebase."
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
 
 
 
-    });
-
-}
-
-    private void AddOrder(String orderid, String productid, String productname, String imageurl, int quentity, String date) {
-
-        final Orderproduct orderproduct = new Orderproduct(orderid, productid, productname, imageurl, quentity, date);
+        FinalOrder finalorder = new  FinalOrder(currentuser,orderid,total,cardForm.getCardNumber(), cardForm.getPostalCode(), cardForm.getMobileNumber() );
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("Neworder").child(orderid).setValue(orderproduct);
+        mDatabase.child("Order").child(orderid).setValue(finalorder);
+
+
+
+
     }
+
+
     }
