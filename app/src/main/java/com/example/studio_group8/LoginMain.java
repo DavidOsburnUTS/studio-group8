@@ -239,6 +239,7 @@ public class LoginMain extends AppCompatActivity {
                        DatabaseReference LoginDatabase =  FirebaseDatabase.getInstance().getReference().child("User").child(RegisteredUserID);
 
 
+
                         LoginDatabase.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -246,7 +247,7 @@ public class LoginMain extends AppCompatActivity {
                                 if(userType.equals("buyer")) {
                                     rotateLoading.stop();
                                     Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
-                                    Intent buyer = new Intent(LoginMain.this, MainUserActivity.class);
+                                    Intent buyer = new Intent(LoginMain.this, AdminPage.class);
                                     startActivity(buyer);
                                 }
                                 else if(userType.equals("seller")) {
@@ -261,13 +262,7 @@ public class LoginMain extends AppCompatActivity {
                                     Intent admin = new Intent(LoginMain.this, AdminPage.class);
                                     startActivity(admin);
                                 }
-                                else {
-                                    rotateLoading.stop();
-                                    Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
-                                    loginBtn.setText("Login");
-                                    loginBtn.setEnabled(true);
 
-                                }
 
 
                             }

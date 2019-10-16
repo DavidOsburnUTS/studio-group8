@@ -130,7 +130,7 @@ public class ProductDetails extends AppCompatActivity {
                 if(dataSnapshot.exists()) {
                     Product products = dataSnapshot.getValue(Product.class);
                     prodName.setText(products.getName());
-                    prodPrice.setText("$ " + String.valueOf( products.getprice()));
+                    prodPrice.setText(String.valueOf( products.getprice()));
                     prodDescription.setText(products.getDesc());
                     GlideApp.
                             with(ProductDetails.this)

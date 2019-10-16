@@ -48,6 +48,10 @@
         </activity>
         <activity android:name=".TvCategory"
             android:label="OneVice">
+        </activity>
+
+        <activity android:name=".AdminMaintainAccActivity"
+            android:label="OneVice">
 
         </activity>
         <activity android:name=".EditProfile"

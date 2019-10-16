@@ -25,6 +25,8 @@ public class CardPayment extends AppCompatActivity {
         CardForm cardForm = findViewById(R.id.card_form);
         Button buy = findViewById(R.id.btnBuy);
 
+
+
         cardForm.cardRequired(true)
                 .expirationRequired(true)
                 .cvvRequired(true)

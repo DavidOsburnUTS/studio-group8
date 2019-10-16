@@ -55,7 +55,7 @@
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:layout_marginLeft="20dp"
-        android:onClick="account_page"
+        android:onClick="admin_transactions"
         android:layout_marginTop="140dp"
         android:background="@drawable/adminbubble" />
 
@@ -80,7 +80,7 @@
         android:layout_height="175dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="320dp"
-        android:onClick="admin_transactions"
+        android:onClick="account_page"
         android:background="@drawable/adminbubble" />
 
     <ImageView

@@ -81,13 +81,14 @@ public class CameraCategory extends AppCompatActivity {
                         holder.productName.setText(model.getName());
                         holder.productDesc.setText(model.getDesc());
                         holder.productQuantity.setText(String.valueOf(model.getQuantity()));
-
                         holder.productPrice.setText( "$" + String.format("%.2f",model.getprice()));
-
                         GlideApp.
                                 with(CameraCategory.this)
                                 .load(model.getImage())
                                 .into(holder.productImage);
+
+
+
 //                        Picasso.get().load(model.getImage()).into(holder.productImage);
 
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -109,6 +110,7 @@ public class CameraCategory extends AppCompatActivity {
                         ProductViewHolder holder = new ProductViewHolder(view);
                         return holder;
                     }
+
                 };
         mRecyclerView.setAdapter(adapter);
         adapter.startListening();

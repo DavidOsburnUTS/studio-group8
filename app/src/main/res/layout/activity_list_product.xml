@@ -5,9 +5,9 @@
     android:layout_height="wrap_content"
     android:background="@drawable/card_list_click"
     android:clickable="true"
-
     android:dividerHeight="10dp"
     >
+
 
 
     <ImageView

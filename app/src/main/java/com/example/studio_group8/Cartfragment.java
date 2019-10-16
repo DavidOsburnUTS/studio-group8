@@ -65,7 +65,6 @@ public class Cartfragment extends Fragment{
 
         FirebaseStorage storage  = FirebaseStorage.getInstance();
 
-
         mStorageRefrence = storage.getReference();
 
 
