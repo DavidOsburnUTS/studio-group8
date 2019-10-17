@@ -48,6 +48,10 @@
         </activity>
         <activity android:name=".TvCategory"
             android:label="OneVice">
+        </activity>
+
+        <activity android:name=".AdminMaintainAccActivity"
+            android:label="OneVice">
 
         </activity>
         <activity android:name=".EditProfile"
@@ -63,7 +67,7 @@
 
         </activity>
 
-        <activity android:name=".OrderHistStepOne"
+        <activity android:name=".OrderHistory"
             android:label="OneVice">
 
         </activity>
@@ -148,10 +152,6 @@
 
         <activity
             android:name=".ManagePersoDetailsAddress"
-            android:label="OneVice" >
-        </activity>
-        <activity
-            android:name=".OrderHisStepTwo"
             android:label="OneVice" >
         </activity>
 

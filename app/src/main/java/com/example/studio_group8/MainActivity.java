@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void order_history(View view) {
-        Intent history = new Intent(MainActivity.this, OrderHistStepOne.class);
+        Intent history = new Intent(MainActivity.this, OrderHistory.class);
         startActivity(history);
         overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
     }

@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class OrderHistStepOne extends AppCompatActivity {
+public class OrderHistory extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
 
@@ -75,27 +75,30 @@ public class OrderHistStepOne extends AppCompatActivity {
    //     String key = mDatabase.child("posts").push().getKey();
 
 
-        FirebaseRecyclerOptions<Orderdate> options =
-                new FirebaseRecyclerOptions.Builder<Orderdate>()
-                        .setQuery(mDatabase.child(currentuser), Orderdate.class)
+        FirebaseRecyclerOptions<FinalOrder> options =
+                new FirebaseRecyclerOptions.Builder<FinalOrder>()
+                        .setQuery(mDatabase.orderByChild(currentuser), FinalOrder.class)
                         .build();
 
-        FirebaseRecyclerAdapter<Orderdate, OrderViewHolder> adapter
-                = new FirebaseRecyclerAdapter<Orderdate, OrderViewHolder>(options) {
+        FirebaseRecyclerAdapter<FinalOrder, OrderViewHolder> adapter
+                = new FirebaseRecyclerAdapter<FinalOrder, OrderViewHolder>(options) {
 
             @Override
-            protected void onBindViewHolder(@NonNull OrderViewHolder holder, int i, @NonNull Orderdate model) {
+            protected void onBindViewHolder(@NonNull OrderViewHolder holder, int i, @NonNull FinalOrder model) {
 
 
-                holder.mShow.setText((model.getdate()));
+                holder.mShow.setText(("Order id: "+model.getorderid()));
 
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(OrderHistStepOne.this, OrderHisStepTwo.class);
-                        intent.putExtra("orderdate", model.getdate());
+                        Intent intent = new Intent(OrderHistory.this, OrderDetail.class);
+//                                intent.putExtra("name", model.getName());
+//                                intent.putExtra("desc", model.getDesc());
+                        intent.putExtra("orderid", model.getorderid());
                         startActivity(intent);
+
                     }
                 });
 

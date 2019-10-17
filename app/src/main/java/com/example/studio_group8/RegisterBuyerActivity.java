@@ -226,10 +226,10 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
     public void CreateNewUser(final FirebaseAuth mAuth,  final String email, final String password, final String firstName, final String username) {
             inputEmail = (EditText) findViewById(R.id.email_address);
             inputPassword = (EditText) findViewById(R.id.password);
-
+        final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
             inputUsername = (EditText) findViewById(R.id.username);
             inputFirstName = (EditText) findViewById(R.id.first_name);
-            final User newUser = new User(email, firstName, username);
+            final User newUser = new User(currentuser, email, firstName, username);
 
             if(!validPassword()| !validateUsername()| !validateEmail()| !validateFirstName()| !validateConfirmPassword())  {
                 return;

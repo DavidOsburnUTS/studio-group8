@@ -50,9 +50,6 @@ public class AdminProdPage extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
-    public void cancelHome(View view) {
-        finish();
-    }
 
 
     @Override
@@ -109,4 +106,10 @@ public class AdminProdPage extends AppCompatActivity {
         mRecyclerView.setAdapter(adapter);
         adapter.startListening();
     }
+
+
+    public void cancelHome(View view) {
+        finish();
+    }
+
 }
