@@ -47,6 +47,7 @@ android:background="#3F6CF4">
     </TextView>
 
     <TextView
+        android:id="@+id/type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="20dp"

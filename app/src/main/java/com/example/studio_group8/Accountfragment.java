@@ -32,11 +32,12 @@ public class Accountfragment extends Fragment{
     String name;
     private String url;
     ImageView profilepic;
+   TextView mtype;
 
     private FirebaseAuth mAuth;
     DatabaseReference UserRef = FirebaseDatabase.getInstance().getReference().child("User");
     String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-    DatabaseReference ImgRef = FirebaseDatabase.getInstance().getReference().child("Profilepic");
+    DatabaseReference ImgRef = FirebaseDatabase.getInstance().getReference().child("User");
 
 
     @Override
@@ -52,6 +53,8 @@ public class Accountfragment extends Fragment{
         View v = inflater.inflate(R.layout.activity_account,container, false);
         TextView musername = (TextView) v.findViewById(R.id.username);
          profilepic = (ImageView) v.findViewById(R.id.profile_image);
+         mtype = (TextView) v.findViewById(R.id.type) ;
+
 
         ImgRef.addValueEventListener(new ValueEventListener() {
 
@@ -85,6 +88,19 @@ public class Accountfragment extends Fragment{
                                                   String data = dataSnapshot.child("User").child(currentuser).child("username").getValue(String.class);
                                                   musername.setText(data);
                                               }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        databaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String data = dataSnapshot.child("User").child(currentuser).child("type").getValue(String.class);
+                mtype.setText(data);
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
