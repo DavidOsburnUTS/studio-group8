@@ -19,6 +19,7 @@ public class CartActivity extends Activity {
 
     public void confirmAndPay (View view) {
         Intent cardpayment = new Intent(CartActivity.this, CardPayment.class);
+
         startActivity(cardpayment);
         overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
     }

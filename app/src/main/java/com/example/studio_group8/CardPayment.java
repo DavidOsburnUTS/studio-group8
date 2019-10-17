@@ -47,7 +47,7 @@ private DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReferen
 
          cardForm = findViewById(R.id.card_form);
         Button buy = findViewById(R.id.btnBuy);
-
+        total = getIntent().getStringExtra("totalprice");
 
 
         cardForm.cardRequired(true)
@@ -162,21 +162,15 @@ private DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReferen
 //
     public void Finalorder(){
         orderid = UUID.randomUUID().toString();
-         double totalamount;
-        DatabaseReference totalamountRef= FirebaseDatabase.getInstance().getReference().child("Total").child(currentuser).child("totalamount");
-        totalamountRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                total = snapshot.getValue().toString();  //prints "Do you have data? You'll love Firebase."
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
+        Date c = Calendar.getInstance().getTime();
+
+
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        String formattedDate = df.format(c);
 
 
 
-        FinalOrder finalorder = new  FinalOrder(currentuser,orderid,total,cardForm.getCardNumber(), cardForm.getPostalCode(), cardForm.getMobileNumber() );
+        FinalOrder finalorder = new  FinalOrder(currentuser,orderid,total,cardForm.getCardNumber(), cardForm.getPostalCode(), cardForm.getMobileNumber(), formattedDate );
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("Order").child(orderid).setValue(finalorder);
 

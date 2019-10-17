@@ -217,7 +217,7 @@ public class RegisterSellerActivity extends Activity implements View.OnClickList
 
 
     public void CreateNewSeller(final FirebaseAuth mAuth, final String email, final String password, final String name, final String phone) {
-        final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+         String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
         final Seller newSeller = new Seller(currentuser,email, name, phone);
 
         inputEmail = (EditText) findViewById(R.id.sellerEmail);
