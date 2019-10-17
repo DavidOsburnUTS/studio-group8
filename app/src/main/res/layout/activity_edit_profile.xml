@@ -64,11 +64,6 @@
                 android:onClick="getImage"/>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="horizontal"
-            android:layout_marginHorizontal="58dp">
 
             <EditText
                 android:id="@+id/edit_name"
@@ -83,17 +78,9 @@
                 android:scrollHorizontally="true"
                 android:textColorHint="#828282" />
 
-            <Button
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                android:layout_marginVertical="50dp"
-                android:background="@drawable/ic_close1_24px"
-
-                ></Button>
 
 
 
-        </LinearLayout>
 
             <Button
                 android:id="@+id/update"
@@ -101,7 +88,7 @@
                 android:layout_height="65dp"
                 android:layout_marginStart="74dp"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/bluebutt"
+                android:background="@drawable/upload_btn"
                 android:text="UPDATE"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"

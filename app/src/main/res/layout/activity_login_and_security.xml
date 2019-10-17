@@ -82,15 +82,16 @@
             android:textStyle="bold" />
 
 
+
         <Button
             android:id="@+id/button2"
             android:layout_width="275dp"
             android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="false"
-            android:layout_marginStart="74dp"
-            android:layout_marginTop="500dp"
-            android:background="@drawable/bluebutt"
+            android:layout_below="@+id/password"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/upload_btn"
             android:text="UPDATE"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
@@ -191,8 +192,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="104dp"
-            android:layout_marginEnd="44dp"
+            android:layout_marginTop="107dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/ic_create_24px" />
 
         <ImageView
@@ -201,8 +202,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="204dp"
-            android:layout_marginEnd="44dp"
+            android:layout_marginTop="207dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/ic_create_24px" />
 
         <ImageView
@@ -211,8 +212,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="304dp"
-            android:layout_marginEnd="44dp"
+            android:layout_marginTop="307dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/ic_create_24px" />
 
         <ImageView
@@ -221,8 +222,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="404dp"
-            android:layout_marginEnd="44dp"
+            android:layout_marginTop="407dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/ic_create_24px"
             android:onClick="login_security_password"/>
 

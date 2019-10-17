@@ -76,7 +76,6 @@ public class EditProfile extends AppCompatActivity{
 //            startActivity(order);
         }else {
             Toast.makeText(this, "Please enter all details" , Toast.LENGTH_SHORT).show();
-            finish();
         }
 
 
