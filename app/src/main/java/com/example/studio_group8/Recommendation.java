@@ -130,7 +130,7 @@ public class Recommendation extends AppCompatActivity {
             System.out.println(startIndex);
         FirebaseRecyclerOptions<Product> options =
                 new FirebaseRecyclerOptions.Builder<Product>()
-                        .setQuery(mDatabase.orderByChild("index").startAt(startIndex).endAt(startIndex+8).limitToFirst(3),
+                        .setQuery(mDatabase.orderByChild("index").startAt(startIndex).endAt(startIndex+7).limitToFirst(3),
 //                                orderByChild("category").equalTo("Console").limitToFirst(3),
                                 Product.class)
                         .build();

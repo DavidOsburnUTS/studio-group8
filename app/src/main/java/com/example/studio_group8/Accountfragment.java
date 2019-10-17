@@ -78,6 +78,7 @@ public class Accountfragment extends Fragment{
 
         Button signout = (Button) v.findViewById(R.id.sign_out);
         Button orderhist = (Button) v.findViewById(R.id.order_history);
+        Button ownproduct = (Button) v.findViewById(R.id.ownproduct);
         DatabaseReference databaseRef=FirebaseDatabase.getInstance().getReference();
 
 
@@ -114,6 +115,18 @@ public class Accountfragment extends Fragment{
 
                 Intent order = new Intent(getActivity(), OrderHistory.class);
                startActivity(order);
+
+
+            }
+        });
+
+
+        ownproduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent own = new Intent(getActivity(), OwnProduct.class);
+                startActivity(own);
 
 
             }
@@ -206,6 +219,7 @@ public class Accountfragment extends Fragment{
         startActivity(history);
         //overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
     }
+
 
 
 

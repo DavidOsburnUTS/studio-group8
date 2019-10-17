@@ -3,10 +3,12 @@ package com.example.studio_group8;
 
 
 public class Seller {
-    public String name, userid;
+    public String name;
+      public String      userid;
     public String email;
     public String phone;
-    public String isAdmin, image;
+    public String isAdmin;
+        public String image;
 
 
     public Seller () {
@@ -14,7 +16,7 @@ public class Seller {
     }
 
 
-    public Seller(String userid, String email, String name, String phone, String image)
+    public Seller(String email, String name, String phone, String image)
     {
         this.userid = userid;
         this.email = email;

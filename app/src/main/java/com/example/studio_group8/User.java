@@ -7,7 +7,9 @@ public class User
 {
     public String email;
     public String firstname;
-    public String username, userid, image;
+    public String username;
+      public String      userid;
+    public String image;
 
 
 
@@ -19,7 +21,7 @@ public class User
 
     }
 
-    public User(String userid, String email, String firstname, String username, String image)
+    public User(String email, String firstname, String username, String image)
     {
         this.userid = userid;
         this.email = email;
