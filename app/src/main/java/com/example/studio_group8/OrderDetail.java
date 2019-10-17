@@ -1,6 +1,7 @@
 package com.example.studio_group8;
 
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,7 +14,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class OrderDetail extends AppCompatActivity {
-    private TextView morderid, mtotal, mcardnumber, mpostcode, mmobilenumber;
+    private TextView  mtotal,  mpostcode, mmobilenumber;
+    private EditText morderid,mcardnumber ;
     String currentuser;
     String orderid;
 
@@ -23,10 +25,10 @@ public class OrderDetail extends AppCompatActivity {
         setContentView(R.layout.activity_order_hist_detail);
 
         orderid = getIntent().getStringExtra("orderid");
-
-        morderid = (TextView) findViewById(R.id.orderid);
+//
+//        morderid = (EditText) findViewById(R.id.orderid);
       //  mtotal = (TextView) findViewById(R.id.total);
-        mcardnumber = (TextView) findViewById(R.id.cardnumber);
+//        mcardnumber = (EditText) findViewById(R.id.cardnumber);
         mpostcode = (TextView) findViewById(R.id.postcode);
         mmobilenumber = (TextView) findViewById(R.id.mobilenumber);
         getOrderDetails(orderid);
@@ -41,6 +43,7 @@ public class OrderDetail extends AppCompatActivity {
                 if(dataSnapshot.exists()) {
                     FinalOrder products = dataSnapshot.getValue(FinalOrder.class);
                     morderid.setText(products.getorderid());
+
                   //  mtotal.setText( String.valueOf( products.gettotal()));
                     mcardnumber.setText(products.getcardnumber());
                     mpostcode.setText(products.getpostalcode());

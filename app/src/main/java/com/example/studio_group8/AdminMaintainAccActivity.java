@@ -47,7 +47,7 @@ public class AdminMaintainAccActivity extends AppCompatActivity {
 
 
 
-        accountID = getIntent().getStringExtra("name");
+        accountID = getIntent().getStringExtra("userid");
 
 
         getAccountDetails(accountID);

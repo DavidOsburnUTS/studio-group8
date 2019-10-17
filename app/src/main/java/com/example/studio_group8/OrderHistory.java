@@ -88,8 +88,17 @@ public class OrderHistory extends AppCompatActivity {
 
 
                 holder.mShow.setText(("Order id: "+model.getorderid()));
+                holder.mdate.setText(("Date: "+model.getDate()));
+                holder.mcardno.setText(("Card no: "+model.getcardnumber()));
+                holder.mmobileno.setText(("Mobile no: "+model.getmobilenumber()));
+                holder.mpost.setText(("Postal Code: "+model.getpostalcode()));
+                holder.mamount.setText(("Order Total: "+model.gettotal()));
 
 
+
+
+
+/*
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -100,7 +109,7 @@ public class OrderHistory extends AppCompatActivity {
                         startActivity(intent);
 
                     }
-                });
+                });*/
 
 
             }

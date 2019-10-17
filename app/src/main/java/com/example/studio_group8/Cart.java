@@ -31,8 +31,6 @@ public class Cart {
         this.quantity=quantity;
         this.category=category;
         this.price = price;
-
-
     }
 
     public void setprice(String price) {

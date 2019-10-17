@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    public TextView mShow;
+    public TextView mShow, mdate, mcardno, mmobileno, mpost, mamount;
     public ItemClickListener itemClickListener;
 
 
@@ -18,6 +18,14 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         super(itemView);
 
         mShow = itemView.findViewById(R.id.show);
+        mdate = itemView.findViewById(R.id.date);
+        mcardno = itemView.findViewById(R.id.cardnumber);
+        mmobileno = itemView.findViewById(R.id.mobilenumber);
+        mpost = itemView.findViewById(R.id.postcode);
+        mamount = itemView.findViewById(R.id.complete_order_total);
+
+
+
 
 
 

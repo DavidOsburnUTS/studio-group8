@@ -1,77 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_list_click">
 
 
 
 
-
-
-
-
-
-    <TextView
-        android:id="@+id/orderid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="30dp"
-        android:fontFamily="@font/raleway_semibold"
-        android:text="orderid"
-        android:textColor="@color/bb_inActiveBottomBarItemColor"
-        android:textSize="14sp" />
-    <TextView
-        android:id="@+id/cardnumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-android:layout_below="@+id/orderid"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="30dp"
-        android:fontFamily="@font/raleway_semibold"
-        android:text="cardnumber"
-        android:textColor="@color/bb_inActiveBottomBarItemColor"
-        android:textSize="14sp" />
-    <TextView
-        android:id="@+id/mobilenumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/cardnumber"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="30dp"
-        android:fontFamily="@font/raleway_semibold"
-        android:text="mobilenumber"
-        android:textColor="@color/bb_inActiveBottomBarItemColor"
-        android:textSize="14sp" />
-    <TextView
-        android:id="@+id/postcode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mobilenumber"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="30dp"
-        android:fontFamily="@font/raleway_semibold"
-        android:text="postcode"
-        android:textColor="@color/bb_inActiveBottomBarItemColor"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/total"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/postcode"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="30dp"
-        android:fontFamily="@font/raleway_semibold"
-        android:text="total amount"
-        android:textColor="@color/bb_inActiveBottomBarItemColor"
-        android:textSize="14sp" />
 
 
 
