@@ -3,7 +3,7 @@ package com.example.studio_group8;
 
 
 public class Seller {
-    public String name;
+    public String name, userid;
     public String email;
     public String phone;
     public String isAdmin;
@@ -14,13 +14,19 @@ public class Seller {
     }
 
 
-    public Seller(String email, String name, String phone)
+    public Seller(String userid, String email, String name, String phone)
     {
+        this.userid = userid;
         this.email = email;
         this.name = name;
         this.phone = phone;
 
         this.isAdmin = "no";
+    }
+
+    public void setUserid (String userid) {
+
+        this.userid = userid;
     }
 
 
@@ -37,6 +43,11 @@ public class Seller {
     public void setPhone (String phone) {
 
         this.phone = phone;
+    }
+
+    public String getUserid() {
+
+        return userid;
     }
 
 
