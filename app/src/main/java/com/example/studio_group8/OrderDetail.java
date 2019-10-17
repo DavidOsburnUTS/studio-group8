@@ -35,7 +35,7 @@ public class OrderDetail extends AppCompatActivity {
     private void getOrderDetails(String orderid) {
         DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Order");
 
-        productsRef.orderByChild(orderid).addValueEventListener(new ValueEventListener() {
+        productsRef.orderByChild("orderid").equalTo(orderid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()) {
