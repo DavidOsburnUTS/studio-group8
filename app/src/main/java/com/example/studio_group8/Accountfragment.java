@@ -62,7 +62,7 @@ public class Accountfragment extends Fragment{
             public void onDataChange(DataSnapshot dataSnapshot) {
                url =  dataSnapshot.child(currentuser).child("image").getValue().toString();
                 GlideApp.
-                        with(getContext())
+                        with(Accountfragment.this)
                         .load(url)
                         .into(profilepic);
 
@@ -78,8 +78,9 @@ public class Accountfragment extends Fragment{
 
         Button signout = (Button) v.findViewById(R.id.sign_out);
         Button orderhist = (Button) v.findViewById(R.id.order_history);
-        DatabaseReference databaseRef=FirebaseDatabase.getInstance()
-                .getReference();
+        DatabaseReference databaseRef=FirebaseDatabase.getInstance().getReference();
+
+
 
         databaseRef.addValueEventListener(new ValueEventListener() {
                                               @Override

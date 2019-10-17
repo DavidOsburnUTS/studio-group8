@@ -71,7 +71,7 @@ public class EditProfile extends AppCompatActivity{
             mDatabase.child("User").child(currentuser).child("username").setValue(mtitle.getText().toString());
             mDatabase.child("User").child(currentuser).child("image").setValue(image);
             Toast.makeText(this, "Edited successfully" , Toast.LENGTH_SHORT).show();
-            finish();
+
 //            Intent order = new Intent(EditProfile.this, Accountfragment.class);
 //            startActivity(order);
         }else {

@@ -22,7 +22,6 @@ public class Product {
 
 
     public Product(String productid, String sellerid, String name, String desc, String image, int quantity, String category, double price) {
-
         this.productid =productid;
         this.sellerid = sellerid;
         this.name = name;

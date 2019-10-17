@@ -132,7 +132,6 @@ public class ProductDetails extends AppCompatActivity {
 
     private void getProductDetails(String productID) {
         DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Product");
-
         productsRef.child(productID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

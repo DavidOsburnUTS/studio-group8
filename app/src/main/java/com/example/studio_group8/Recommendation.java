@@ -22,11 +22,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.Transaction;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
+import org.w3c.dom.Node;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+
+import static android.bluetooth.BluetoothHidDeviceAppQosSettings.MAX;
 
 public class Recommendation extends AppCompatActivity {
     private Context context;
@@ -36,6 +50,7 @@ public class Recommendation extends AppCompatActivity {
     private EditText mSearchField;
     private ImageButton mSearchBtn;
     private RecyclerView mResultList;
+    public int startIndex;
     private RecyclerView.LayoutManager layoutManager;
 
 
@@ -83,6 +98,11 @@ public class Recommendation extends AppCompatActivity {
         mStorageRefrence = storage.getReference();
 
 
+
+
+
+
+
     }
 
     public void back( View view) {
@@ -96,14 +116,23 @@ public class Recommendation extends AppCompatActivity {
 
 
 
+
+
+
     @Override
     public void onStart() {
         super.onStart();
 
 
+
+
+            startIndex = (int) (Math.random() * 12 + 1);
+            System.out.println(startIndex);
         FirebaseRecyclerOptions<Product> options =
                 new FirebaseRecyclerOptions.Builder<Product>()
-                        .setQuery(mDatabase.orderByChild("category").equalTo("Audio"), Product.class)
+                        .setQuery(mDatabase.orderByChild("index").startAt(startIndex).endAt(startIndex+8).limitToFirst(3),
+//                                orderByChild("category").equalTo("Console").limitToFirst(3),
+                                Product.class)
                         .build();
 
 

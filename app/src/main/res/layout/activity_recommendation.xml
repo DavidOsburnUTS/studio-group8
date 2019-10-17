@@ -43,7 +43,6 @@
         android:layout_below="@id/bubble4"
         android:layout_centerVertical="true"
         android:layout_marginTop="10dp"
-        android:paddingStart="10dp"
         android:paddingTop="10dp"
         android:scrollbars="vertical">
 
