@@ -24,11 +24,6 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         mpost = itemView.findViewById(R.id.postcode);
         mamount = itemView.findViewById(R.id.complete_order_total);
 
-
-
-
-
-
     }
 
     @Override

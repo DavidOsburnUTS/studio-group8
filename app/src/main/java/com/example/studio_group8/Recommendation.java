@@ -103,7 +103,7 @@ public class Recommendation extends AppCompatActivity {
 
         FirebaseRecyclerOptions<Product> options =
                 new FirebaseRecyclerOptions.Builder<Product>()
-                        .setQuery(mDatabase, Product.class)
+                        .setQuery(mDatabase.orderByChild("category").equalTo("Audio"), Product.class)
                         .build();
 
 
@@ -142,7 +142,7 @@ public class Recommendation extends AppCompatActivity {
                     @NonNull
                     @Override
                     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_list_product, parent, false);
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_recommendations_list, parent, false);
                         ProductViewHolder holder = new ProductViewHolder(view);
                         return holder;
                     }

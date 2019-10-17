@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_list_click"
+    android:clickable="true"
+    android:dividerHeight="10dp"
+    >
+
+
+
+    <ImageView
+        android:id="@+id/transaction_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="28dp"
+        app:srcCompat="@mipmap/person_four" />
+
+    <TextView
+        android:id="@+id/product_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:layout_toEndOf="@+id/transaction_image"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Product Name"
+        android:textColor="#555555"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/product_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_text"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/transaction_image"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit elit whoa super cool you know that its blah"
+        android:textColor="#999999"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView_order_id_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_text"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_toEndOf="@+id/transaction_image"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Price"
+        android:paddingBottom="10dp"
+        android:textColor="#5CB7D7"
+        android:textSize="14sp" />
+
+
+    <TextView
+        android:id="@+id/textView_order_quantity_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_text"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="60dp"
+        android:paddingBottom="10dp"
+        android:layout_toEndOf="@+id/transaction_image"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Quantity"
+        android:textColor="#5CB7D7"
+        android:textSize="14sp" />
+
+
+
+</RelativeLayout>

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,7 +29,8 @@ public class Accountfragment extends Fragment{
     Fragment selectedFragment = null;
     private Context context;
     Button loginsec;
-    String name, url;
+    String name;
+    private String url;
     ImageView profilepic;
 
     private FirebaseAuth mAuth;
@@ -55,7 +57,12 @@ public class Accountfragment extends Fragment{
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                 url = (String) dataSnapshot.child(currentuser).child("image").getValue();
+               url =  dataSnapshot.child(currentuser).child("image").getValue().toString();
+                GlideApp.
+                        with(getContext())
+                        .load(url)
+                        .into(profilepic);
+
             }
 
             @Override
@@ -64,10 +71,6 @@ public class Accountfragment extends Fragment{
             }
 
         });
-        GlideApp.
-                with(Accountfragment.this)
-                .load(url)
-                .into(profilepic);
 
 
         Button signout = (Button) v.findViewById(R.id.sign_out);
