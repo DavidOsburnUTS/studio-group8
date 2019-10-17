@@ -48,6 +48,7 @@ public class Cartfragment extends Fragment{
 
 
     private Context context;
+    String numberAsString;
 
 
 
@@ -87,6 +88,7 @@ public class Cartfragment extends Fragment{
                 DatabaseReference totalamount = FirebaseDatabase.getInstance().getReference();
                 totalamount.child("Total").child(currentuser).child("totalamount").setValue(overTotalPrice);
                 Intent cardpayment = new Intent(getActivity(), CardPayment.class);
+                cardpayment.putExtra("totalprice", numberAsString);
                 startActivity(cardpayment);
             }
         });
@@ -146,7 +148,7 @@ public class Cartfragment extends Fragment{
 
                 overTotalPrice = overTotalPrice + eachProductTotalPrice;
 
-
+                 numberAsString = new Double(overTotalPrice).toString();
 
                 totalPrice.setText(" " + df.format(overTotalPrice));
 

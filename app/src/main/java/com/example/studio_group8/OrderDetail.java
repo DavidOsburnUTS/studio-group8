@@ -25,7 +25,7 @@ public class OrderDetail extends AppCompatActivity {
         orderid = getIntent().getStringExtra("orderid");
 
         morderid = (TextView) findViewById(R.id.orderid);
-        mtotal = (TextView) findViewById(R.id.total);
+      //  mtotal = (TextView) findViewById(R.id.total);
         mcardnumber = (TextView) findViewById(R.id.cardnumber);
         mpostcode = (TextView) findViewById(R.id.postcode);
         mmobilenumber = (TextView) findViewById(R.id.mobilenumber);
@@ -41,7 +41,7 @@ public class OrderDetail extends AppCompatActivity {
                 if(dataSnapshot.exists()) {
                     FinalOrder products = dataSnapshot.getValue(FinalOrder.class);
                     morderid.setText(products.getorderid());
-                    mtotal.setText( String.valueOf( products.gettotal()));
+                  //  mtotal.setText( String.valueOf( products.gettotal()));
                     mcardnumber.setText(products.getcardnumber());
                     mpostcode.setText(products.getpostalcode());
                     mmobilenumber.setText(products.getmobilenumber());

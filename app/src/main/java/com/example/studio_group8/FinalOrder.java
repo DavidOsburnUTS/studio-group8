@@ -1,7 +1,7 @@
 package com.example.studio_group8;
 
 public class FinalOrder {
-    String currentuser, orderid,total,cardnumber, postalcode,mobilenumber;
+    String currentuser, orderid,total,cardnumber, postalcode,mobilenumber, date;
 
     public FinalOrder(){
 
@@ -9,7 +9,7 @@ public class FinalOrder {
 
     public FinalOrder(String currentuser, String orderid, String total, String cardnumber,
                       String postalcode,
-                      String mobilenumber){
+                      String mobilenumber, String date){
 
         this.currentuser =currentuser;
         this.orderid =orderid;
@@ -17,6 +17,16 @@ public class FinalOrder {
         this.cardnumber =cardnumber;
         this.postalcode =postalcode;
         this.mobilenumber =mobilenumber;
+        this.date = date;
+    }
+
+    public void setDate(String date ) {
+        this.date = date;
+    }
+
+    public String getDate() {
+
+        return date ;
     }
 
     public void setordercurrentuser(String currentuser ) {
