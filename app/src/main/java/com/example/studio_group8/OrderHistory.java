@@ -70,14 +70,14 @@ public class OrderHistory extends AppCompatActivity {
     public void onStart() {
         super.onStart();
 
-        final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
    //     String key = mDatabase.child("posts").push().getKey();
 
 
         FirebaseRecyclerOptions<FinalOrder> options =
                 new FirebaseRecyclerOptions.Builder<FinalOrder>()
-                        .setQuery(mDatabase.orderByChild(currentuser), FinalOrder.class)
+                        .setQuery(mDatabase.orderByChild("currentuser").equalTo(user), FinalOrder.class)
                         .build();
 
         FirebaseRecyclerAdapter<FinalOrder, OrderViewHolder> adapter

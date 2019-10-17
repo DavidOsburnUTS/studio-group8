@@ -154,6 +154,10 @@
             android:name=".ManagePersoDetailsAddress"
             android:label="OneVice" >
         </activity>
+        <activity
+            android:name=".OrderDetail"
+            android:label="OneVice" >
+        </activity>
 
 
 
