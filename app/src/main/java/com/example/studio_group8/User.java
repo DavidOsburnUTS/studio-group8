@@ -7,7 +7,7 @@ public class User
 {
     public String email;
     public String firstname;
-    public String username;
+    public String username, userid;
 
 
 
@@ -19,12 +19,19 @@ public class User
 
     }
 
-    public User(String email, String firstname, String username)
+    public User(String userid, String email, String firstname, String username)
     {
+        this.userid = userid;
         this.email = email;
         this.firstname = firstname;
         this.username = username;
     }
+
+    public void setUserid (String userid) {
+
+        this.userid = userid;
+    }
+
 
 
 
@@ -40,7 +47,10 @@ public class User
 
 
 
+    public String getUserid() {
 
+        return userid;
+    }
     public String getUsername() {
 
         return username;

@@ -75,16 +75,16 @@ public class OrderHistory extends AppCompatActivity {
    //     String key = mDatabase.child("posts").push().getKey();
 
 
-        FirebaseRecyclerOptions<Orderproduct> options =
-                new FirebaseRecyclerOptions.Builder<Orderproduct>()
-                        .setQuery(mDatabase.orderByChild(currentuser), Orderproduct.class)
+        FirebaseRecyclerOptions<FinalOrder> options =
+                new FirebaseRecyclerOptions.Builder<FinalOrder>()
+                        .setQuery(mDatabase.orderByChild(currentuser), FinalOrder.class)
                         .build();
 
-        FirebaseRecyclerAdapter<Orderproduct, OrderViewHolder> adapter
-                = new FirebaseRecyclerAdapter<Orderproduct, OrderViewHolder>(options) {
+        FirebaseRecyclerAdapter<FinalOrder, OrderViewHolder> adapter
+                = new FirebaseRecyclerAdapter<FinalOrder, OrderViewHolder>(options) {
 
             @Override
-            protected void onBindViewHolder(@NonNull OrderViewHolder holder, int i, @NonNull Orderproduct model) {
+            protected void onBindViewHolder(@NonNull OrderViewHolder holder, int i, @NonNull FinalOrder model) {
 
 
                 holder.mShow.setText(("Order id: "+model.getorderid()));
