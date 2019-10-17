@@ -230,7 +230,8 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
         final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
             inputUsername = (EditText) findViewById(R.id.username);
             inputFirstName = (EditText) findViewById(R.id.first_name);
-            final User newUser = new User(currentuser, email, firstName, username);
+            String image = "https://firebasestorage.googleapis.com/v0/b/studio-group8.appspot.com/o/elon_musk_royal_society.jpg?alt=media&token=a0cdce02-3c0c-4e0d-8a40-322639bd73a8";
+            final User newUser = new User(currentuser, email, firstName, username, image);
 
             if(!validPassword()| !validateUsername()| !validateEmail()| !validateFirstName()| !validateConfirmPassword())  {
                 return;

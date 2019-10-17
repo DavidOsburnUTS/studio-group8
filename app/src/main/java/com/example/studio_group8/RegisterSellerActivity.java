@@ -218,7 +218,8 @@ public class RegisterSellerActivity extends Activity implements View.OnClickList
 
     public void CreateNewSeller(final FirebaseAuth mAuth, final String email, final String password, final String name, final String phone) {
          String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        final Seller newSeller = new Seller(currentuser,email, name, phone);
+         String image = "https://firebasestorage.googleapis.com/v0/b/studio-group8.appspot.com/o/elon_musk_royal_society.jpg?alt=media&token=a0cdce02-3c0c-4e0d-8a40-322639bd73a8";
+        final Seller newSeller = new Seller(currentuser,email, name, phone, image);
 
         inputEmail = (EditText) findViewById(R.id.sellerEmail);
         inputPhone = (EditText) findViewById(R.id.phonenumber);

@@ -36,7 +36,7 @@ public class Accountfragment extends Fragment{
     private FirebaseAuth mAuth;
     DatabaseReference UserRef = FirebaseDatabase.getInstance().getReference().child("User");
     String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-    DatabaseReference ImgRef = FirebaseDatabase.getInstance().getReference().child("Profilepic");
+    DatabaseReference ImgRef = FirebaseDatabase.getInstance().getReference().child("User");
 
 
     @Override

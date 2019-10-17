@@ -41,6 +41,7 @@ public class ProductDetails extends AppCompatActivity {
     private EditText mtitle, mdesc, mquantity;
     private int mquint =1;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -138,6 +139,7 @@ public class ProductDetails extends AppCompatActivity {
                             .into(prodImage);
 
 
+
                 }
             }
 
@@ -151,7 +153,9 @@ public class ProductDetails extends AppCompatActivity {
     }
 
     public void increment (View view) {
-        mquint = mquint +1;
+
+            mquint = mquint + 1;
+
         display(mquint);
 
     }
