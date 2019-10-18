@@ -107,7 +107,7 @@ public class AdminAccPage extends AppCompatActivity {
                                 Intent account = new Intent(getApplicationContext(), AdminMaintainAccActivity.class);
 //                                intent.putExtra("name", model.getName());
 //                                intent.putExtra("desc", model.getDesc());
-                                account.putExtra("name", model.getName());
+                                account.putExtra("userid", model.getUserid());
                                 startActivity(account);
 
                             }

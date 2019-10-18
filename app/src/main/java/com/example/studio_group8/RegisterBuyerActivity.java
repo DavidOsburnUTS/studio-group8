@@ -226,10 +226,12 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
     public void CreateNewUser(final FirebaseAuth mAuth,  final String email, final String password, final String firstName, final String username) {
             inputEmail = (EditText) findViewById(R.id.email_address);
             inputPassword = (EditText) findViewById(R.id.password);
-        final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
             inputUsername = (EditText) findViewById(R.id.username);
             inputFirstName = (EditText) findViewById(R.id.first_name);
-            final User newUser = new User(currentuser, email, firstName, username);
+            String image = "https://firebasestorage.googleapis.com/v0/b/studio-group8.appspot.com/o/elon_musk_royal_society.jpg?alt=media&token=a0cdce02-3c0c-4e0d-8a40-322639bd73a8";
+
+            final User newUser = new User(email, firstName, username, image);
 
             if(!validPassword()| !validateUsername()| !validateEmail()| !validateFirstName()| !validateConfirmPassword())  {
                 return;
@@ -282,6 +284,8 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
                         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
                         mDatabase.child("User").child(id2).setValue(newUser);
                         mDatabase.child("User").child(id2).child("type").setValue("buyer");
+                        final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        mDatabase.child("User").child(id2).child("userid").setValue(currentuser);
                         user.sendEmailVerification();
                         finish();
 

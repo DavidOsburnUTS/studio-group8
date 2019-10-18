@@ -67,6 +67,14 @@
 
         </activity>
 
+        <activity android:name=".EditSellerProduct"
+            android:label="OneVice">
+
+        </activity>
+        <activity android:name=".OwnProduct"
+            android:label="OneVice">
+
+        </activity>
         <activity android:name=".OrderHistory"
             android:label="OneVice">
 
@@ -152,6 +160,10 @@
 
         <activity
             android:name=".ManagePersoDetailsAddress"
+            android:label="OneVice" >
+        </activity>
+        <activity
+            android:name=".OrderDetail"
             android:label="OneVice" >
         </activity>
 

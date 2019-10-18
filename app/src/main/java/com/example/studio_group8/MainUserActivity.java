@@ -94,6 +94,11 @@ public class MainUserActivity extends AppCompatActivity {
         startActivity(console);
         overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
     }
+    public void recommendation(View view) {
+        Intent reco = new Intent(MainUserActivity.this, Recommendation.class);
+        startActivity(reco);
+        overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
+    }
 
     public void checkout(View view) {
         Intent check = new Intent(MainUserActivity.this, CartActivity.class);

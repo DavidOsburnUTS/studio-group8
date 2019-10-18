@@ -47,7 +47,7 @@ public class OrderHistory extends AppCompatActivity {
 
 
 
-        mRecyclerView = findViewById(R.id.recyclerorderlist);
+        mRecyclerView = findViewById(R.id.orderlistrecycler);
 
 
 
@@ -70,14 +70,14 @@ public class OrderHistory extends AppCompatActivity {
     public void onStart() {
         super.onStart();
 
-        final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
    //     String key = mDatabase.child("posts").push().getKey();
 
 
         FirebaseRecyclerOptions<FinalOrder> options =
                 new FirebaseRecyclerOptions.Builder<FinalOrder>()
-                        .setQuery(mDatabase.orderByChild(currentuser), FinalOrder.class)
+                        .setQuery(mDatabase.orderByChild("currentuser").equalTo(user), FinalOrder.class)
                         .build();
 
         FirebaseRecyclerAdapter<FinalOrder, OrderViewHolder> adapter
@@ -88,8 +88,13 @@ public class OrderHistory extends AppCompatActivity {
 
 
                 holder.mShow.setText(("Order id: "+model.getorderid()));
+                holder.mdate.setText(("Date: "+model.getDate()));
+                holder.mcardno.setText(("Card no: "+model.getcardnumber()));
+                holder.mmobileno.setText(("Mobile no: "+model.getmobilenumber()));
+                holder.mpost.setText(("Postal Code: "+model.getpostalcode()));
+                holder.mamount.setText(("Order Total: "+model.gettotal()));
 
-
+/*
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -100,7 +105,7 @@ public class OrderHistory extends AppCompatActivity {
                         startActivity(intent);
 
                     }
-                });
+                });*/
 
 
             }

@@ -7,7 +7,9 @@ public class User
 {
     public String email;
     public String firstname;
-    public String username, userid;
+    public String username;
+      public String      userid;
+    public String image;
 
 
 
@@ -19,12 +21,18 @@ public class User
 
     }
 
-    public User(String userid, String email, String firstname, String username)
+    public User(String email, String firstname, String username, String image)
     {
         this.userid = userid;
         this.email = email;
         this.firstname = firstname;
         this.username = username;
+        this.image = image;
+    }
+
+    public void setImage (String image) {
+
+        this.image = image;
     }
 
     public void setUserid (String userid) {
@@ -45,7 +53,10 @@ public class User
         this.username = name;
     }
 
+    public String getImage() {
 
+        return image;
+    }
 
     public String getUserid() {
 

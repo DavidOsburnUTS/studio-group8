@@ -27,10 +27,9 @@ android:background="#556DFF">
 
     <ImageView
         android:id="@+id/profile_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/elon_musk_royal_society"/>
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center"/>
 
 
 
@@ -48,12 +47,13 @@ android:background="#556DFF">
     </TextView>
 
     <TextView
+        android:id="@+id/type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="20dp"
         android:layout_gravity="center"
         android:textColor="#FFFFFF"
-        android:text="Buyer"
+        android:text="Seller"
         android:textStyle="bold"
         android:textSize="18dp">
 
@@ -130,13 +130,14 @@ android:background="#E4E4E4">
     android:layout_height="45dp"
     android:layout_centerHorizontal="true"
     android:background="#FFFFFF"
-    android:drawableStart="@drawable/ic_place_24px"
+    android:drawableStart="@drawable/ic_whatshot_24px"
     android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
     android:drawablePadding="15dp"
-    android:text="TRACKING ORDER"
+    android:text="PRODUCTS"
     android:textStyle="bold"
     android:textSize="14dp"
     android:textColor="#828282"
+    android:id="@+id/ownproduct"
     android:padding="12dp"
     android:paddingStart="30dp"
     android:paddingEnd="31dp">

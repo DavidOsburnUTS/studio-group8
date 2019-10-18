@@ -23,13 +23,18 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.text.DecimalFormat;
+
+import static java.lang.Integer.parseInt;
 
 public class Cartfragment extends Fragment{
 
@@ -45,6 +50,9 @@ public class Cartfragment extends Fragment{
     private double  overTotalPrice = 0.00;
     public Button Confirm;
      String currentuser;
+
+     private int updatedQuantity;
+     private String quantity;
 
 
     private Context context;
@@ -109,6 +117,8 @@ public class Cartfragment extends Fragment{
         super.onStart();
 
         final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart");
+        final DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Product");
+
         currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         FirebaseRecyclerOptions<Cart> options =
@@ -182,6 +192,26 @@ public class Cartfragment extends Fragment{
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()) {
+
+                                            productsRef.child(model.getproductid()).child("quantity").addListenerForSingleValueEvent(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                                    String quantity = String.valueOf(model.getQuantity());
+                                                    int quantityInt = dataSnapshot.getValue(Integer.class);
+
+                                                    updatedQuantity = Integer.parseInt(quantity) + quantityInt;
+                                                    productsRef.child(model.getproductid()).child("quantity").setValue(updatedQuantity);
+
+                                                }
+
+                                                @Override
+                                                public void onCancelled(DatabaseError databaseError) {
+
+                                                }
+                                            });
+
+
+
                                             Toast.makeText(getContext(), "Item removed from cart List", Toast.LENGTH_SHORT).show();
 
                                         }

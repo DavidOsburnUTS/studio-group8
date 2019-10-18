@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,13 +29,15 @@ public class Accountfragment extends Fragment{
     Fragment selectedFragment = null;
     private Context context;
     Button loginsec;
-    String name, url;
+    String name;
+    private String url;
     ImageView profilepic;
+   TextView mtype;
 
     private FirebaseAuth mAuth;
     DatabaseReference UserRef = FirebaseDatabase.getInstance().getReference().child("User");
     String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-    DatabaseReference ImgRef = FirebaseDatabase.getInstance().getReference().child("Profilepic");
+    DatabaseReference ImgRef = FirebaseDatabase.getInstance().getReference().child("User");
 
 
     @Override
@@ -50,12 +53,19 @@ public class Accountfragment extends Fragment{
         View v = inflater.inflate(R.layout.activity_account,container, false);
         TextView musername = (TextView) v.findViewById(R.id.username);
          profilepic = (ImageView) v.findViewById(R.id.profile_image);
+         mtype = (TextView) v.findViewById(R.id.type) ;
+
 
         ImgRef.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                 url = (String) dataSnapshot.child(currentuser).child("image").getValue();
+               url =  dataSnapshot.child(currentuser).child("image").getValue().toString();
+                GlideApp.
+                        with(Accountfragment.this)
+                        .load(url)
+                        .into(profilepic);
+
             }
 
             @Override
@@ -64,16 +74,14 @@ public class Accountfragment extends Fragment{
             }
 
         });
-        GlideApp.
-                with(Accountfragment.this)
-                .load(url)
-                .into(profilepic);
 
 
         Button signout = (Button) v.findViewById(R.id.sign_out);
         Button orderhist = (Button) v.findViewById(R.id.order_history);
-        DatabaseReference databaseRef=FirebaseDatabase.getInstance()
-                .getReference();
+        Button ownproduct = (Button) v.findViewById(R.id.ownproduct);
+        DatabaseReference databaseRef=FirebaseDatabase.getInstance().getReference();
+
+
 
         databaseRef.addValueEventListener(new ValueEventListener() {
                                               @Override
@@ -88,12 +96,37 @@ public class Accountfragment extends Fragment{
             }
         });
 
+        databaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String data = dataSnapshot.child("User").child(currentuser).child("type").getValue(String.class);
+                mtype.setText(data);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         orderhist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent order = new Intent(getActivity(), OrderHistory.class);
                startActivity(order);
+
+
+            }
+        });
+
+
+        ownproduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent own = new Intent(getActivity(), OwnProduct.class);
+                startActivity(own);
 
 
             }

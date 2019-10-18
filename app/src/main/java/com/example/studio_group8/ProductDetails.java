@@ -35,6 +35,8 @@ public class ProductDetails extends AppCompatActivity {
     private TextView   prodDescription, prodName;
     private EditText prodPrice,productQuantity;
     private String productID = "";
+    private String quantity;
+    private int updatedQuantity;
 
     String currentuser;
 
@@ -90,6 +92,8 @@ public class ProductDetails extends AppCompatActivity {
 
         DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart");
 
+        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Product");
+
 
         final HashMap<String, Object> cartMap = new HashMap<>();
         cartMap.put("productid", productID);
@@ -113,17 +117,21 @@ public class ProductDetails extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()) {
+                            updatedQuantity = Integer.parseInt(quantity) - mquint;
+                            productsRef.child(productID).child("quantity").setValue(updatedQuantity);
+
                             Toast.makeText(ProductDetails.this, "Added to cart List", Toast.LENGTH_SHORT).show();
                             finish();
+
                         }
                     }
                 });
+
     }
 
 
     private void getProductDetails(String productID) {
         DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Product");
-
         productsRef.child(productID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -133,11 +141,11 @@ public class ProductDetails extends AppCompatActivity {
                     prodPrice.setText( String.valueOf( products.getprice()));
                     prodDescription.setText(products.getDesc());
                     GlideApp.
-                            with(ProductDetails.this)
+                            with(getApplicationContext())
                             .load(products.getImage())
                             .into(prodImage);
 
-
+                    quantity = String.valueOf(products.getQuantity());
                 }
             }
 
@@ -151,8 +159,16 @@ public class ProductDetails extends AppCompatActivity {
     }
 
     public void increment (View view) {
-        mquint = mquint +1;
+
+        if (Integer.parseInt(quantity)>mquint) {
+            mquint = mquint +1;
+        }
+        else {
+            Toast.makeText(ProductDetails.this, "You have reached the maximum quantity for this product.", Toast.LENGTH_SHORT).show();
+        }
+
         display(mquint);
+
 
     }
 
