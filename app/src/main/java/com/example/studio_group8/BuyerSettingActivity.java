@@ -18,6 +18,9 @@ public class BuyerSettingActivity extends AppCompatActivity {
         finish();
     }
 
+    public void cancelHome(View view) {
+        finish();
+    }
 
 
 

@@ -47,6 +47,10 @@ public class AdminPage extends AppCompatActivity {
         startActivity(product);
         overridePendingTransition( R.anim.right_slide_in, R.anim.left_slide_out);
     }
+    public void cancelHome(View view) {
+        finish();
+    }
+
 
 
 

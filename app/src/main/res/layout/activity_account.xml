@@ -8,7 +8,7 @@
 <RelativeLayout
 android:layout_width="match_parent"
 android:layout_height="350dp"
-android:background="#3F6CF4">
+android:background="#556DFF">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -18,7 +18,7 @@ android:background="#3F6CF4">
     <Button
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         android:background="@drawable/ic_settings_24px"
         android:onClick="setting_buyer"
         >
@@ -55,7 +55,7 @@ android:background="#3F6CF4">
         android:textColor="#FFFFFF"
         android:text="Buyer"
         android:textStyle="bold"
-        android:textSize="14dp">
+        android:textSize="18dp">
 
     </TextView>
 

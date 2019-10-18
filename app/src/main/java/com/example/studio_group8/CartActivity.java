@@ -27,4 +27,9 @@ public class CartActivity extends Activity {
     public void back( View view) {
         finish();
     }
+
+    public void cancelHome(View view) {
+        finish();
+    }
+
 }

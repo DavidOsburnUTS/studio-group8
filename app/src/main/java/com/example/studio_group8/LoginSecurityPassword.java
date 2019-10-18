@@ -13,6 +13,11 @@ public class LoginSecurityPassword extends AppCompatActivity {
 
     }
 
+    public void cancelHome(View view) {
+        finish();
+    }
+
+
     public void back( View view) {
         finish();
     }

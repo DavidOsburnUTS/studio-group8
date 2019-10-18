@@ -194,4 +194,5 @@ private Uri image_uri;
             }
         }
     }
+
 }

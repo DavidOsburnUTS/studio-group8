@@ -416,6 +416,10 @@ public class RegisterBuyerActivity extends Activity implements View.OnClickListe
             new PreferenceManager(this).writePreferences();
         }
     }
+    public void cancelHome(View view) {
+        finish();
+    }
+
 
 
 }

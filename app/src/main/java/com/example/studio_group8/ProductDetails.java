@@ -175,6 +175,11 @@ public class ProductDetails extends AppCompatActivity {
         int intQuantityValue = Integer.parseInt(quantityValue);
         quantityText.setText("" +number);
 
+
+    }
+
+    public void cancelHome(View view) {
+        finish();
     }
 
 

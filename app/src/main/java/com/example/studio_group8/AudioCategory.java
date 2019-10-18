@@ -111,6 +111,10 @@ public class AudioCategory extends AppCompatActivity {
         adapter.startListening();
     }
 
+    public void cancelHome(View view) {
+        finish();
+    }
+
 
 
 

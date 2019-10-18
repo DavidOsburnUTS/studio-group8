@@ -116,6 +116,10 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    public void cancelHome(View view) {
+        finish();
+    }
+
 
     @Override
     public void onBackPressed() {

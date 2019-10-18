@@ -104,7 +104,7 @@ public class AdminAccPage extends AppCompatActivity {
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent account = new Intent(AdminAccPage.this, AdminMaintainAccActivity.class);
+                                Intent account = new Intent(getApplicationContext(), AdminMaintainAccActivity.class);
 //                                intent.putExtra("name", model.getName());
 //                                intent.putExtra("desc", model.getDesc());
                                 account.putExtra("name", model.getName());

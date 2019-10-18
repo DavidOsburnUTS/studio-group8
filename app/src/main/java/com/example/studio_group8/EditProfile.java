@@ -140,5 +140,10 @@ public class EditProfile extends AppCompatActivity{
         }
     }
 
+    public void cancelHome(View view) {
+        finish();
+    }
+
+
 
 }

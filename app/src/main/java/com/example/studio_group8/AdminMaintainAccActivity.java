@@ -20,15 +20,14 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AdminMaintainAccActivity extends AppCompatActivity {
     private Button submit;
-    private EditText name, type, email;
+    public EditText accountname, type, accountemail;
 
     private String accountID = "";
 
     private Button remove;
 
 
-
-    final DatabaseReference accountRef = FirebaseDatabase.getInstance().getReference().child("User");
+ DatabaseReference accountRef = FirebaseDatabase.getInstance().getReference().child("User");
 
 
 
@@ -42,8 +41,8 @@ public class AdminMaintainAccActivity extends AppCompatActivity {
 
         setContentView(R.layout.admin_account_page_preview);
 
-        name = findViewById(R.id.account_admin_name);
-        email = findViewById(R.id.acc_admin_email);
+        accountname = findViewById(R.id.account_admin_name);
+        accountemail = findViewById(R.id.acc_admin_email);
 
 
 
@@ -84,8 +83,8 @@ public class AdminMaintainAccActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()) {
                     User user = dataSnapshot.getValue(User.class);
-                    name.setText(user.getName());
-                    email.setText(user.getEmail());
+                    accountname.setText(user.getName());
+                    accountemail.setText(String.valueOf(user.getEmail()));
 
                 }
             }

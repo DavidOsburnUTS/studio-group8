@@ -64,6 +64,9 @@ public class ForgotPassActivity extends Activity {
 
 
 
+    public void cancelHome(View view) {
+        finish();
+    }
 
 
     public void cancel(View view) {

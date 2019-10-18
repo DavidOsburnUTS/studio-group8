@@ -63,14 +63,15 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/raleway_semibold"
+        android:textStyle="bold"
         android:gravity="center"
         android:background="@drawable/upload_btn"
-        android:text="buy now"
+        android:text="BUY NOW"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
         android:onClick="checkout"
         />
+
 
 
 </RelativeLayout>

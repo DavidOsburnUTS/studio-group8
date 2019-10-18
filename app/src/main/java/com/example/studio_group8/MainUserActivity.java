@@ -48,6 +48,10 @@ public class MainUserActivity extends AppCompatActivity {
 
 
 
+    public void cancelHome(View view) {
+        finish();
+    }
+
 
 
     //Categories

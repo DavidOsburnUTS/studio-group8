@@ -115,6 +115,10 @@ public class PhoneCategory extends AppCompatActivity {
         adapter.startListening();
     }
 
+    public void cancelHome(View view) {
+        finish();
+    }
+
 
 
 }

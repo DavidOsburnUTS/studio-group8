@@ -139,7 +139,7 @@
                 android:id="@+id/acc_remove"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:background="#FF5858"
+                android:background="@drawable/remove_btn"
                 android:textStyle="bold"
                 android:textSize="20dp"
                 android:layout_marginTop="435dp"

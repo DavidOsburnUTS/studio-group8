@@ -1,6 +1,7 @@
 package com.example.studio_group8;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -51,6 +52,8 @@ public class OrderDetail extends AppCompatActivity {
                 }
             }
 
+
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -59,4 +62,9 @@ public class OrderDetail extends AppCompatActivity {
 
 
     }
+
+    public void cancelHome(View view) {
+        finish();
+    }
+
 }

@@ -15,6 +15,11 @@ public class ManagePersoDetails extends AppCompatActivity {
 
     }
 
+    public void cancelHome(View view) {
+        finish();
+    }
+
+
     public void back( View view) {
         finish();
     }
