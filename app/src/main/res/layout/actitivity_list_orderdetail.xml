@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_list_click"
+    android:clickable="true"
+    android:dividerHeight="10dp">
+
+
+    <ImageView
+        android:id="@+id/cart_product_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="23dp"
+        app:srcCompat="@mipmap/person_four" />
+
+    <TextView
+        android:id="@+id/cart_product_name"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textStyle="bold"
+        android:layout_toEndOf="@+id/cart_product_image"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Product Name"
+        android:textColor="#555555"
+        android:textSize="20dp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/cart_product_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cart_product_name"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/cart_product_image"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Price"
+        android:paddingBottom="30dp"
+        android:textColor="#5CB7D7"
+        android:textSize="14sp" />
+
+
+    <TextView
+        android:id="@+id/product_cart_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cart_product_name"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="30dp"
+        android:layout_toEndOf="@+id/cart_product_image"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Quantity"
+        android:textColor="#5CB7D7"
+        android:textSize="14sp" />
+
+
+
+</RelativeLayout>
