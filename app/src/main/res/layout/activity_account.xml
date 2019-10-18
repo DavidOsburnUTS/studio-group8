@@ -130,7 +130,7 @@ android:background="#E4E4E4">
     android:layout_height="45dp"
     android:layout_centerHorizontal="true"
     android:background="#FFFFFF"
-    android:drawableStart="@drawable/ic_whatshot_24px"
+    android:drawableStart="@drawable/ic_devices_black_24dp"
     android:drawableEnd="@drawable/ic_keyboard_arrow_leftt_24px"
     android:drawablePadding="15dp"
     android:text="PRODUCTS"
@@ -139,7 +139,7 @@ android:background="#E4E4E4">
     android:textColor="#828282"
     android:id="@+id/ownproduct"
     android:padding="12dp"
-    android:paddingStart="30dp"
+    android:paddingStart="27dp"
     android:paddingEnd="31dp">
 
 </Button>

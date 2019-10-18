@@ -40,7 +40,7 @@
     </ImageView>
 
     <com.braintreepayments.cardform.view.CardForm
-        android:padding="30dp"
+        android:padding="50dp"
         style="@style/MyCard"
         android:background="@drawable/card_form_bg"
         android:id="@+id/card_form"
@@ -48,9 +48,9 @@
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/btnBuy"
-        android:paddingHorizontal="10dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+
+        android:layout_marginBottom="30dp"
+        android:layout_height="wrap_content"/>
 
 
 
@@ -59,7 +59,7 @@
         android:id="@+id/btnBuy"
         android:layout_width="275dp"
         android:layout_height="55dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"

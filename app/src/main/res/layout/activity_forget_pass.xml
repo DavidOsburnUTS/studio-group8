@@ -24,6 +24,7 @@
         android:layout_gravity="center"
         android:textColor="@color/fontColor"
         android:textSize="20dp"
+        android:textStyle="normal"
         android:paddingTop="20dp"
         android:text="We just need your registered email address to rest your password"
         android:gravity="center_horizontal">
