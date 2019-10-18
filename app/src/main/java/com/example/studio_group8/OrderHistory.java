@@ -94,7 +94,7 @@ public class OrderHistory extends AppCompatActivity {
                 holder.mpost.setText(("Postal Code: "+model.getpostalcode()));
                 holder.mamount.setText(("Order Total: "+model.gettotal()));
 
-/*
+
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -105,7 +105,7 @@ public class OrderHistory extends AppCompatActivity {
                         startActivity(intent);
 
                     }
-                });*/
+                });
 
 
             }

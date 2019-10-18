@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -173,11 +174,62 @@ private DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReferen
         FinalOrder finalorder = new  FinalOrder(currentuser,orderid,total,cardForm.getCardNumber(), cardForm.getPostalCode(), cardForm.getMobileNumber(), formattedDate );
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("Order").child(orderid).setValue(finalorder);
+        CreateOrder();
 
 
 
 
     }
+
+        public void CreateOrder() {
+     //   orderid = UUID.randomUUID().toString();
+        Date c = Calendar.getInstance().getTime();
+
+
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        String formattedDate = df.format(c);
+        cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart");
+        DatabaseReference fromPath = cartListRef.child(currentuser).child("Products");
+        DatabaseReference ordersave = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference toPath = ordersave.child("OrderProducts").child(orderid);
+        AddOrder(fromPath, toPath);
+
+
+
+
+
+    }
+
+    private void AddOrder(final DatabaseReference fromPath, final DatabaseReference toPath) {
+        fromPath.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                toPath.setValue(dataSnapshot.getValue(), new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(DatabaseError firebaseError, DatabaseReference firebase) {
+                        if (firebaseError != null) {
+                            System.out.println("Copy failed");
+                        } else {
+                            System.out.println("Success");
+                            final String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            cartListRef.child(user)
+                                    .child("Products")
+                                    .removeValue();
+
+                        }
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
 
 
     }
