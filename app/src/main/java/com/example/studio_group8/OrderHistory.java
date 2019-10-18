@@ -124,5 +124,9 @@ public class OrderHistory extends AppCompatActivity {
         adapter.startListening();
     }
 
+    public void back(View view) {
+        finish();
+    }
+
 
 }
