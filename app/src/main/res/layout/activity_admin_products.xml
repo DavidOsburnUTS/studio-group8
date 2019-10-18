@@ -33,19 +33,6 @@
             android:textSize="35sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/search_field"
-            android:layout_width="280dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="100dp"
-            android:background="@drawable/bg_white_rounded"
-            android:hint="Search..."
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
-
-        </EditText>
-
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -1,5 +1,6 @@
 package com.example.studio_group8;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -103,6 +104,19 @@ public class AdminTransPage extends AppCompatActivity {
 
                     }
                 });*/
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(AdminTransPage.this, OrderDetail.class);
+//                                intent.putExtra("name", model.getName());
+//                                intent.putExtra("desc", model.getDesc());
+                        intent.putExtra("orderid", model.getorderid());
+                        startActivity(intent);
+
+                    }
+                });
+
 
 
             }

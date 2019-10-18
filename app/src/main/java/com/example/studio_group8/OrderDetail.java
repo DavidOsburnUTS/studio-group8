@@ -128,4 +128,9 @@ public class OrderDetail extends AppCompatActivity {
         mRecyclerView.setAdapter(adapter);
         adapter.startListening();
     }
+    public void back(View view) {
+        finish();
+    }
+
+
 }
